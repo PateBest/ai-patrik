@@ -12,7 +12,8 @@
       gtag('config', 'G-9QDDPLJZ9P');
     </script><meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aloittelijan opas tekoälyyn - AI Patrik</title>
+    <title>Tekoälyn perusteet: Kattava opas aloittelijalle 2025 - AI Patrik</title>
+    <meta name="description" content="Tutustu tekoälyn perusteisiin, sovelluksiin ja käytäntöihin. Kattava opas aloittelijalle tekoälyn ymmärtämiseen ja hyödyntämiseen arjessa sekä työelämässä.">
     <!-- Favicon -->
     <link rel="icon" href="../../images/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="../../css/styles.css">
@@ -62,6 +63,13 @@
             position: relative;
             overflow: hidden;
             transform: scale(1.1);
+            text-decoration: none; /* Lisätty: poistaa alleviivauksen */
+            border-bottom: none; /* Lisätty: poistaa mahdollisen alareunan viivan */
+        }
+        
+        .social-icons a i {
+            position: relative; /* Lisätty: varmistaa että ikoni on oikeassa paikassa */
+            z-index: 2; /* Lisätty: varmistaa että ikoni on hover-efektin päällä */
         }
         
         .social-icons a:before {
@@ -463,6 +471,286 @@
                 grid-template-columns: 1fr;
             }
         }
+        
+        /* Parannukset linkkien erottuvuuteen */
+        .guide-section a {
+            color: #4db8ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 8px rgba(0, 150, 255, 0.5);
+            border-bottom: 1px dotted rgba(77, 184, 255, 0.5);
+            padding-bottom: 2px;
+        }
+        
+        .guide-section a:hover {
+            color: #80ccff;
+            border-bottom: 1px solid rgba(128, 204, 255, 0.8);
+            text-shadow: 0 0 12px rgba(0, 150, 255, 0.8);
+        }
+        
+        /* Guide content elementtien yhtenäistäminen */
+        .guide-content {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(0, 30, 60, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 150, 255, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .guide-steps, .guide-tips, .guide-example {
+            margin-bottom: 1.5rem;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, var(--accent-color), #0d6efd);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 100, 255, 0.3);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        /* Tekstin visuaalinen parantaminen */
+        .guide-section p, .guide-section ul, .guide-section li {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #e6e6e6;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.2px;
+        }
+        
+        .guide-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 100, 255, 0.5);
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+        
+        .guide-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            border-radius: 3px;
+            box-shadow: 0 2px 6px rgba(0, 100, 255, 0.3);
+        }
+        
+        .guide-section h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1.2rem;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 100, 255, 0.4);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        
+        .guide-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-color), rgba(13, 110, 253, 0.5));
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(0, 100, 255, 0.2);
+        }
+        
+        .guide-section h4 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+            color: white;
+            text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);
+        }
+        
+        /* Esimerkkien ja vinkkien tyylit */
+        .guide-example, .guide-tips {
+            background: rgba(0, 40, 80, 0.4);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .guide-example h4, .guide-tips h4 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .guide-tips {
+            border-left-color: #28a745;
+        }
+        
+        .guide-tips h4 {
+            color: #28a745;
+        }
+        
+        @media (max-width: 768px) {
+            .guide-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .guide-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .guide-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 10px;
+            }
+        }
+        
+        /* Yhtenäinen opas-osio */
+        .guide-container {
+            background: linear-gradient(135deg, rgba(0, 40, 80, 0.7), rgba(0, 60, 120, 0.7));
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            opacity: 0.8;
+        }
+        
+        .guide-section {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            margin-bottom: 3.5rem;
+            position: relative;
+            overflow: visible;
+        }
+        
+        .guide-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .guide-section::before {
+            display: none;
+        }
+        
+        .guide-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 100, 255, 0.5);
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+        
+        .guide-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            border-radius: 3px;
+            box-shadow: 0 2px 6px rgba(0, 100, 255, 0.3);
+        }
+        
+        /* Osioiden välinen jakaja */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(0, 150, 255, 0.05), rgba(0, 150, 255, 0.2), rgba(0, 150, 255, 0.05));
+            margin: 2rem 0 3.5rem;
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 150, 255, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .guide-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .guide-section {
+                margin-bottom: 2.5rem;
+            }
+            
+            .section-divider {
+                margin: 1.5rem 0 2.5rem;
+            }
+        }
+        
+        /* CTA-painikkeen hover-efekti */
+        .guide-cta .btn {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .guide-cta .btn:hover {
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 15px 30px rgba(0, 166, 126, 0.4);
+            background: linear-gradient(135deg, #00c4a7, #00e0c2);
+        }
+        
+        .guide-cta .btn:active {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 166, 126, 0.3);
+        }
     </style>
 </head>
 <body>
@@ -505,7 +793,7 @@
             </div>
         </div>
     </header>
-
+    
     <nav style="background: linear-gradient(90deg, rgba(0, 30, 60, 0.95), rgba(0, 60, 120, 0.9)); border-radius: 0; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); margin-bottom: 0px; position: relative; z-index: 5; padding: 10px 0; border-bottom: 1px solid rgba(0, 150, 255, 0.2);">
         <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
             <ul style="display: flex; justify-content: center; list-style: none; margin: 0; padding: 0;">
@@ -519,7 +807,7 @@
         </ul>
         </div>
     </nav>
-
+    
     <section style="padding-top: 50px; padding-bottom: 80px; background: linear-gradient(135deg, rgba(0, 15, 40, 0.9), rgba(0, 30, 80, 0.85)); position: relative;">
         <!-- Tausta-animaatio -->
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; z-index: 0;">
@@ -530,192 +818,293 @@
         
         <div class="container">
             <div class="section-header" style="text-align: center; margin-bottom: 40px; position: relative; z-index: 1;">
-                <h2 class="section-title">Aloittelijan opas tekoälyyn</h2>
+                <h2 class="section-title">Tekoälyn perusteet: Kattava opas aloittelijalle 2025</h2>
                 <p style="font-size: 1.2rem; line-height: 1.5; max-width: 800px; margin: 1rem auto 0; color: #e0e0e0;">
-                    Opi ymmärtämään tekoälyn perusteet ja hyödyntämään sitä omassa elämässäsi tai liiketoiminnassasi
+                    Tutustu tekoälyn perusteisiin, sovelluksiin ja käytäntöihin. Kattava opas aloittelijalle tekoälyn ymmärtämiseen ja hyödyntämiseen arjessa sekä työelämässä.
                 </p>
             </div>
             
-            <div class="guide-section">
-                <h2>Mitä tekoäly oikeastaan on?</h2>
-                
-                <div class="image-container" style="text-align: center; margin: 30px 0;">
-                    <img src="https://placehold.co/800x400/00a67e/FFFFFF/png?text=Mitä+tekoäly+on" alt="Mitä tekoäly on" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoäly tarkoittaa tietokoneohjelmia, jotka kykenevät suorittamaan ihmisen älykkyyttä vaativia tehtäviä</p>
-                </div>
-                
-                <p>
-                    Tekoäly tarkoittaa tietokoneohjelmia, jotka kykenevät suorittamaan tehtäviä, jotka tyypillisesti vaativat ihmisen älykkyyttä. 
-                    Näitä ovat esimerkiksi:
-                </p>
-                <ul>
-                    <li>Tekstin, kuvien ja äänen tunnistaminen ja luominen</li>
-                    <li>Päätöksenteko ja ongelmanratkaisu</li>
-                    <li>Oppiminen kokemuksista (koneoppiminen)</li>
-                    <li>Luonnollisen kielen ymmärtäminen ja tuottaminen</li>
-                </ul>
-                <p>
-                    Nykyiset tekoälyt ovat "kapeita" tai "heikkoja" tekoälyjä, mikä tarkoittaa, että ne ovat erikoistuneet tiettyihin tehtäviin, 
-                    kuten kuvien luomiseen tai tekstin tuottamiseen. "Yleinen" tai "vahva" tekoäly, joka kykenisi ihmisen kaltaiseen laajaan ymmärrykseen, 
-                    on vielä tulevaisuuden teknologiaa.
-                </p>
-            </div>
             
-            <div class="guide-section">
-                <h2>Tekoälyn keskeisiä käsitteitä</h2>
-                
-                <div class="image-container" style="text-align: center; margin: 30px 0;">
-                    <img src="https://placehold.co/800x400/3d8bfd/FFFFFF/png?text=Tekoälyn+keskeiset+käsitteet" alt="Tekoälyn keskeiset käsitteet" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoälyn ymmärtäminen edellyttää keskeisten käsitteiden tuntemista</p>
-                </div>
-                
-                <dl>
-                    <dt>Koneoppiminen (Machine Learning)</dt>
-                    <dd>Tekoälyn osa-alue, jossa algoritmit oppivat datasta ilman, että niitä on erikseen ohjelmoitu jokaiseen tehtävään.</dd>
+            <div class="guide-container" style="background-color: rgba(0, 40, 85, 0.8); border-radius: 15px; padding: 30px; margin: 30px 0; box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);">
+                <!-- Johdanto-osio -->
+                <div class="guide-section">
+                    <h2 style="color: white; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">Tekoälyn maailmaan tutustuminen</h2>
                     
-                    <dt>Syväoppiminen (Deep Learning)</dt>
-                    <dd>Koneoppimisen osa-alue, joka käyttää neuroverkkoja, jotka jäljittelevät ihmisaivojen toimintaa. Erityisen tehokas monimutkaisissa tehtävissä kuten kuvantunnistuksessa.</dd>
+                    <div class="guide-content" style="color: #e0e0e0;"><h3 style="color: #f0f0f0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.8rem; margin-top: 30px;">Johdanto: Mikä on tekoäly?</h3>
+<p style="color: #e0e0e0;">Tekoäly (Artificial Intelligence, AI) on teknologia, joka mahdollistaa tietokoneille ja koneille kyvyn matkia ihmismäistä ajattelua: ne voivat oppia datasta, ratkaista ongelmia, tehdä päätöksiä ja jopa luoda sisältöä kuten tekstiä, kuvia tai musiikkia. Se ei ole taikuutta, vaan monimutkaisten algoritmien ja tilastotieteen yhdistelmä, joka on kehittynyt valtavasti viime vuosikymmeninä.</p>
+<p style="color: #e0e0e0;">Olet todennäköisesti törmännyt tekoälyyn jo arjessasi: Netflixin suositukset, Gmailin roskapostisuodatin, Spotifyn soittolistat ja älypuhelimen kasvojentunnistus hyödyntävät kaikki tekoälyä. Viimeisten vuosien aikana erityisesti ChatGPT:n ja muiden generatiivisten tekoälymallien läpimurto on tehnyt tekoälystä jokapäiväistä – jopa niin, että niihin liittyvät uutiset täyttävät lehtien palstat.</p>
+<p style="color: #e0e0e0;">Tekoäly on muuttamassa monia aloja: terveydenhuollossa se auttaa diagnooseissa, liiketoiminnassa se ennustaa trendejä, ja koulutuksessa se mahdollistaa yksilöllisiä oppimispolkuja. Suomessakin yritykset ottavat käyttöön tekoälyratkaisuja parantaakseen asiakaspalvelua, tehostaakseen tuotantoa ja luodakseen uusia liiketoimintamalleja.</p>
+<p style="color: #e0e0e0;">Tämä opas auttaa sinua, joka olet kiinnostunut tekoälystä, mutta et ehkä vielä tiedä mistä aloittaa. Tarkoitukseni on selittää perusasiat selkeästi ilman vaikeaa jargonia, antaa käytännön vinkkejä tekoälyn hyödyntämiseen, ja auttaa ymmärtämään tätä jännittävää teknologiaa, joka muovaa tulevaisuuttamme. Joten, oli tavoitteesi sitten ammatillinen kehitys, oma harrastusprojekti tai yksinkertaisesti uteliaisuuden tyydyttäminen – tervetuloa tekoälyn maailmaan!</p></div>
+                </div>
+                
+                <!-- Varsinainen sisältö -osio -->
+                <div class="guide-section">
+                    <h2 style="color: white; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">Tekoälyn perusteet</h2>
                     
-                    <dt>Luonnollisen kielen käsittely (NLP)</dt>
-                    <dd>Tekoälyn kyky ymmärtää, tulkita ja tuottaa ihmiskieltä. Tätä käytetään chatboteissa, kääntäjissä ja tekstintuotannossa.</dd>
+                    <div class="guide-content" style="color: #e0e0e0;"><h3 style="color: #f0f0f0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.8rem; margin-top: 30px;">Tekoälyn peruskäsitteet</h3>
+<p style="color: #e0e0e0;">Tekoäly voi tuntua monimutkaiselta, mutta kun jaamme sen osiin, se alkaa avautua. Aloitetaan perusteista:</p>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Mitä tekoäly oikeastaan on?</h4>
+<p style="color: #e0e0e0;">Tekoäly on laaja käsite, joka kuvaa koneiden kykyä suorittaa tehtäviä, jotka perinteisesti ovat vaatineet ihmisälyä. Kyse ei ole vain roboteista, jotka kävelevät ja puhuvat – tekoäly on paljon muutakin. Se on koodia ja algoritmeja, jotka analysoivat tietoa, oppivat siitä ja tekevät päätöksiä tai ennusteita.</p>
+<p style="color: #e0e0e0;">Tekoäly voidaan jakaa kahteen päätyyppiin:</p>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Kapea tekoäly (Narrow AI):</strong> Suurin osa nykyisistä tekoälysovelluksista on kapeaa tekoälyä. Ne suoriutuvat erinomaisesti yhdessä tietyssä tehtävässä, kuten shakin pelaamisessa tai kuvien tunnistamisessa, mutta eivät osaa muuta. Esimerkiksi älypuhelimen kasvojentunnistus on kapeaa tekoälyä – se tunnistaa kasvot mutta ei tiedä mitään säästä.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Yleinen tekoäly (General AI):</strong> Tämä on se sci-fi-elokuvista tuttu tekoäly, joka pystyy ymmärtämään, oppimaan ja soveltamaan tietoa laajasti eri alueilta – lähes kuin ihminen. Tällaista tekoälyä ei vielä ole olemassa, mutta sitä kohti tutkimus osittain pyrkii.</li>
+</ul>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Koneoppiminen – tekoälyn sydän</h4>
+<p style="color: #e0e0e0;">Koneoppiminen (Machine Learning) on tekoälyn keskeisimpiä osa-alueita. Sen sijaan, että konetta ohjelmoitaisiin suorittamaan tietty tehtävä askel askeleelta, koneoppiminen antaa koneen "oppia" datasta. Tämä lähestymistapa on mullistanut tekoälyn kehityksen.</p>
+<p style="color: #e0e0e0;">Koneoppimisen tärkeimmät tyypit:</p>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Ohjattu oppiminen:</strong> Kone oppii esimerkkien avulla. Kuvittele, että näytät koneelle tuhansia kissan ja koiran kuvia kertoen, mikä on mikäkin, ja lopulta kone oppii tunnistamaan itse, kumpi eläin on kyseessä. Käytännön esimerkki: Gmailin roskapostisuodatin oppii tuntemaan, mitkä viestit ovat roskapostia aiempien esimerkkien perusteella.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Ohjaamaton oppiminen:</strong> Kone etsii itse malleja ja rakenteita datasta ilman ihmisen antamia "oikeita vastauksia". Esimerkki: verkkokaupan suosittelujärjestelmä, joka ryhmittelee tuotteita sen perusteella, mitä ihmiset usein ostavat yhdessä.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Vahvistusoppiminen:</strong> Kone oppii yrityksen ja erehdyksen kautta. Se saa palkintoja hyvistä päätöksistä ja rangaistuksia huonoista. Tämä on tapa, jolla mm. AlphaGo oppi pelaamaan Go-lautapeliä mestaritasolla.</li>
+</ul>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Syväoppiminen ja neuroverkot</h4>
+<p style="color: #e0e0e0;">Syväoppiminen (Deep Learning) on koneoppimisen edistynyt muoto, joka käyttää neuronien inspiroimia rakenteita, joita kutsutaan neuroverkoiksi. Nämä verkot koostuvat useista kerroksista – siksi "syvä" – ja ne pystyvät oppimaan erittäin monimutkaisia malleja.</p>
+<p style="color: #e0e0e0;">Neuroverkkojen avulla on saavutettu merkittäviä läpimurtoja:</p>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Kuvantunnistus: Koneet tunnistavat esineitä, ihmisiä tai eläimiä kuvista</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Luonnollisen kielen käsittely: Koneet ymmärtävät ja tuottavat tekstiä</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Puheen tunnistus: Koneet muuttavat puhetta tekstiksi</li>
+</ul>
+<p style="color: #e0e0e0;">Erityisesti 2010-luvun puolivälistä alkaen syväoppimisen sovellukset ovat yleistyneet räjähdysmäisesti. Suomalainen esimerkki: yritys, joka käyttää tekoälyä analysoimaan metsänhoitotarpeita ilmakuvien perusteella – tämä säästää aikaa ja resursseja verrattuna perinteisiin menetelmiin.</p>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Tekoäly arkipäivässämme</h4>
+<p style="color: #e0e0e0;">Tekoäly ei ole vain tulevaisuuden teknologiaa – se on jo täällä. Suomalaiset kohtaavat tekoälyä säännöllisesti:</p>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Verkkokauppojen suositukset ("Sinua saattaisi kiinnostaa...")</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Puhelimen kasvojentunnistus tai sormenjälkilukija</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Navigointisovellukset (kuten Google Maps), jotka ennustavat ruuhkia</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Verkkopankin petostentunnistusjärjestelmät</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Musiikkisovellusten yksilölliset soittolistat</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Chatbotit asiakaspalvelussa</li>
+</ul>
+<p style="color: #e0e0e0;">Näissä sovelluksissa tekoäly toimii taustalla huomaamattomasti, mutta tekee palveluistamme älykkäämpiä, mukautuvampia ja käyttäjäystävällisempiä. Tekoäly ei siis ole vain sci-fi-elokuvien terminaattoreita, vaan hyödyllinen työkalu, joka helpottaa arkeamme monin tavoin.</p>
+<h3 style="color: #f0f0f0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.8rem; margin-top: 30px;">Tekoälyn syvempi tarkastelu</h3>
+<p style="color: #e0e0e0;">Kun olemme saaneet perusymmärryksen tekoälystä, voimme sukeltaa hieman syvemmälle. Miten tekoäly oikeastaan toimii, ja mitä tapahtuu kulissien takana?</p>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Tekoälyprojektin anatomia</h4>
+<p style="color: #e0e0e0;">Tekoälyprojektit noudattavat yleensä tiettyä etenemiskaavaa, joka muistuttaa hieman tiedeprojektia. Ymmärtämällä tämän prosessin saat paremman käsityksen siitä, miten tekoäly kehitetään:</p>
+<ol style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Ongelman määrittely:</strong> Mitä yritetään ratkaista? Esimerkiksi: "Haluamme ennustaa, mitkä asiakkaat todennäköisesti lopettavat palvelumme käytön."</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Datan kerääminen:</strong> Tekoäly tarvitsee paljon dataa oppiakseen. Tämä voi tarkoittaa esimerkiksi asiakastietojen, ostohistorian ja käyttäytymistietojen keräämistä.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Datan esikäsittely:</strong> Raaka data on harvoin käyttökelpoista sellaisenaan. Sitä pitää "siivota" – poistaa virheelliset tiedot, täyttää puuttuvat arvot ja muuntaa data sopivaan muotoon.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Mallin valinta ja rakentaminen:</strong> Valitaan sopiva tekoälyalgoritmi (esim. neuroverkko, päätöspuu, tukivektorikone) ja rakennetaan malli.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Koulutus:</strong> Malli koulutetaan datalla. Tämä on se vaihe, jossa "oppiminen" tapahtuu.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Arviointi:</strong> Mallin suorituskykyä testataan uudella datalla, jota se ei ole aiemmin nähnyt.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Käyttöönotto:</strong> Toimiva malli integroidaan oikeaan järjestelmään tai tuotteeseen.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Seuranta ja päivitys:</strong> Mallia seurataan ja parannetaan jatkuvasti.</li>
+</ol>
+<p style="color: #e0e0e0;">Tämä prosessi ei ole aina suoraviivainen – usein palataan aiempiin vaiheisiin, jos tulokset eivät ole tyydyttäviä.</p>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Datan merkitys – tekoälyn polttoaine</h4>
+<p style="color: #e0e0e0;">Jos koodia voi ajatella tekoälyn aivoina, dataa voi pitää sen polttoaineena. Ilman laadukasta dataa tekoäly on hyödytön.</p>
+<p style="color: #e0e0e0;">Datan merkitys näkyy monella tavalla:</p>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Määrä vs. laatu:</strong> Yleensä tekoäly tarvitsee paljon dataa oppiakseen tehokkaasti. Kuitenkin datan laatu on yhtä tärkeää – huono data johtaa huonoihin tuloksiin ("roskaa sisään, roskaa ulos").</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Edustavuus:</strong> Datan tulisi edustaa monipuolisesti sitä, mitä mallille yritetään opettaa. Jos koulutat tekoälyä tunnistamaan kasvoja vain yhden ihonvärin omaavien ihmisten kuvilla, se ei toimi hyvin muiden kanssa.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Harha ja puolueellisuus:</strong> Jos koulutusdatassa on vinoumia, tekoäly oppii ne. Tämä on johtanut moniin eettisiin ongelmiin, kuten syrjiviin rekrytointialgoritmeihin.</li>
+</ul>
+<p style="color: #e0e0e0;">Suomessa esimerkiksi Kela on käyttänyt dataa kehittääkseen tekoälyä, joka tunnistaa etuuksien väärinkäytöksiä. Tämä vaatii huolellista datan käsittelyä – on varmistettava, ettei algoritmi syrji tiettyjä ryhmiä.</p>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Tekoälyn haasteet ja rajoitukset</h4>
+<p style="color: #e0e0e0;">Vaikka tekoäly on vaikuttavaa, sillä on omat rajoituksensa ja haasteensa:</p>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Mustalaatikko-ongelma:</strong> Monimutkaiset mallit kuten syvät neuroverkot voivat olla niin monimutkaisia, että on vaikea ymmärtää, miksi ne tekevät tietyn päätöksen.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Laskentatehon tarve:</strong> Edistyneet tekoälysovellukset vaativat paljon laskentatehoa, mikä kuluttaa energiaa ja aiheuttaa ympäristövaikutuksia.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Yleistämisen vaikeus:</strong> Tekoäly, joka on koulutettu tiettyyn tehtävään, voi epäonnistua täysin, kun sitä sovelletaan hieman erilaisessa ympäristössä.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Hallusinaatiot:</strong> Erityisesti generatiiviset tekoälyt voivat "keksiä" tietoa, jota ei ole olemassa. Esimerkiksi kielimallit voivat tuottaa vakuuttavan kuuloisia mutta täysin virheellisiä väitteitä.</li>
+</ul>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Eettiset kysymykset ja vastuu</h4>
+<p style="color: #e0e0e0;">Tekoälyn yleistyessä eettiset kysymykset tulevat yhä tärkeämmiksi:</p>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Yksityisyys:</strong> Tekoäly tarvitsee dataa, mutta miten varmistamme, että henkilötietoja käsitellään vastuullisesti?</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Läpinäkyvyys:</strong> Miten varmistetaan, että tekoälyjärjestelmät ovat ymmärrettäviä ja luotettavia?</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Oikeudenmukaisuus:</strong> Miten estetään tekoälyä vahvistamasta yhteiskunnan epätasa-arvoa?</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Autonomia:</strong> Kuinka paljon päätösvaltaa haluamme antaa tekoälylle?</li>
+</ul>
+<p style="color: #e0e0e0;">Suomessa näitä kysymyksiä pohditaan aktiivisesti. Esimerkiksi julkisella sektorilla on kehitetty eettisiä ohjeistuksia tekoälyn käytölle. Aurora AI -hanke pyrkii rakentamaan ihmiskeskeistä ja eettistä julkisten palvelujen tekoälyä.</p>
+<p style="color: #e0e0e0;">Nämä haasteet eivät tarkoita, että tekoälyä pitäisi välttää – päinvastoin, ne korostavat tarvetta kehittää tekoälyä vastuullisesti ja harkiten. Seuraavaksi tutustumme siihen, miten tekoälyä voi kokeilla käytännössä.</p>
+<h3 style="color: #f0f0f0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.8rem; margin-top: 30px;">Tekoälyn käytännön sovellukset</h3>
+<p style="color: #e0e0e0;">Paras tapa ymmärtää tekoälyä on kokeilla sitä itse. Tässä osiossa esittelen käytännön sovelluksen, jonka avulla pääset tutustumaan tekoälyn toimintaan – ilman että sinun tarvitsee osata ohjelmoida.</p>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Kokeile itse: Opeta tekoäly tunnistamaan kuvia</h4>
+<p style="color: #e0e0e0;">Googlen Teachable Machine on erinomainen työkalu ensimmäisiin tekoälykokeiluihin. Sen avulla voit opettaa tekoälymallin tunnistamaan kuvia, ääniä tai asentoja ilman koodaustaitoja. Kokeillaan kuvantunnistusta!</p>
+<h5 style="color: #d0d0d0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.2rem; margin-top: 20px;">Teachable Machine -projekti: Askel askeleelta</h5>
+<ol style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Avaa työkalu:</strong> Mene osoitteeseen <a href="https://teachablemachine.withgoogle.com/" target="_blank">https://teachablemachine.withgoogle.com/</a> ja klikkaa "Get Started".</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Valitse projektityyppi:</strong> Klikkaa "Image Project" (kuvaprojekti).</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Luo luokat:</strong> Oletuksena näet luokat "Class 1" ja "Class 2". Nimeä ne uudelleen klikkaamalla nimeä. Voit esimerkiksi luoda luokat "Kahvikuppi" ja "Vesipullo". Lisää halutessasi lisää luokkia "+"-painikkeella.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Kerää kuvia:</strong> Jokaiseen luokkaan tarvitaan kuvia. Voit ottaa kuvia verkkokameralla (suositus) klikkaamalla "Webcam"-painiketta ja tallentamalla useita otoksia eri kulmista. Pidä pohjassa "Hold to Record" -painiketta ja ota 15-20 kuvaa per luokka. Vaihtoehtoisesti voit ladata kuvia tietokoneeltasi "Upload"-painikkeella.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Kouluta malli:</strong> Kun sinulla on riittävästi kuvia jokaisessa luokassa, klikkaa "Train Model". Odota hetki, kun järjestelmä kouluttaa tekoälymallin kuviesi perusteella.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Testaa mallia:</strong> Koulutuksen jälkeen voit testata mallia reaaliajassa. Jos käytät verkkokameraa, näytä mallille kahvikuppi tai vesipullo, ja katso tunnistaako se ne oikein. Huomaa miten malli antaa todennäköisyyden jokaiselle luokalle.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Vie malli:</strong> Halutessasi voit viedä mallisi klikkaamalla "Export Model". Voit ladata sen omalle koneellesi, saada linkin tai jopa koodin verkkosivulle liittämistä varten.</li>
+</ol>
+<h5 style="color: #d0d0d0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.2rem; margin-top: 20px;">Mitä juuri tapahtui?</h5>
+<p style="color: #e0e0e0;">Olet juuri luonut ja kouluttanut koneoppimismallin! Tässä on, mitä kulissien takana tapahtui:</p>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Kuvasi muutettiin numeroiksi, joita tekoäly voi käsitellä (ns. piirrevektoreiksi).</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Järjestelmä käytti neuroneihin perustuvaa oppimisalgoritmia tunnistaakseen kuvioita, jotka erottavat luokkasi toisistaan.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Malli optimoitiin tekemään mahdollisimman tarkkoja ennusteita koulutusdatasi perusteella.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">Lopputuloksena on tekoäly, joka osaa erottaa eri luokat toisistaan visuaalisten ominaisuuksien perusteella.</li>
+</ul>
+<h5 style="color: #d0d0d0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.2rem; margin-top: 20px;">Kehittyneempiä ideoita kokeiluun</h5>
+<p style="color: #e0e0e0;">Kun perusidea on hallussa, voit kokeilla monimutkaisempia projekteja Teachable Machinella:</p>
+<ol style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Kasvilajiketunnistin:</strong> Opeta malli tunnistamaan erilaisia kasveja tai kukkia.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Kierrätysavustaja:</strong> Luo malli, joka tunnistaa eri kierrätysmateriaaleja (muovi, metalli, paperi).</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Eleiden tunnistus:</strong> Kokeile "Pose Project" -vaihtoehtoa opettaaksesi mallin tunnistamaan erilaisia käsieleitä, joilla voisit ohjata sovelluksia.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Äänitunnistus:</strong> Kokeile "Audio Project" -vaihtoehtoa opettaaksesi mallin tunnistamaan erilaisia ääniä tai komentoja.</li>
+</ol>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Muita helposti lähestyttäviä tekoälysovelluksia</h4>
+<p style="color: #e0e0e0;">Jos haluat kokeilla muitakin tekoälyn sovelluksia itse, tässä muutama vaihtoehto:</p>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Chatbotit ja kielelliset tekoälyt:</strong> Kokeile ChatGPT:tä, Google Bardia tai muita keskustelevia tekoälyjä. Voit testata niiden kykyjä kysymällä kysymyksiä, pyytämällä niitä kirjoittamaan runoja tai jopa keskustella niiden kanssa monimutkaisista aiheista.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Kuvageneraattorit:</strong> Kokeile DALL-E:tä, Midjourneya tai Stable Diffusionia luodaksesi kuvia tekstikuvausten perusteella.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Musiikkitekoälyt:</strong> Kokeile Soundraw.io:ta tai Musicaa luodaksesi musiikkia tekoälyn avulla.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Sisältötiivistäjät:</strong> Kokeile Summly:ä tai vastaavia työkaluja, jotka tiivistävät pitkiä tekstejä tekoälyn avulla.</li>
+</ul>
+<p style="color: #e0e0e0;">Näiden käytännön kokeilujen kautta alat vähitellen ymmärtää paremmin, mitä tekoäly voi ja ei voi tehdä, mikä on arvokas taito tekoälyn hallitsemassa maailmassa.</p>
+<h3 style="color: #f0f0f0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.8rem; margin-top: 30px;">Vinkit ja parhaat käytännöt tekoälyn oppimiseen</h3>
+<p style="color: #e0e0e0;">Jos kiinnostuit tekoälystä ja haluat syventää osaamistasi, tässä käytännön vinkkejä etenemiseen. Olen koonnut neuvoja, jotka sopivat erityisesti suomalaisille aloittelijoille.</p>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Mistä aloittaa?</h4>
+<p style="color: #e0e0e0;">Tekoäly on laaja kenttä, ja aloittaminen voi tuntua haastavalta. Tässä järkevä etenemistapa:</p>
+<ol style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Rakenna perustukset:</strong> Ennen syvällisempää tekoälyosaamista, varmista, että sinulla on perustiedot matematiikasta (erityisesti tilastotieteestä ja lineaarialgebrasta) ja ohjelmoinnista (Python on hyvä kieli aloittaa).</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Valitse fokusalue:</strong> Tekoäly on laaja – päätä kiinnostaako sinua enemmän esimerkiksi kuvankäsittely, luonnollisen kielen käsittely, robotiikka vai datatiede. Aloita yhdestä alueesta.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Opi tekemällä:</strong> Teorian lisäksi tärkeintä on käytännön kokemus. Pienetkin projektit opettavat paljon.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Rakenna portfoliota:</strong> Tallenna projektisi esimerkiksi GitHubiin, jotta voit myöhemmin näyttää osaamisesi.</li>
+</ol>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Suositellut kurssit ja resurssit</h4>
+<p style="color: #e0e0e0;">Tässä resursseja, jotka sopivat erityisen hyvin suomalaisille:</p>
+<h5 style="color: #d0d0d0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.2rem; margin-top: 20px;">Suomenkieliset resurssit:</h5>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Elements of AI</strong> (<a href="https://www.elementsofai.fi/" target="_blank">www.elementsofai.fi</a>) – Helsingin yliopiston ja Reaktorin ilmainen verkkokurssi, joka tarjoaa erinomaisen perustason johdatuksen tekoälyyn.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Building AI</strong> – Elements of AI -kurssin jatko-osa, joka syventyy tekoälyn teknisiin puoliin.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">MOOC.fi</strong> – Helsingin yliopiston MOOC-kurssit, erityisesti Pythonin perusteet ja Dataanalyysi Pythonilla.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Avoimet yliopistot</strong> – Useat suomalaiset yliopistot tarjoavat tekoälyyn liittyviä kursseja avoimina opintoina.</li>
+</ul>
+<h5 style="color: #d0d0d0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.2rem; margin-top: 20px;">Englanninkieliset resurssit:</h5>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Coursera</strong> – Andrew Ng:n "Machine Learning" -kurssi on klassikko, josta monet ovat aloittaneet.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Fast.ai</strong> – Käytännönläheinen lähestymistapa syväoppimiseen.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Kaggle</strong> – Alusta, jossa voit harjoitella data-analytiikkaa ja koneoppimista tosielämän dataseteillä.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">YouTube</strong> – Kanavia kuten "3Blue1Brown" (matemaattinen ymmärrys) ja "Sentdex" (käytännön tekoälyprojektit).</li>
+</ul>
+<h5 style="color: #d0d0d0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.2rem; margin-top: 20px;">Kirjat:</h5>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;">"Artificial Intelligence: A Modern Approach" – Stuart Russell & Peter Norvig (klassinen perusteos)</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">"Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow" – Aurélien Géron</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">"Deep Learning" – Ian Goodfellow, Yoshua Bengio & Aaron Courville</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;">"Tekoälyn perusteet" (suomeksi, useita kirjoittajia)</li>
+</ul>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Helpot aloitusprojektit</h4>
+<p style="color: #e0e0e0;">Paras tapa oppia on tekemällä. Tässä muutamia projekteja, joista voit aloittaa:</p>
+<ol style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Tietovisa-botti:</strong> Rakenna yksinkertainen chatbot, joka kysyy kysymyksiä ja arvioi vastauksia.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Sää-analysaattori:</strong> Käytä julkisesti saatavilla olevaa säädataa ennustaaksesi tulevaa säätä.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Kuvaluokittelija:</strong> Rakenna koneoppimismalli, joka tunnistaa esimerkiksi suomalaisia eläimiä tai kaupunkeja kuvista.</li>
+    <strong style="color: #ffffff; font-weight: 700;">Tekstianalyysi:</strong> Analysoi esimerkiksi suomalaisten uutissivustojen otsikoita ymmärtääksesi yleisiä teemoja ja sentimenttiä.</li>
+<li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Musiikkirekomennoija:</strong> Rakenna yksinkertainen suosittelujärjestelmä, joka ehdottaa kappaleita aiempien mieltymysten perusteella.</li>
+
+
+</ol>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Yhteisöt ja verkostoituminen</h4>
+<p style="color: #e0e0e0;">Tekoälyn oppiminen on helpompaa, kun sitä tekee muiden kanssa. Suomessa on aktiivinen tekoäly-yhteisö:</p>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Finnish Artificial Intelligence Society (FAIS)</strong> järjestää tapahtumia ja webinaareja.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Meetup.com</strong> -sivustolta löytyy useita tekoäly- ja datatiedeyhteisöjä, kuten "Helsinki AI" ja "Data Science Finland".</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">LinkedIn-ryhmät</strong> kuten "AI Finland" tarjoavat mahdollisuuden verkostoitua alan ammattilaisten kanssa.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Hackathonit</strong> kuten Junction ja AI Hackathon tarjoavat mahdollisuuden testata taitoja intensiivisissä tapahtumissa.</li>
+</ul>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Parhaat käytännöt tekoälyn oppimisessa</h4>
+<p style="color: #e0e0e0;">Lopuksi vielä muutama käytännön neuvo, jotka auttavat sinua tekoälyn oppimispolulla:</p>
+<ul style="color: #e0e0e0;">
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Maltillinen eteneminen:</strong> Älä yritä oppia kaikkea kerralla. Tekoäly on laaja aihe, jossa riittää opittavaa vuosiksi.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Käytännöllisyys:</strong> Sovella oppimaasi käytännön projekteihin. Teoria jää paremmin mieleen, kun sitä käyttää.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Kokonaiskuva:</strong> Pyri ymmärtämään tekoälyn laajempi konteksti – teknologia, etiikka, yhteiskunnalliset vaikutukset.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Rohkeus kokeilla:</strong> Ei haittaa, jos kaikki ei heti onnistu. Tekoälyn oppimiseen kuuluu kokeileminen ja virheiden tekeminen.</li>
+    <li style="margin-bottom: 8px; color: #e0e0e0;"><strong style="color: #ffffff; font-weight: 700;">Ajankohtaisuus:</strong> Tekoälyala kehittyy vauhdilla. Seuraa uutisia ja päivitä osaamistasi säännöllisesti.</li>
+</ul>
+<p style="color: #e0e0e0;">Tekoälyn opiskelu vaatii aikaa ja kärsivällisyyttä, mutta se voi avata ovia monenlaisiin mahdollisuuksiin – olipa tavoitteesi sitten ammatillinen kehitys, oman yrityksen perustaminen tai vain uteliaisuuden tyydyttäminen. Tärkeintä on aloittaa ja nauttia oppimisesta!</p></div>
+                </div>
+                
+                <!-- Yhteenveto-osio -->
+                <div class="guide-section">
+                    <h2 style="color: white; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);">Tekoälyn merkitys ja tulevaisuus</h2>
                     
-                    <dt>Generatiivinen tekoäly</dt>
-                    <dd>Tekoäly, joka luo uutta sisältöä, kuten tekstiä, kuvia, musiikkia tai videota.</dd>
-                    
-                    <dt>Algoritmi</dt>
-                    <dd>Sarja ohjeita tai sääntöjä, joita tietokone seuraa tehtävän suorittamiseksi.</dd>
-                    
-                    <dt>Neuroverkko</dt>
-                    <dd>Tietokonejärjestelmä, joka jäljittelee ihmisaivojen toimintaa ja oppii tunnistamaan malleja datasta.</dd>
-                </dl>
-            </div>
-            
-            <div class="guide-section">
-                <h2>Tekoälyn yleisimmät käyttökohteet</h2>
-                
-                <div class="image-container" style="text-align: center; margin: 30px 0;">
-                    <img src="https://placehold.co/800x400/fd7e14/FFFFFF/png?text=Tekoälyn+käyttökohteet" alt="Tekoälyn käyttökohteet" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoälyä käytetään nykyään lukuisissa eri sovelluksissa ja toimialoilla</p>
+                    <div class="guide-content" style="color: #e0e0e0;"><h3 style="color: #f0f0f0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.8rem; margin-top: 30px;">Yhteenveto ja UKK</h3>
+<p style="color: #e0e0e0;">Olemme nyt käyneet läpi tekoälyn perusteet, syvemmän ymmärryksen, käytännön sovellukset sekä oppimisvinkit. Tekoäly muuttaa maailmaamme kiihtyvällä tahdilla, ja sen vaikutukset ulottuvat kaikkialle yhteiskuntaamme – työelämästä terveydenhuoltoon ja viihteestä koulutukseen.</p>
+<p style="color: #e0e0e0;">Erityisesti Suomella on hyvät edellytykset hyötyä tekoälystä. Korkea koulutustaso, vahva teknologiaosaaminen ja avoin suhtautuminen innovaatioihin luovat pohjan sekä tekoälyn kehittämiselle että käyttöönotolle. Suomalaiset yritykset kuten Silo AI ovat jo mukana tekoälyn eturintamassa, ja julkinen sektori kehittää aktiivisesti tekoälyratkaisuja palveluiden parantamiseksi.</p>
+<p style="color: #e0e0e0;">Tekoäly ei ole vain teknologiailmiö, vaan myös yhteiskunnallinen muutos, joka vaatii meiltä kaikilta ymmärrystä, sopeutumista ja kriittistä ajattelua. Parhaimmillaan tekoäly voi vapauttaa meidät rutiinitehtävistä, auttaa ratkaisemaan monimutkaisia ongelmia ja luoda uusia mahdollisuuksia.</p>
+<p style="color: #e0e0e0;">Toivon, että tämä opas on antanut sinulle hyvän lähtökohdan tekoälyn ymmärtämiseen. Muista, että tekoäly on työkalu – sen hyödyt ja haitat riippuvat siitä, miten sitä käytämme.</p>
+<h4 style="color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); font-size: 1.5rem; margin-top: 25px;">Usein kysytyt kysymykset</h4>
+<dl>
+    <dt><strong style="color: #ffffff; font-weight: 700;">Mikä on ero tekoälyn ja koneoppimisen välillä?</strong></dt>
+    <dd>Tekoäly on laajempi käsite, joka viittaa koneiden kykyyn suorittaa ihmismäistä ajattelua vaativia tehtäviä. Koneoppiminen on tekoälyn osa-alue, jossa koneet oppivat datasta ilman, että niitä ohjelmoitaisiin suoraan suorittamaan tehtävä. Kaikki koneoppiminen on tekoälyä, mutta kaikki tekoäly ei ole koneoppimista.</dd>
+<dt><strong style="color: #ffffff; font-weight: 700;">Korvaako tekoäly työpaikkoja?</strong></dt>
+<dd>Tekoäly tulee varmasti muuttamaan työmarkkinoita, ja joitakin työtehtäviä automatisoidaan. Samalla kuitenkin syntyy uusia työpaikkoja, joita ei vielä ole olemassa. Historia on osoittanut, että uudet teknologiat tyypillisesti muuttavat työtehtäviä enemmän kuin poistavat niitä kokonaan. Parhaiten pärjäävät ne, jotka oppivat toimimaan yhteistyössä tekoälyn kanssa ja keskittyvät tehtäviin, joissa ihmisillä on edelleen etu, kuten luova ongelmanratkaisu, empatiaa vaativa vuorovaikutus ja eettinen päätöksenteko.</dd>
+
+<dt><strong style="color: #ffffff; font-weight: 700;">Voiko tekoäly tulla ihmistä älykkäämmäksi?</strong></dt>
+<dd>Tämä on monimutkainen kysymys, joka riippuu osittain siitä, miten määrittelemme älykkyyden. Tekoäly on jo nyt "älykkäämpi" kuin ihmiset tietyissä rajatuissa tehtävissä, kuten shakin pelaamisessa tai laajojen tietomassojen analysoinnissa. Sen sijaan niin sanottu "yleinen tekoäly", joka olisi ihmisen veroinen kaikissa älyllisissä tehtävissä, on vielä kaukana tulevaisuudessa – jos se on ylipäätään mahdollinen. Vielä kauempana on "superintelligenssi", joka ylittäisi ihmisälyn kaikilla osa-alueilla. Asiantuntijoiden mielipiteet näiden mahdollisuudesta ja aikataulusta vaihtelevat suuresti.</dd>
+
+<dt><strong style="color: #ffffff; font-weight: 700;">Miten tekoäly oikeastaan oppii?</strong></dt>
+<dd>Yksinkertaistettuna tekoäly oppii tunnistamalla malleja ja säännönmukaisuuksia datasta. Esimerkiksi kuvantunnistuksessa tekoälylle näytetään tuhansia kuvia, jotka on luokiteltu (esim. "kissa", "koira"). Malli etsii näistä kuvista yhdistäviä piirteitä ja oppii vähitellen, mitkä piirteet kuuluvat mihinkin luokkaan. Käytännössä oppiminen tapahtuu algoritmin parametrien (painoarvojen) säätämisenä matemaattisesti niin, että mallin ennusteet paranevat. Tämä on kuitenkin vain näennäistä ymmärrystä – tekoäly ei ymmärrä maailmaa samalla tavalla kuin ihmiset vaan tunnistaa tilastollisia yhteyksiä.</dd>
+
+<dt><strong style="color: #ffffff; font-weight: 700;">Mitä eettisiä huolia tekoälyyn liittyy?</strong></dt>
+<dd>Tekoälyyn liittyy monia eettisiä kysymyksiä, kuten yksityisyyden suoja (kun tekoäly kerää ja analysoi henkilötietoja), algoritminen syrjintä (jos tekoäly toistaa yhteiskunnan vinoumia), vastuukysymykset (kuka on vastuussa tekoälyn tekemistä virheistä), työpaikkojen muutos, valvonta ja vallan keskittyminen sekä autonomisten asejärjestelmien kehitys. Monet maat, Suomi mukaan lukien, kehittävät parhaillaan eettisiä ohjeistuksia ja sääntelyä näiden kysymysten ratkaisemiseksi.</dd>
+
+<dt><strong style="color: #ffffff; font-weight: 700;">Kuinka aloitan uran tekoälyn parissa?</strong></dt>
+<dd>Tekoälyyn liittyviä urapolkuja on monia. Voit erikoistua koneoppimiseen, datatieteen, robotiikkaan tai tekoälyn etiikkaan. Aloita opiskelemalla perusteita kuten ohjelmointia (erityisesti Python), matematiikkaa (erityisesti tilastotiede ja lineaarialgebra) sekä koneoppimisen periaatteita. Hakeudu kursseille, tee omia projekteja ja rakenna portfoliota. Suomessa on hyviä mahdollisuuksia alan opiskeluun sekä yliopistoissa että ammattikorkeakouluissa. Myös monet yritykset kouluttavat työntekijöitään tekoälyn saralla, joten urapolku voi avautua monelta suunnalta.</dd></div>
                 </div>
                 
-                <p>Tekoälyä käytetään nykyään lukuisissa sovelluksissa:</p>
-                <ul>
-                    <li><strong>Sisällöntuotanto:</strong> Tekstin, kuvien, videoiden ja äänen luominen</li>
-                    <li><strong>Asiakaspalvelu:</strong> Chatbotit ja virtuaaliassistentit</li>
-                    <li><strong>Markkinointi:</strong> Personoitu mainonta ja asiakassegmentointi</li>
-                    <li><strong>Tietoturva:</strong> Uhkien tunnistaminen ja ennaltaehkäisy</li>
-                    <li><strong>Terveydenhuolto:</strong> Diagnoosien tukeminen ja lääketutkimus</li>
-                    <li><strong>Rahoitus:</strong> Riskianalyysi ja automaattinen kaupankäynti</li>
-                    <li><strong>Tuotanto:</strong> Laadunvalvonta ja prosessien optimointi</li>
-                </ul>
-            </div>
-            
-            <div class="guide-section">
-                <h2>Miten aloittaa tekoälyn käyttö?</h2>
-                
-                <div class="image-container" style="text-align: center; margin: 30px 0;">
-                    <img src="https://placehold.co/800x400/28a745/FFFFFF/png?text=Tekoälyn+käytön+aloittaminen" alt="Tekoälyn käytön aloittaminen" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoälyn käyttöönotto ei vaadi teknistä osaamista, vaan selkeää suunnitelmaa</p>
-                </div>
-                
-                <p>Tekoälyn käyttöönotto ei vaadi teknistä osaamista. Tässä vaiheet alkuun pääsemiseksi:</p>
-                <ol>
-                    <li><strong>Tunnista tarpeesi:</strong> Mieti, missä tehtävissä voisit hyötyä automaatiosta tai tekoälystä.</li>
-                    <li><strong>Tutustu työkaluihin:</strong> Selaa <a href="../tyokalut.html">työkaluvalikoimaamme</a> ja löydä tarpeisiisi sopivat ratkaisut.</li>
-                    <li><strong>Aloita pienestä:</strong> Valitse yksi tehtävä tai prosessi, jossa kokeilla tekoälyä.</li>
-                    <li><strong>Opettele käyttö:</strong> Useimmat tekoälytyökalut tarjoavat tutoriaaleja ja ohjeita.</li>
-                    <li><strong>Arvioi tuloksia:</strong> Seuraa, miten tekoäly suoriutuu ja tee tarvittavia säätöjä.</li>
-                </ol>
-                <p>
-                    Muista, että tekoäly on työkalu, ei ihmeratkaisu. Se toimii parhaiten, kun sitä käytetään täydentämään ihmisen osaamista, 
-                    ei korvaamaan sitä kokonaan.
-                </p>
-            </div>
-            
-            <div class="guide-section">
-                <h2>Tekoälyn käytön vinkit aloittelijalle</h2>
-                
-                <div class="image-container" style="text-align: center; margin: 30px 0;">
-                    <img src="https://placehold.co/800x400/6f42c1/FFFFFF/png?text=Vinkkejä+aloittelijalle" alt="Tekoälyn käytön vinkit aloittelijalle" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Näillä vinkeillä saat parhaan hyödyn tekoälytyökaluista</p>
-                </div>
-                
-                <ul>
-                    <li><strong>Ole tarkka ohjeistuksessa:</strong> Mitä selkeämpiä ohjeita annat tekoälylle, sitä parempia tuloksia saat.</li>
-                    <li><strong>Tarkista tulokset:</strong> Tekoäly voi tehdä virheitä, joten tarkista aina sen tuottama sisältö.</li>
-                    <li><strong>Opettele iteroimaan:</strong> Tekoälyn käyttö on usein iteratiivinen prosessi, jossa tuloksia parannetaan vähitellen.</li>
-                    <li><strong>Huomioi tietosuoja:</strong> Älä syötä tekoälyyn arkaluontoista tai salassapidettävää tietoa.</li>
-                    <li><strong>Pysy ajan tasalla:</strong> Tekoälyteknologia kehittyy nopeasti, joten seuraa uusia työkaluja ja ominaisuuksia.</li>
-                </ul>
-            </div>
-            
-            <div class="guide-section">
-                <h2>Suositellut työkalut aloittelijoille</h2>
-                
-                <div class="image-container" style="text-align: center; margin: 30px 0;">
-                    <img src="https://placehold.co/800x400/0d6efd/FFFFFF/png?text=Suositellut+työkalut" alt="Suositellut tekoälytyökalut aloittelijoille" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Nämä helppokäyttöiset työkalut sopivat erityisesti aloittelijoille</p>
-                </div>
-                
-                <ul>
-                    <li><strong>ChatGPT:</strong> Helppokäyttöinen keskusteleva tekoäly tekstin tuottamiseen ja kysymyksiin vastaamiseen.</li>
-                    <li><strong>Canva AI:</strong> Graafisen suunnittelun työkalu, jossa on tekoälyominaisuuksia.</li>
-                    <li><strong><a href="https://try.elevenlabs.io/keja882eenfs" target="_blank">ElevenLabs:</a></strong> Luonnollisen kuuloisen puheen tuottaminen tekstistä.</li>
-                    <li><strong>Jasper:</strong> Sisällöntuotannon työkalu, joka auttaa luomaan markkinointitekstejä ja muuta sisältöä.</li>
-                    <li><strong>Midjourney:</strong> Kuvien luominen tekstikuvausten perusteella.</li>
-                </ul>
-            </div>
-            
-            <div class="guide-section">
-                <h2>Yhteenveto</h2>
-                
-                <div class="image-container" style="text-align: center; margin: 30px 0;">
-                    <img src="https://placehold.co/800x400/20c997/FFFFFF/png?text=Yhteenveto" alt="Tekoälyn käytön yhteenveto" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
-                    <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoäly on voimakas työkalu, joka voi auttaa tehostamaan työskentelyäsi</p>
-                </div>
-                
-                <p>
-                    Tekoäly on voimakas työkalu, joka voi auttaa sinua tehostamaan työskentelyäsi, luomaan sisältöä ja ratkaisemaan ongelmia. 
-                    Aloittaminen ei vaadi teknistä osaamista, vain avointa mieltä ja halua oppia. Tutustu työkaluihimme ja muihin oppaisiimme 
-                    syventääksesi osaamistasi tekoälyn parissa.
-                </p>
-            </div>
-            
-            <div style="text-align: center; margin: 3rem 0;">
-                <h3 style="font-size: 2rem; margin-bottom: 1rem; color: white; text-shadow: 0 2px 8px rgba(0, 100, 255, 0.4);">Aloita tekoälyn käyttö tänään</h3>
-                <p style="font-size: 1.2rem; margin-bottom: 1.5rem; color: #e0e0e0; text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); max-width: 800px; margin-left: auto; margin-right: auto;">Tutustu tekoälytyökaluihin ja ota ensimmäinen askel tekoälyn hyödyntämisessä!</p>
-                <a href="../tyokalut.html" class="btn" target="_blank" style="background: linear-gradient(135deg, #ffffff, #f0f0f0); color: var(--primary-color); border: none; padding: 14px 28px; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); text-decoration: none; position: relative; overflow: hidden;">
-                    <i class="fas fa-rocket" style="margin-right: 10px;"></i> Tutustu työkaluihin
-                </a>
-            </div>
-            
-            <div class="guide-section">
-                <h3>Lue lisää aiheesta</h3>
-                <div class="related-cards-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-top: 25px;">
-                    <a href="chatgpt-opas.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%;">
-                        <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">ChatGPT Käyttöopas</h4>
-                        <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Opi hyödyntämään ChatGPT:tä tehokkaasti erilaisissa tehtävissä.</p>
+                <!-- CTA-osio -->
+                <div class="guide-cta" style="background: linear-gradient(135deg, rgba(0, 100, 200, 0.6), rgba(0, 150, 255, 0.6)); padding: 2.5rem; border-radius: 16px; text-align: center; color: white; box-shadow: 0 10px 30px rgba(0, 100, 255, 0.3); border: 1px solid rgba(0, 200, 255, 0.2); position: relative; overflow: hidden; margin: 1rem 0 3rem;">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 1.2rem; color: white; text-shadow: 0 2px 8px rgba(0, 100, 255, 0.4);">Tutustu AI Patrikin työkaluihin</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 2rem; color: #e0e0e0; text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); max-width: 800px; margin-left: auto; margin-right: auto;">Löydä parhaat tekoälytyökalut ja opi käyttämään niitä tehokkaasti.</p>
+                    <a href="../../pages/tyokalut.html" class="btn" target="_blank" style="background: linear-gradient(135deg, #00a67e, #00c4a7); color: white; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.1); box-shadow: 0 8px 25px rgba(0, 166, 126, 0.3); border: none; border-radius: 50px; padding: 18px 40px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: inline-flex; align-items: center; justify-content: center; margin-top: 10px; transform: scale(1.05);">
+                        <span style="display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-robot" style="margin-right: 12px; font-size: 1.3em;"></i>
+                            Tutustu työkaluihin
+                        </span>
                     </a>
-                    
-                    <a href="ai-kuvageneraattorit.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%;">
-                        <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
-                            <i class="fas fa-image"></i>
-                        </div>
-                        <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">AI-kuvageneraattorit</h4>
-                        <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Täydellinen opas AI-kuvageneraattoreiden käyttöön ja hyödyntämiseen.</p>
-                    </a>
-                    
-                    <a href="../yhteystiedot.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%;">
-                        <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">Ota yhteyttä</h4>
-                        <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Tarvitsetko apua tekoälyn käytössä? Ota yhteyttä asiantuntijoihimme!</p>
-                    </a>
+                    <div style="margin-top: 15px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">Kaikki työkalut on testattu ja arvioitu asiantuntijoiden toimesta</div>
                 </div>
+
+                <div class="section-divider"></div>
+                
+                <!-- Lue lisää -osio -->
+                <div class="guide-section">
+                    <h2>Lue lisää aiheesta</h2>
+                    <p>
+                        Tutustu näihin aiheisiin liittyviin sisältöihin ja syvennä tietämystäsi tekoälyn maailmasta.
+                    </p>
+                    <div class="related-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px;">
+                        <!-- Kortti 1 -->
+                        <a href="../tyokalut.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
+                            <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">Tekoälyn työkalut</h4>
+                            <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Tutustu tekoälyn työkaluihin ja niiden käyttömahdollisuuksiin.</p>
+                        </a>
+                        
+                        <!-- Kortti 2 -->
+                        <a href="../oppaat/aloittelijan-opas.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
+                            <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">Tekoälyn perusteet</h4>
+                            <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Aloittelijan opas tekoälyn perusteisiin ja keskeisiin käsitteisiin.</p>
+                        </a>
+                        
+                        <!-- Kortti 3 -->
+                        <a href="../blogi.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
+                            <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">Tekoälyn uutiset</h4>
+                            <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Lue uusimmat uutiset ja artikkelit tekoälyn maailmasta.</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- SISÄLTÖ PÄÄTTYY TÄHÄN -->
+        
             </div>
         </div>
     </section>
