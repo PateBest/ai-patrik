@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QDDPLJZ9P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9QDDPLJZ9P');
+    </script><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fireflies AI Opas: Tehokas Kokousmuistiinpanojen Työkalu - AI Patrik</title>
+    <meta name="description" content="Kattava opas Fireflies AI -työkalun käyttöön - Opi hyödyntämään tekoälypohjaista kokousavustajaa tehokkaasti kokouksissa, transkriptioissa ja muistiinpanoissa.">
+    <!-- Favicon -->
+    <link rel="icon" href="../../images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/mobile-nav.css">
+    <link rel="stylesheet" href="../../css/ai-character.css">
+    <link rel="stylesheet" href="../../css/active-nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Sosiaalisen median painikkeet ja kielenvaihto */
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 0;
+            background: linear-gradient(90deg, rgba(0, 30, 60, 0.95), rgba(0, 60, 120, 0.9));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            padding-right: 20px;
+            max-width: 100%;
+            margin-right: 0;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-right: 20px;
+        }
+        
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 20px;
+            transition: all 0.3s ease;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            transform: scale(1.1);
+        }
+        
+        .social-icons a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-color);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: -1;
+            opacity: 0.8;
+            border-radius: 50%;
+        }
+        
+        .social-icons a:hover {
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-icons a:hover:before {
+            transform: translateY(0);
+        }
+        
+        .social-icons a.linkedin:hover:before {
+            background-color: #0077B5;
+        }
+        
+        .social-icons a.tiktok:hover:before {
+            background-color: #000000;
+        }
+        
+        .social-icons a.instagram:hover:before {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+        
+        .social-icons a.facebook:hover:before {
+            background-color: #1877F2;
+        }
+        
+        .social-icons a.youtube:hover:before {
+            background-color: #FF0000;
+        }
+        
+        .social-icons a.twitter:hover:before {
+            background-color: #1DA1F2;
+        }
+        
+        .language-selector {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .language-selector button {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .language-selector button:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .language-selector .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--dark-surface);
+            min-width: 120px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .language-selector:hover .dropdown-content {
+            display: block;
+            transform: translateY(0);
+        }
+        
+        .language-selector .dropdown-content a {
+            color: var(--text-light);
+            padding: 12px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        
+        .language-selector .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .language-selector .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--accent-color);
+            padding-left: 20px;
+        }
+        
+        /* Responsive styles for "Lue lisää" cards */
+        .related-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .related-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Responsive title styles */
+        @media (max-width: 768px) {
+            .logo-link h1 {
+                font-size: 2.5rem !important;
+                letter-spacing: 2px !important;
+                padding: 0 10px !important;
+            }
+            
+            .logo-link p {
+                font-size: 0.9rem !important;
+            }
+            
+            /* Hampurilaisvalikon hover-efekti */
+            .mobile-nav-toggle:hover {
+                background: rgba(0, 40, 80, 0.8) !important;
+                transform: translateY(-2px) !important;
+                box-shadow: 0 4px 15px rgba(0, 150, 255, 0.3) !important;
+            }
+            
+            .mobile-nav-toggle:hover .hamburger span {
+                width: 90% !important;
+            }
+            
+            .mobile-nav-toggle:hover .hamburger span:nth-child(1) {
+                transform: translateY(-1px) !important;
+            }
+            
+            .mobile-nav-toggle:hover .hamburger span:nth-child(3) {
+                transform: translateY(1px) !important;
+            }
+            
+            /* Piilota otsikko kun valikko on auki */
+            body.nav-open .logo-link {
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+            
+            /* Piilota top bar painikkeet kun valikko on auki */
+            body.nav-open .top-bar {
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+            
+            /* Parannukset hampurilaisvalikon sisällä oleviin painikkeisiin */
+            nav ul li {
+                margin: 10px 0 !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            nav ul li a {
+                background: linear-gradient(135deg, rgba(0, 40, 80, 0.9), rgba(0, 60, 120, 0.9)) !important;
+                border: 1px solid rgba(0, 150, 255, 0.2) !important;
+                border-radius: 10px !important;
+                padding: 15px 25px !important;
+                font-weight: 500 !important;
+                letter-spacing: 0.5px !important;
+                text-transform: uppercase !important;
+                font-size: 1.1rem !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            nav ul li a:hover {
+                background: linear-gradient(135deg, rgba(0, 60, 120, 0.95), rgba(0, 100, 180, 0.95)) !important;
+                transform: translateY(-3px) !important;
+                box-shadow: 0 8px 20px rgba(0, 100, 255, 0.3) !important;
+                color: white !important;
+                border-color: rgba(0, 200, 255, 0.4) !important;
+            }
+            
+            nav ul li.active a {
+                background: linear-gradient(135deg, rgba(0, 100, 200, 0.95), rgba(0, 150, 255, 0.95)) !important;
+                color: white !important;
+                font-weight: 600 !important;
+                box-shadow: 0 5px 15px rgba(0, 150, 255, 0.4) !important;
+                border-color: rgba(0, 200, 255, 0.5) !important;
+            }
+            
+            /* Sulkemispainikkeen tyylit */
+            .nav-close-btn {
+                background: rgba(0, 40, 80, 0.9) !important;
+                border: 2px solid rgba(0, 150, 255, 0.3) !important;
+                color: white !important;
+                box-shadow: 0 4px 15px rgba(0, 100, 255, 0.3) !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            .nav-close-btn:hover {
+                background: rgba(0, 60, 120, 0.95) !important;
+                transform: scale(1.1) !important;
+                box-shadow: 0 6px 20px rgba(0, 150, 255, 0.4) !important;
+            }
+            
+            .nav-close-btn i {
+                text-shadow: 0 0 10px rgba(0, 200, 255, 0.5) !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-link h1 {
+                font-size: 2rem !important;
+                letter-spacing: 1px !important;
+                padding: 0 5px !important;
+            }
+            
+            .logo-link p {
+                font-size: 0.8rem !important;
+            }
+        }
+        
+        /* Mobiiliresponsiivisuus top barille */
+        @media (max-width: 576px) {
+            .top-bar .social-icons {
+                gap: 10px;
+                margin-right: 15px;
+            }
+            
+            .top-bar .social-icons a {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .top-bar .social-icons {
+                gap: 8px;
+                margin-right: 10px;
+            }
+            
+            .top-bar .social-icons a {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+            
+            .top-bar .language-selector button {
+                padding: 5px 10px;
+                font-size: 13px;
+            }
+        }
+        
+        /* Opaskorttien tyylit */
+        .guide-section {
+            background: linear-gradient(135deg, rgba(0, 40, 80, 0.7), rgba(0, 60, 120, 0.7));
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            opacity: 0.8;
+        }
+        
+        .guide-section h2, .guide-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 100, 255, 0.4);
+        }
+        
+        .guide-section h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);
+        }
+        
+        .guide-section p, .guide-section ul, .guide-section li, .guide-section dl, .guide-section dt, .guide-section dd {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .guide-section img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+        
+        .guide-section img:hover {
+            transform: scale(1.02);
+        }
+        
+        .guide-cta {
+            background: linear-gradient(135deg, rgba(0, 100, 200, 0.8), rgba(0, 150, 255, 0.8));
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-top: 3rem;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 100, 255, 0.4);
+            border: 1px solid rgba(0, 200, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ffffff, var(--accent-color));
+            opacity: 0.8;
+        }
+        
+        .guide-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .guide-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .guide-cta .btn, .btn {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            color: var(--primary-color);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-cta .btn:hover, .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .guide-section {
+                padding: 2rem;
+            }
+            
+            .related-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Parannukset linkkien erottuvuuteen */
+        .guide-section a {
+            color: #4db8ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 8px rgba(0, 150, 255, 0.5);
+            border-bottom: 1px dotted rgba(77, 184, 255, 0.5);
+            padding-bottom: 2px;
+        }
+        
+        .guide-section a:hover {
+            color: #80ccff;
+            border-bottom: 1px solid rgba(128, 204, 255, 0.8);
+            text-shadow: 0 0 12px rgba(0, 150, 255, 0.8);
+        }
+        
+        /* Guide content elementtien yhtenäistäminen */
+        .guide-content {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(0, 30, 60, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 150, 255, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .guide-steps, .guide-tips, .guide-example {
+            margin-bottom: 1.5rem;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, var(--accent-color), #0d6efd);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 100, 255, 0.3);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        /* Tekstin visuaalinen parantaminen */
+        .guide-section p, .guide-section ul, .guide-section li {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #e6e6e6;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.2px;
+        }
+        
+        .guide-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 100, 255, 0.5);
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+        
+        .guide-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            border-radius: 3px;
+            box-shadow: 0 2px 6px rgba(0, 100, 255, 0.3);
+        }
+        
+        .guide-section h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1.2rem;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 100, 255, 0.4);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        
+        .guide-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-color), rgba(13, 110, 253, 0.5));
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(0, 100, 255, 0.2);
+        }
+        
+        .guide-section h4 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+            color: white;
+            text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);
+        }
+        
+        /* Esimerkkien ja vinkkien tyylit */
+        .guide-example, .guide-tips {
+            background: rgba(0, 40, 80, 0.4);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .guide-example h4, .guide-tips h4 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .guide-tips {
+            border-left-color: #28a745;
+        }
+        
+        .guide-tips h4 {
+            color: #28a745;
+        }
+        
+        @media (max-width: 768px) {
+            .guide-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .guide-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .guide-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 10px;
+            }
+        }
+        
+        /* Yhtenäinen opas-osio */
+        .guide-container {
+            background: linear-gradient(135deg, rgba(0, 40, 80, 0.7), rgba(0, 60, 120, 0.7));
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            opacity: 0.8;
+        }
+        
+        .guide-section {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            margin-bottom: 3.5rem;
+            position: relative;
+            overflow: visible;
+        }
+        
+        .guide-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .guide-section::before {
+            display: none;
+        }
+        
+        .guide-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 100, 255, 0.5);
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+        
+        .guide-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            border-radius: 3px;
+            box-shadow: 0 2px 6px rgba(0, 100, 255, 0.3);
+        }
+        
+        /* Osioiden välinen jakaja */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(0, 150, 255, 0.05), rgba(0, 150, 255, 0.2), rgba(0, 150, 255, 0.05));
+            margin: 2rem 0 3.5rem;
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 150, 255, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .guide-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .guide-section {
+                margin-bottom: 2.5rem;
+            }
+            
+            .section-divider {
+                margin: 1.5rem 0 2.5rem;
+            }
+        }
+        
+        /* CTA-painikkeen hover-efekti */
+        .guide-cta .btn {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .guide-cta .btn:hover {
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 15px 30px rgba(0, 166, 126, 0.4);
+            background: linear-gradient(135deg, #00c4a7, #00e0c2);
+        }
+        
+        .guide-cta .btn:active {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 166, 126, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sosiaalisen median painikkeet ja kielenvaihto -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/patrik-juuti-47777b354" target="_blank" title="LinkedIn" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.tiktok.com/@ai_patrik?_t=ZN-8uPcAu0qmEI&_r=1" target="_blank" title="TikTok" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/aipatrik?igsh=MW8xbGVwdnhoMmdj" target="_blank" title="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/152FjoPGba/" target="_blank" title="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://youtube.com/@aipatrik?si=1wh6UwMo9cIe5P-L" target="_blank" title="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://x.com/ai_patrik?t=tghvw8DbEglhrmC2-Xi5aw&s=09" target="_blank" title="X (Twitter)" class="twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="language-selector">
+                <button class="lang-btn"><i class="fas fa-globe"></i> FI</button>
+                <div class="dropdown-content">
+                    <a href="#" class="active">Suomi</a>
+                    <a href="#" class="disabled">English (tulossa pian)</a>
+                    <a href="#" class="disabled">Svenska (tulossa pian)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container" style="display: flex; justify-content: center; align-items: center; padding: 20px 0; position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; width: 100%;">
+            <a href="../../index.html" class="logo-link" style="display: block; text-decoration: none; position: relative; z-index: 100; text-align: center; padding: 0 40px;">
+                <h1 style="margin: 0 auto; font-size: 3rem; background: linear-gradient(135deg, var(--accent-color), #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 10px rgba(0, 200, 255, 0.3); white-space: nowrap; letter-spacing: 3px; display: inline-block; padding: 0 15px;">AI PATRIK</h1>
+                <p style="margin: 8px 0 0 0; font-size: 1.1rem; color: var(--text-light); opacity: 0.9; text-align: center;">Tekoälyn työkalut ja opastus</p>
+            </a>
+            <div style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);"> <!-- Oikea puoli mobiilivalikkoa varten -->
+                <button class="mobile-nav-toggle" style="background: rgba(0, 30, 60, 0.6); border: 1px solid rgba(0, 200, 255, 0.3); border-radius: 8px; cursor: pointer; padding: 12px; z-index: 100; box-shadow: 0 2px 10px rgba(0, 100, 255, 0.2); transition: all 0.3s ease;">
+                    <div class="hamburger" style="position: relative; width: 26px; height: 20px;">
+                        <span style="position: absolute; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-color), #0099ff); border-radius: 3px; top: 0; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px rgba(0, 200, 255, 0.5);"></span>
+                        <span style="position: absolute; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-color), #0099ff); border-radius: 3px; top: 8px; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px rgba(0, 200, 255, 0.5);"></span>
+                        <span style="position: absolute; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-color), #0099ff); border-radius: 3px; top: 16px; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px rgba(0, 200, 255, 0.5);"></span>
+                </div>
+            </button>
+            </div>
+        </div>
+    </header>
+    
+    <nav style="background: linear-gradient(90deg, rgba(0, 30, 60, 0.95), rgba(0, 60, 120, 0.9)); border-radius: 0; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); margin-bottom: 0px; position: relative; z-index: 5; padding: 10px 0; border-bottom: 1px solid rgba(0, 150, 255, 0.2);">
+        <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
+            <ul style="display: flex; justify-content: center; list-style: none; margin: 0; padding: 0;">
+                <li style="position: relative; margin: 0 8px;"><a href="../../index.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Koti</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../tyokalut.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Työkalut</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../arvostelut.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Arvostelut</a></li>
+                <li class="active" style="position: relative; margin: 0 8px;"><a href="../oppaat.html" style="display: block; padding: 12px 22px; color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; position: relative; background: linear-gradient(135deg, rgba(0, 100, 200, 0.95), rgba(0, 150, 255, 0.95)); border-radius: 30px; box-shadow: 0 5px 15px rgba(0, 150, 255, 0.4); letter-spacing: 0.3px; border: 1px solid rgba(0, 200, 255, 0.5);">Oppaat</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../blogi.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Blogi</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../ukk.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">UKK</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../yhteystiedot.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Ota Yhteyttä</a></li>
+        </ul>
+        </div>
+    </nav>
+
+    <section style="padding-top: 50px; padding-bottom: 80px; background: linear-gradient(135deg, rgba(0, 15, 40, 0.9), rgba(0, 30, 80, 0.85)); position: relative;">
+        <!-- Tausta-animaatio -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; z-index: 0;">
+            <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 150, 255, 0.1) 0%, rgba(0, 100, 200, 0) 70%); top: -100px; right: 10%; animation: float 15s infinite ease-in-out;"></div>
+            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 200, 255, 0.1) 0%, rgba(0, 150, 200, 0) 70%); bottom: -50px; left: 15%; animation: float 12s infinite ease-in-out reverse;"></div>
+            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, rgba(100, 200, 255, 0.1) 0%, rgba(50, 150, 200, 0) 70%); top: 30%; right: 5%; animation: float 10s infinite ease-in-out 2s;"></div>
+    </div>
+    
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 40px; position: relative; z-index: 1;">
+                <h2 class="section-title">Fireflies AI Opas: Tehokas Kokousmuistiinpanojen Työkalu</h2>
+                <p style="font-size: 1.2rem; line-height: 1.5; max-width: 800px; margin: 1rem auto 0; color: #e0e0e0;">
+                    Kattava opas Fireflies AI -työkalun käyttöön - Opi hyödyntämään tekoälypohjaista kokousavustajaa tehokkaasti kokouksissa, transkriptioissa ja muistiinpanoissa.
+                </p>
+            </div>
+            
+            <div class="guide-container">
+                <!-- SISÄLTÖ ALKAA TÄSTÄ -->
+                
+                <!-- Esimerkki sisältöosio - kopioi tämä rakenne jokaiselle osiolle -->
+            <div class="guide-section">
+                <h2>Mikä on Fireflies AI?</h2>
+                
+                <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/00a67e/FFFFFF/png?text=Fireflies+AI+Kokousavustaja" alt="Fireflies AI käyttöliittymä, jossa näkyy kokousmuistiinpanot ja transkriptio" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Fireflies AI:n käyttöliittymä kokousmuistiinpanojen hallintaan</p>
+                </div>
+                
+                    <div class="guide-content">
+                        <p>
+                            Fireflies AI on tekoälypohjainen kokousavustaja, joka tallentaa, litteroi ja analysoi kokouksia automaattisesti. Se toimii virtuaalisena sihteerinä, joka osallistuu kokouksiin puolestasi ja varmistaa, että kaikki tärkeät tiedot ja päätökset tallennetaan tarkasti.
+                        </p>
+                        
+                        <h3>Fireflies AI:n tärkeimmät ominaisuudet</h3>
+                        
+                        <ul>
+                            <li><strong>Automaattinen kokousten tallennus ja litterointi</strong> - Fireflies liittyy kokouksiin automaattisesti ja litteroi keskustelut reaaliajassa yli 70 kielellä.</li>
+                            <li><strong>Tekoälypohjaiset yhteenvedot</strong> - Saat automaattisesti luodut yhteenvedot, jotka tiivistävät kokouksen tärkeimmät kohdat, toimenpiteet ja päätökset.</li>
+                            <li><strong>Älykäs hakutoiminto</strong> - Etsi nopeasti tietoa kaikista kokouksistasi avainsanojen, puhujien tai aiheiden perusteella.</li>
+                            <li><strong>Toimenpiteiden seuranta</strong> - Fireflies tunnistaa automaattisesti kokouksissa sovitut toimenpiteet ja voi integroida ne tehtävienhallintajärjestelmiin.</li>
+                            <li><strong>Integraatiot</strong> - Työkalu integroituu saumattomasti suosittujen videokonferenssialustojen (Zoom, Google Meet, Microsoft Teams) sekä CRM- ja projektinhallintajärjestelmien kanssa.</li>
+                    </ul>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Fireflies AI on erityisen hyödyllinen etätyöskentelyssä, myyntipuheluissa, asiakaspalavereissa ja tiimin sisäisissä kokouksissa, joissa tarvitaan tarkkaa dokumentaatiota keskusteluista.
+                            </p>
+                        </div>
+                    </div>
+            </div>
+            
+                <div class="section-divider"></div>
+                
+                <!-- Toinen sisältöosio -->
+            <div class="guide-section">
+                    <h2>Fireflies AI:n käyttöönotto</h2>
+                
+                <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/3d8bfd/FFFFFF/png?text=Fireflies+AI+Käyttöönotto" alt="Fireflies AI käyttöönotto" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Fireflies AI:n käyttöönotto on yksinkertaista ja nopeaa</p>
+                </div>
+                
+                    <div class="guide-content">
+                        <h3>Näin otat Fireflies AI:n käyttöön</h3>
+                <p>
+                            Fireflies AI:n käyttöönotto on yksinkertaista ja nopeaa. Seuraavassa vaiheittaiset ohjeet, joiden avulla pääset alkuun:
+                </p>
+                
+                <div class="guide-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                                    <h4>Luo tili Fireflies.ai-palveluun</h4>
+                                    <p>Mene osoitteeseen <a href="https://fireflies.ai" target="_blank">fireflies.ai</a> ja rekisteröidy palveluun. Voit käyttää Google-tiliä, Microsoft-tiliä tai sähköpostiosoitetta rekisteröitymiseen.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                                    <h4>Yhdistä kalenterisi</h4>
+                                    <p>Yhdistä Google Calendar, Outlook tai muu kalenterisovellus Fireflies AI:hin. Tämä mahdollistaa sen, että Fireflies voi automaattisesti liittyä tuleviin kokouksiisi.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                                    <h4>Asenna Chrome-laajennus (valinnainen)</h4>
+                                    <p>Asenna Fireflies AI:n Chrome-laajennus, jos käytät Google Meetiä. Laajennus mahdollistaa reaaliaikaisen litteroinnin ja paremman integraation Google Meet -kokousten kanssa.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                                    <h4>Kutsu Fireflies kokouksiisi</h4>
+                                    <p>Lisää <strong>fred@fireflies.ai</strong> kokouskutsuihisi osallistujaksi. Fireflies liittyy automaattisesti kokoukseen, tallentaa ja litteroi keskustelun.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                                    <h4>Määritä integraatiot</h4>
+                                    <p>Yhdistä Fireflies AI muihin käyttämiisi työkaluihin, kuten Slack, Asana, Trello, Salesforce tai muut CRM-järjestelmät, jotta voit jakaa kokousmuistiinpanoja ja toimenpiteitä saumattomasti.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="guide-example">
+                    <h4>Esimerkki</h4>
+                            <p>
+                                Kun olet kutsunut Fireflies AI:n (fred@fireflies.ai) Zoom-kokoukseen, se liittyy automaattisesti kokoukseen sen alkaessa. Kokouksen jälkeen saat sähköpostiisi ilmoituksen, jossa on linkki kokouksen litterointiin, yhteenvetoon ja tunnistetuihin toimenpiteisiin.
+                            </p>
+                </div>
+                    </div>
+                    </div>
+                    
+                <div class="section-divider"></div>
+                
+                <!-- Kolmas sisältöosio -->
+            <div class="guide-section">
+                    <h2>Fireflies AI:n tehokas käyttö</h2>
+                
+                <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/6f42c1/FFFFFF/png?text=Fireflies+AI+Tehokas+Käyttö" alt="Fireflies AI tehokas käyttö" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Fireflies AI:n edistyneet ominaisuudet tehostavat kokousmuistiinpanojen hallintaa</p>
+                </div>
+                
+                    <div class="guide-content">
+                        <p>
+                            Saadaksesi parhaan hyödyn Fireflies AI:sta, on tärkeää tuntea sen edistyneet ominaisuudet ja parhaat käytännöt. Tässä osiossa käsittelemme, miten voit hyödyntää Fireflies AI:ta tehokkaasti erilaisissa kokoustilanteissa.
+                        </p>
+                        
+                        <h3>Parhaat käytännöt kokouksissa</h3>
+                        
+                        <ul>
+                            <li><strong>Jaa kokousagenda etukäteen</strong> - Kun jaat selkeän agendan ennen kokousta, Fireflies AI pystyy paremmin tunnistamaan ja jäsentämään keskustelun tärkeimmät aiheet.</li>
+                            <li><strong>Puhu selkeästi</strong> - Varmista, että kaikki osallistujat puhuvat selkeästi ja minimoivat taustamelun tarkemman litteroinnin saavuttamiseksi.</li>
+                            <li><strong>Esittele osallistujat</strong> - Pyydä osallistujia esittelemään itsensä kokouksen alussa, jotta Fireflies AI voi tunnistaa eri puhujat tarkemmin.</li>
+                            <li><strong>Käytä avainsanoja</strong> - Käytä selkeitä avainsanoja kuten "toimenpide", "päätös" tai "seuranta", jotta Fireflies AI voi tunnistaa ja merkitä nämä kohdat automaattisesti.</li>
+                            <li><strong>Tarkista ja muokkaa litterointia</strong> - Käy litterointi läpi kokouksen jälkeen ja tee tarvittavat korjaukset tai lisäykset.</li>
+                            </ul>
+                        
+                        <h3>Edistyneet ominaisuudet</h3>
+                        
+                        <div class="guide-content">
+                            <h4>1. Älykäs haku</h4>
+                            <p>
+                                Fireflies AI:n hakutoiminto mahdollistaa nopean tiedonhaun kaikista kokouksistasi. Voit etsiä avainsanoilla, puhujilla tai aiheilla ja löytää tarkalleen sen kohdan, jossa asiaa käsiteltiin.
+                            </p>
+                            
+                            <h4>2. Soundbites - Äänikorostukset</h4>
+                            <p>
+                                Voit luoda ja jakaa lyhyitä äänikorostuksia (Soundbites) kokouksista. Tämä on hyödyllistä, kun haluat jakaa tietyn tärkeän kohdan kokouksesta ilman, että vastaanottajan tarvitsee kuunnella koko tallennetta.
+                            </p>
+                            
+                            <h4>3. Keskusteluanalytiikka</h4>
+                            <p>
+                                Fireflies AI tarjoaa analytiikkaa kokouksistasi, kuten puheajan jakautuminen osallistujien kesken, tunnistetut aiheet ja sentimenttianalyysi. Näiden avulla voit kehittää kokousten tehokkuutta ja vuorovaikutusta.
+                            </p>
+                            
+                            <h4>4. Mukautetut AI-sovellukset</h4>
+                            <p>
+                                Fireflies AI tarjoaa yli 100 AI-sovellusta, jotka auttavat automaattisesti tunnistamaan tärkeitä yksityiskohtia, luomaan seurantasähköposteja ja analysoimaan kokouksia eri näkökulmista.
+                            </p>
+                </div>
+                
+                <div class="guide-tips">
+                    <h4>Vinkki</h4>
+                    <p>
+                                Käytä Fireflies AI:n integraatioita tehostaaksesi työnkulkuasi. Esimerkiksi Slack-integraation avulla voit saada kokousyhteenvedot suoraan tiimikanavalle, ja Asana- tai Trello-integraation avulla toimenpiteet voidaan automaattisesti muuntaa tehtäviksi.
+                    </p>
+                </div>
+                </div>
+            </div>
+            
+                <div class="section-divider"></div>
+                
+                <!-- Neljäs sisältöosio -->
+            <div class="guide-section">
+                    <h2>Tietoturva ja yksityisyys</h2>
+                
+                <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/20c997/FFFFFF/png?text=Fireflies+AI+Tietoturva" alt="Fireflies AI tietoturva ja yksityisyys" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Fireflies AI tarjoaa kattavat tietoturva- ja yksityisyysominaisuudet</p>
+                </div>
+                
+                    <div class="guide-content">
+                        <p>
+                            Koska Fireflies AI käsittelee usein luottamuksellisia kokoustietoja, on tärkeää ymmärtää sen tietoturva- ja yksityisyyskäytännöt. Fireflies AI on sitoutunut suojaamaan käyttäjiensä tietoja ja tarjoaa useita tietoturvaominaisuuksia.
+                        </p>
+                        
+                        <h3>Fireflies AI:n tietoturvaominaisuudet</h3>
+                        
+                        <ul>
+                            <li><strong>SOC 2 Type II -sertifiointi</strong> - Fireflies noudattaa toimialastandardeja tietoturvan, yksityisyyden ja luottamuksellisuuden osalta.</li>
+                            <li><strong>GDPR-yhteensopivuus</strong> - Palvelu noudattaa tiukkoja eurooppalaisia tietosuoja- ja yksityisyysstandardeja.</li>
+                            <li><strong>HIPAA-yhteensopivuus</strong> - Terveydenhuoltoalan organisaatioille Fireflies tarjoaa täyden HIPAA-yhteensopivuuden.</li>
+                            <li><strong>Päästä päähän -salaus</strong> - Kaikki kokoustiedot on suojattu 256-bittisellä AES- ja SSL/TLS-salauksella.</li>
+                            <li><strong>Yksityinen tallennustila</strong> - Yrityksille on tarjolla turvallinen, erillinen pilvitallennustila, joka on tarkoitettu yksinomaan organisaation tiedoille.</li>
+                    </ul>
+                        
+                        <h3>Yksityisyysasetukset ja hallinta</h3>
+                        
+                        <p>
+                            Fireflies AI tarjoaa kattavat hallintaominaisuudet, joiden avulla voit hallita, kuka pääsee käsiksi kokoustietoihin:
+                        </p>
+                        
+                        <ul>
+                            <li><strong>Käyttöoikeuksien hallinta</strong> - Määritä, ketkä voivat nähdä, muokata tai jakaa kokoustallenteita ja litterointeja.</li>
+                            <li><strong>Kanavat ja käyttäjäryhmät</strong> - Organisoi kokoukset eri kanaviin ja luo käyttäjäryhmiä eri tiimeille tietojen jakamisen helpottamiseksi.</li>
+                            <li><strong>Tietojen säilytysasetukset</strong> - Määritä, kuinka kauan kokoustietoja säilytetään ennen automaattista poistamista.</li>
+                            <li><strong>Arkaluontoisen tiedon suodatus</strong> - Mahdollisuus suodattaa arkaluontoisia tietoja, kuten henkilötunnuksia tai luottokorttitietoja, litteroinneista.</li>
+                    </ul>
+                        
+                        <div class="guide-example">
+                            <h4>Esimerkki</h4>
+                            <p>
+                                Terveydenhuoltoalan yritys voi määrittää Fireflies AI:n niin, että potilastiedot suodatetaan automaattisesti litteroinneista, ja vain tietyt henkilöt pääsevät käsiksi tiettyihin kokoustallenteisiin. Lisäksi he voivat allekirjoittaa BAA-sopimuksen (Business Associate Agreement) Fireflies AI:n kanssa HIPAA-vaatimusten täyttämiseksi.
+                            </p>
+                </div>
+                </div>
+            </div>
+            
+                <div class="section-divider"></div>
+                
+                <!-- Viides sisältöosio -->
+            <div class="guide-section">
+                    <h2>Fireflies AI:n käyttötapaukset eri aloilla</h2>
+                
+                <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/fd7e14/FFFFFF/png?text=Fireflies+AI+Käyttötapaukset" alt="Fireflies AI käyttötapaukset eri aloilla" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Fireflies AI soveltuu monipuolisesti eri toimialojen tarpeisiin</p>
+                </div>
+                
+                    <div class="guide-content">
+                        <p>
+                            Fireflies AI on monipuolinen työkalu, joka soveltuu useille eri toimialoille ja käyttötarkoituksiin. Tässä osiossa tarkastelemme, miten eri alojen ammattilaiset voivat hyödyntää Fireflies AI:ta työssään.
+                        </p>
+                        
+                        <h3>Myynti ja asiakaspalvelu</h3>
+                        
+                        <p>
+                            Myyntitiimit voivat hyödyntää Fireflies AI:ta monin tavoin:
+                        </p>
+                        
+                        <ul>
+                            <li><strong>Myyntipuhelujen dokumentointi</strong> - Tallenna ja litteroi kaikki asiakaspuhelut, jotta voit keskittyä keskusteluun muistiinpanojen tekemisen sijaan.</li>
+                            <li><strong>Asiakastarpeiden tunnistaminen</strong> - Fireflies AI:n analytiikka auttaa tunnistamaan toistuvia asiakashuolia ja tarpeita.</li>
+                            <li><strong>Myyntiprosessin kehittäminen</strong> - Analysoi onnistuneita myyntipuheluita ja tunnista parhaat käytännöt tiimin kesken jaettavaksi.</li>
+                            <li><strong>CRM-integraatio</strong> - Lähetä kokousmuistiinpanot ja toimenpiteet automaattisesti CRM-järjestelmään, kuten Salesforceen tai HubSpotiin.</li>
+                        </ul>
+                        
+                        <h3>Rekrytointi ja HR</h3>
+                        
+                        <p>
+                            Rekrytointitiimit voivat tehostaa prosessejaan Fireflies AI:n avulla:
+                        </p>
+                        
+                        <ul>
+                            <li><strong>Työhaastattelujen dokumentointi</strong> - Tallenna ja litteroi haastattelut, jotta voit keskittyä hakijan arviointiin.</li>
+                            <li><strong>Hakijoiden vertailu</strong> - Käytä hakutoimintoa löytääksesi nopeasti, miten eri hakijat vastasivat tiettyihin kysymyksiin.</li>
+                            <li><strong>Perehdytyskokousten tallennus</strong> - Tallenna perehdytyskokoukset, jotta uudet työntekijät voivat palata niihin myöhemmin.</li>
+                            <li><strong>ATS-integraatio</strong> - Lähetä haastattelumuistiinpanot automaattisesti rekrytointijärjestelmiin, kuten Greenhouse tai Lever.</li>
+                    </ul>
+                        
+                        <h3>Tuotekehitys ja käyttäjätutkimus</h3>
+                        
+                        <p>
+                            Tuotekehitys- ja tutkimustiimit hyötyvät Fireflies AI:sta seuraavilla tavoilla:
+                    </p>
+                    
+                    <ul>
+                            <li><strong>Käyttäjähaastattelujen analysointi</strong> - Tunnista käyttäjien tarpeet, kipupisteet ja toiveet litteroiduista haastatteluista.</li>
+                            <li><strong>Tuotekehityspalaverien dokumentointi</strong> - Varmista, että kaikki ideat ja päätökset tallennetaan tarkasti.</li>
+                            <li><strong>Retrospektiivit</strong> - Analysoi tiimin retrospektiivejä tunnistaaksesi toistuvia teemoja ja kehitysalueita.</li>
+                            <li><strong>Projektinhallintaintegraatio</strong> - Lähetä toimenpiteet automaattisesti Jiraan, Asanaan tai muihin projektinhallintajärjestelmiin.</li>
+                    </ul>
+                    
+                        <h3>Koulutus ja opetus</h3>
+                        
+                        <p>
+                            Koulutusalan ammattilaiset voivat hyödyntää Fireflies AI:ta seuraavasti:
+                        </p>
+                        
+                        <ul>
+                            <li><strong>Luentojen ja webinaarien tallennus</strong> - Tarjoa opiskelijoille mahdollisuus palata luentoihin ja etsiä tiettyä sisältöä hakutoiminnolla.</li>
+                            <li><strong>Opetusmateriaalien luominen</strong> - Käytä litterointeja opetusmateriaalien ja yhteenvetojen luomiseen.</li>
+                            <li><strong>Opiskelijapalaverit</strong> - Tallenna ohjauskeskustelut, jotta sekä opettaja että opiskelija voivat palata niihin myöhemmin.</li>
+                    </ul>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Fireflies AI:n mukautetut AI-sovellukset mahdollistavat työkalun räätälöinnin juuri sinun toimialasi tarpeisiin. Voit luoda omia sovelluksia, jotka tunnistavat ja analysoivat juuri sinulle tärkeitä tietoja kokouksista.
+                </p>
+            </div>
+                    </div>
+            </div>
+            
+                <div class="section-divider"></div>
+                
+                <!-- CTA-osio -->
+                <div class="guide-cta" style="background: linear-gradient(135deg, rgba(0, 100, 200, 0.6), rgba(0, 150, 255, 0.6)); padding: 2.5rem; border-radius: 16px; text-align: center; color: white; box-shadow: 0 10px 30px rgba(0, 100, 255, 0.3); border: 1px solid rgba(0, 200, 255, 0.2); position: relative; overflow: hidden; margin: 1rem 0 3rem;">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 1.2rem; color: white; text-shadow: 0 2px 8px rgba(0, 100, 255, 0.4);">Kokeile Fireflies AI:ta ilmaiseksi</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 2rem; color: #e0e0e0; text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); max-width: 800px; margin-left: auto; margin-right: auto;">Tehosta kokousmuistiinpanojasi ja säästä aikaa automaattisella litteroinnilla ja tekoälypohjaisilla yhteenvedoilla. Fireflies AI tarjoaa ilmaisen kokeilujakson, jonka aikana voit testata kaikkia sen ominaisuuksia.</p>
+                    <a href="https://fireflies.ai" class="btn" target="_blank" style="background: linear-gradient(135deg, #00a67e, #00c4a7); color: white; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.1); box-shadow: 0 8px 25px rgba(0, 166, 126, 0.3); border: none; border-radius: 50px; padding: 18px 40px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: inline-flex; align-items: center; justify-content: center; margin-top: 10px; transform: scale(1.05);">
+                    <span style="display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-robot" style="margin-right: 12px; font-size: 1.3em;"></i>
+                            Aloita ilmainen kokeilu
+                    </span>
+                </a>
+                    <div style="margin-top: 15px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">Ei vaadi luottokorttia. Peruuta milloin tahansa.</div>
+            </div>
+            
+                <div class="section-divider"></div>
+                
+                <!-- Lue lisää -osio -->
+            <div class="guide-section">
+                    <h2>Lue lisää aiheesta</h2>
+                    <div class="related-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px;">
+                        <!-- Kortti 1 -->
+                        <a href="../tyokalut.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
+                            <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">Tekoälytyökalut</h4>
+                            <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Tutustu muihin tekoälytyökaluihin, jotka voivat tehostaa työskentelyäsi.</p>
+                        </a>
+                        
+                        <!-- Kortti 2 -->
+                        <a href="../oppaat/chatgpt-opas.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
+                            <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
+                                <i class="fas fa-comment-dots"></i>
+                            </div>
+                            <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">ChatGPT Opas</h4>
+                            <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Opi käyttämään ChatGPT:tä tehokkaasti erilaisissa tehtävissä.</p>
+                        </a>
+                        
+                        <!-- Kortti 3 -->
+                        <a href="../oppaat/aloittelijan-opas.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
+                            <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">Aloittelijan opas</h4>
+                            <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Tutustu tekoälyn perusteisiin ja aloita tekoälytyökalujen käyttö.</p>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                <!-- SISÄLTÖ PÄÄTTYY TÄHÄN -->
+            </div>
+        </div>
+    </section>
+    
+    <section class="newsletter-section">
+        <!-- Tausta-animaatio -->
+        <div class="background-animation">
+            <div class="animation-bubble bubble-1"></div>
+            <div class="animation-bubble bubble-2"></div>
+        </div>
+        
+        <div class="container">
+            <h2 class="section-title">Tilaa uutiskirjeemme</h2>
+            <p>
+                Saat viikoittain tietoa uusista työkaluista, vinkeistä ja erikoistarjouksista suoraan sähköpostiisi.
+            </p>
+            <div class="newsletter-form">
+                <p class="newsletter-coming-soon">Uutiskirjeen tilaus tulossa pian!</p>
+                <!-- <input type="email" placeholder="Sähköpostiosoitteesi" required>
+                <button type="submit">Tilaa</button> -->
+            </div>
+        </div>
+        
+        <!-- Aaltoileva siirtymä -->
+        <div class="newsletter-wave">
+            <svg class="desktop-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,30 C250,60 350,10 720,30 C1080,50 1190,20 1440,40 L1440,100 L0,100 Z"></path>
+            </svg>
+            <svg class="mobile-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,70 C250,80 350,60 720,70 C1080,80 1190,60 1440,70 L1440,100 L0,100 Z"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <footer class="footer-section">
+        <!-- Tausta-animaatio -->
+        <div class="background-animation">
+            <div class="animation-bubble bubble-1"></div>
+            <div class="animation-bubble bubble-2"></div>
+        </div>
+        
+        <div class="container">
+            <p>
+                &copy; 2025 AI Patrik. Kaikki oikeudet pidätetään.
+            </p>
+            <p>
+                <a href="../tietoa-meista.html">Tietoa meistä</a> | 
+                <a href="../tietosuojakaytanto.html">Tietosuojakäytäntö</a> | 
+                <a href="../affiliate-ilmoitus.html">Affiliate-ilmoitus</a>
+            </p>
+            
+            <!-- Sosiaalisen median linkit footerissa -->
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/patrik-juuti-47777b354" target="_blank" title="LinkedIn" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.tiktok.com/@ai_patrik?_t=ZN-8uPcAu0qmEI&_r=1" target="_blank" title="TikTok" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/aipatrik?igsh=MW8xbGVwdnhoMmdj" target="_blank" title="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/152FjoPGba/" target="_blank" title="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://youtube.com/@aipatrik?si=1wh6UwMo9cIe5P-L" target="_blank" title="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://x.com/ai_patrik?t=tghvw8DbEglhrmC2-Xi5aw&s=09" target="_blank" title="X (Twitter)" class="twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/active-nav.js"></script>
+    <script src="../../js/cookie-consent-loader.js"></script>
+</body>
+</html> 

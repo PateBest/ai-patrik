@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QDDPLJZ9P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9QDDPLJZ9P');
+    </script><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekoäly markkinoinnissa - Hyödyt ja käyttökohteet | AI Patrik</title>
+    <meta name="description" content="Kattava opas tekoälyn hyödyntämiseen markkinoinnissa. Opi miten tekoäly tehostaa datankäsittelyä, sisällöntuotantoa, hakukoneoptimointia ja mainontaa. Käytännön vinkit ja esimerkit.">
+    <!-- Favicon -->
+    <link rel="icon" href="../../images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/mobile-nav.css">
+    <link rel="stylesheet" href="../../css/ai-character.css">
+    <link rel="stylesheet" href="../../css/active-nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Sosiaalisen median painikkeet ja kielenvaihto */
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 0;
+            background: linear-gradient(90deg, rgba(0, 30, 60, 0.95), rgba(0, 60, 120, 0.9));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            padding-right: 20px;
+            max-width: 100%;
+            margin-right: 0;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-right: 20px;
+        }
+        
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 20px;
+            transition: all 0.3s ease;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            transform: scale(1.1);
+            text-decoration: none; /* Lisätty: poistaa alleviivauksen */
+            border-bottom: none; /* Lisätty: poistaa mahdollisen alareunan viivan */
+        }
+        
+        .social-icons a i {
+            position: relative; /* Lisätty: varmistaa että ikoni on oikeassa paikassa */
+            z-index: 2; /* Lisätty: varmistaa että ikoni on hover-efektin päällä */
+        }
+        
+        .social-icons a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-color);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: -1; /* Palautettu alkuperäiseksi */
+            opacity: 0.8;
+            border-radius: 50%;
+        }
+        
+        .social-icons a:hover {
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-icons a:hover:before {
+            transform: translateY(0);
+        }
+        
+        .social-icons a.linkedin:hover:before {
+            background-color: #0077B5;
+        }
+        
+        .social-icons a.tiktok:hover:before {
+            background-color: #000000;
+        }
+        
+        .social-icons a.instagram:hover:before {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+        
+        .social-icons a.facebook:hover:before {
+            background-color: #1877F2;
+        }
+        
+        .social-icons a.youtube:hover:before {
+            background-color: #FF0000;
+        }
+        
+        .social-icons a.twitter:hover:before {
+            background-color: #1DA1F2;
+        }
+        
+        .language-selector {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .language-selector button {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .language-selector button:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .language-selector .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--dark-surface);
+            min-width: 120px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .language-selector:hover .dropdown-content {
+            display: block;
+            transform: translateY(0);
+        }
+        
+        .language-selector .dropdown-content a {
+            color: var(--text-light);
+            padding: 12px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        
+        .language-selector .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .language-selector .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--accent-color);
+            padding-left: 20px;
+        }
+        
+        /* Responsive styles for "Lue lisää" cards */
+        .related-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .related-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Responsive title styles */
+        @media (max-width: 768px) {
+            .logo-link h1 {
+                font-size: 2.5rem !important;
+                letter-spacing: 2px !important;
+                padding: 0 10px !important;
+            }
+            
+            .logo-link p {
+                font-size: 0.9rem !important;
+            }
+            
+            /* Hampurilaisvalikon hover-efekti */
+            .mobile-nav-toggle:hover {
+                background: rgba(0, 40, 80, 0.8) !important;
+                transform: translateY(-2px) !important;
+                box-shadow: 0 4px 15px rgba(0, 150, 255, 0.3) !important;
+            }
+            
+            .mobile-nav-toggle:hover .hamburger span {
+                width: 90% !important;
+            }
+            
+            .mobile-nav-toggle:hover .hamburger span:nth-child(1) {
+                transform: translateY(-1px) !important;
+            }
+            
+            .mobile-nav-toggle:hover .hamburger span:nth-child(3) {
+                transform: translateY(1px) !important;
+            }
+            
+            /* Piilota otsikko kun valikko on auki */
+            body.nav-open .logo-link {
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+            
+            /* Piilota top bar painikkeet kun valikko on auki */
+            body.nav-open .top-bar {
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+            
+            /* Parannukset hampurilaisvalikon sisällä oleviin painikkeisiin */
+            nav ul li {
+                margin: 10px 0 !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            nav ul li a {
+                background: linear-gradient(135deg, rgba(0, 40, 80, 0.9), rgba(0, 60, 120, 0.9)) !important;
+                border: 1px solid rgba(0, 150, 255, 0.2) !important;
+                border-radius: 10px !important;
+                padding: 15px 25px !important;
+                font-weight: 500 !important;
+                letter-spacing: 0.5px !important;
+                text-transform: uppercase !important;
+                font-size: 1.1rem !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            nav ul li a:hover {
+                background: linear-gradient(135deg, rgba(0, 60, 120, 0.95), rgba(0, 100, 180, 0.95)) !important;
+                transform: translateY(-3px) !important;
+                box-shadow: 0 8px 20px rgba(0, 100, 255, 0.3) !important;
+                color: white !important;
+                border-color: rgba(0, 200, 255, 0.4) !important;
+            }
+            
+            nav ul li.active a {
+                background: linear-gradient(135deg, rgba(0, 100, 200, 0.95), rgba(0, 150, 255, 0.95)) !important;
+                color: white !important;
+                font-weight: 600 !important;
+                box-shadow: 0 5px 15px rgba(0, 150, 255, 0.4) !important;
+                border-color: rgba(0, 200, 255, 0.5) !important;
+            }
+            
+            /* Sulkemispainikkeen tyylit */
+            .nav-close-btn {
+                background: rgba(0, 40, 80, 0.9) !important;
+                border: 2px solid rgba(0, 150, 255, 0.3) !important;
+                color: white !important;
+                box-shadow: 0 4px 15px rgba(0, 100, 255, 0.3) !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            .nav-close-btn:hover {
+                background: rgba(0, 60, 120, 0.95) !important;
+                transform: scale(1.1) !important;
+                box-shadow: 0 6px 20px rgba(0, 150, 255, 0.4) !important;
+            }
+            
+            .nav-close-btn i {
+                text-shadow: 0 0 10px rgba(0, 200, 255, 0.5) !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-link h1 {
+                font-size: 2rem !important;
+                letter-spacing: 1px !important;
+                padding: 0 5px !important;
+            }
+            
+            .logo-link p {
+                font-size: 0.8rem !important;
+            }
+        }
+        
+        /* Mobiiliresponsiivisuus top barille */
+        @media (max-width: 576px) {
+            .top-bar .social-icons {
+                gap: 10px;
+                margin-right: 15px;
+            }
+            
+            .top-bar .social-icons a {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .top-bar .social-icons {
+                gap: 8px;
+                margin-right: 10px;
+            }
+            
+            .top-bar .social-icons a {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+            
+            .top-bar .language-selector button {
+                padding: 5px 10px;
+                font-size: 13px;
+            }
+        }
+        
+        /* Opaskorttien tyylit */
+        .guide-section {
+            background: linear-gradient(135deg, rgba(0, 40, 80, 0.7), rgba(0, 60, 120, 0.7));
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            opacity: 0.8;
+        }
+        
+        .guide-section h2, .guide-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 100, 255, 0.4);
+        }
+        
+        .guide-section h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);
+        }
+        
+        .guide-section p, .guide-section ul, .guide-section li, .guide-section dl, .guide-section dt, .guide-section dd {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .guide-section img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+        
+        .guide-section img:hover {
+            transform: scale(1.02);
+        }
+        
+        .guide-cta {
+            background: linear-gradient(135deg, rgba(0, 100, 200, 0.8), rgba(0, 150, 255, 0.8));
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-top: 3rem;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 100, 255, 0.4);
+            border: 1px solid rgba(0, 200, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ffffff, var(--accent-color));
+            opacity: 0.8;
+        }
+        
+        .guide-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .guide-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .guide-cta .btn, .btn {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            color: var(--primary-color);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-cta .btn:hover, .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .guide-section {
+                padding: 2rem;
+            }
+            
+            .related-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Parannukset linkkien erottuvuuteen */
+        .guide-section a {
+            color: #4db8ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 8px rgba(0, 150, 255, 0.5);
+            border-bottom: 1px dotted rgba(77, 184, 255, 0.5);
+            padding-bottom: 2px;
+        }
+        
+        .guide-section a:hover {
+            color: #80ccff;
+            border-bottom: 1px solid rgba(128, 204, 255, 0.8);
+            text-shadow: 0 0 12px rgba(0, 150, 255, 0.8);
+        }
+        
+        /* Guide content elementtien yhtenäistäminen */
+        .guide-content {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(0, 30, 60, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 150, 255, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .guide-steps, .guide-tips, .guide-example {
+            margin-bottom: 1.5rem;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, var(--accent-color), #0d6efd);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 100, 255, 0.3);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        /* Tekstin visuaalinen parantaminen */
+        .guide-section p, .guide-section ul, .guide-section li {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #e6e6e6;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.2px;
+        }
+        
+        .guide-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 100, 255, 0.5);
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+        
+        .guide-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            border-radius: 3px;
+            box-shadow: 0 2px 6px rgba(0, 100, 255, 0.3);
+        }
+        
+        .guide-section h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1.2rem;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 100, 255, 0.4);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        
+        .guide-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-color), rgba(13, 110, 253, 0.5));
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(0, 100, 255, 0.2);
+        }
+        
+        .guide-section h4 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+            color: white;
+            text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);
+        }
+        
+        /* Esimerkkien ja vinkkien tyylit */
+        .guide-example, .guide-tips {
+            background: rgba(0, 40, 80, 0.4);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .guide-example h4, .guide-tips h4 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .guide-tips {
+            border-left-color: #28a745;
+        }
+        
+        .guide-tips h4 {
+            color: #28a745;
+        }
+        
+        @media (max-width: 768px) {
+            .guide-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .guide-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .guide-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 10px;
+            }
+        }
+        
+        /* Yhtenäinen opas-osio */
+        .guide-container {
+            background: linear-gradient(135deg, rgba(0, 40, 80, 0.7), rgba(0, 60, 120, 0.7));
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            opacity: 0.8;
+        }
+        
+        .guide-section {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            margin-bottom: 3.5rem;
+            position: relative;
+            overflow: visible;
+        }
+        
+        .guide-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .guide-section::before {
+            display: none;
+        }
+        
+        .guide-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 100, 255, 0.5);
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+        
+        .guide-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            border-radius: 3px;
+            box-shadow: 0 2px 6px rgba(0, 100, 255, 0.3);
+        }
+        
+        /* Osioiden välinen jakaja */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(0, 150, 255, 0.05), rgba(0, 150, 255, 0.2), rgba(0, 150, 255, 0.05));
+            margin: 2rem 0 3.5rem;
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 150, 255, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .guide-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .guide-section {
+                margin-bottom: 2.5rem;
+            }
+            
+            .section-divider {
+                margin: 1.5rem 0 2.5rem;
+            }
+        }
+        
+        /* CTA-painikkeen hover-efekti */
+        .guide-cta .btn {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .guide-cta .btn:hover {
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 15px 30px rgba(0, 166, 126, 0.4);
+            background: linear-gradient(135deg, #00c4a7, #00e0c2);
+        }
+        
+        .guide-cta .btn:active {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 166, 126, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sosiaalisen median painikkeet ja kielenvaihto -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/patrik-juuti-47777b354" target="_blank" title="LinkedIn" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.tiktok.com/@ai_patrik?_t=ZN-8uPcAu0qmEI&_r=1" target="_blank" title="TikTok" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/aipatrik?igsh=MW8xbGVwdnhoMmdj" target="_blank" title="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/152FjoPGba/" target="_blank" title="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://youtube.com/@aipatrik?si=1wh6UwMo9cIe5P-L" target="_blank" title="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://x.com/ai_patrik?t=tghvw8DbEglhrmC2-Xi5aw&s=09" target="_blank" title="X (Twitter)" class="twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="language-selector">
+                <button class="lang-btn"><i class="fas fa-globe"></i> FI</button>
+                <div class="dropdown-content">
+                    <a href="#" class="active">Suomi</a>
+                    <a href="#" class="disabled">English (tulossa pian)</a>
+                    <a href="#" class="disabled">Svenska (tulossa pian)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container" style="display: flex; justify-content: center; align-items: center; padding: 20px 0; position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; width: 100%;">
+            <a href="../../index.html" class="logo-link" style="display: block; text-decoration: none; position: relative; z-index: 100; text-align: center; padding: 0 40px;">
+                <h1 style="margin: 0 auto; font-size: 3rem; background: linear-gradient(135deg, var(--accent-color), #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 10px rgba(0, 200, 255, 0.3); white-space: nowrap; letter-spacing: 3px; display: inline-block; padding: 0 15px;">AI PATRIK</h1>
+                <p style="margin: 8px 0 0 0; font-size: 1.1rem; color: var(--text-light); opacity: 0.9; text-align: center;">Tekoälyn työkalut ja opastus</p>
+            </a>
+            <div style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);"> <!-- Oikea puoli mobiilivalikkoa varten -->
+                <button class="mobile-nav-toggle" style="background: rgba(0, 30, 60, 0.6); border: 1px solid rgba(0, 200, 255, 0.3); border-radius: 8px; cursor: pointer; padding: 12px; z-index: 100; box-shadow: 0 2px 10px rgba(0, 100, 255, 0.2); transition: all 0.3s ease;">
+                    <div class="hamburger" style="position: relative; width: 26px; height: 20px;">
+                        <span style="position: absolute; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-color), #0099ff); border-radius: 3px; top: 0; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px rgba(0, 200, 255, 0.5);"></span>
+                        <span style="position: absolute; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-color), #0099ff); border-radius: 3px; top: 8px; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px rgba(0, 200, 255, 0.5);"></span>
+                        <span style="position: absolute; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-color), #0099ff); border-radius: 3px; top: 16px; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px rgba(0, 200, 255, 0.5);"></span>
+                </div>
+            </button>
+            </div>
+        </div>
+    </header>
+    
+    <nav style="background: linear-gradient(90deg, rgba(0, 30, 60, 0.95), rgba(0, 60, 120, 0.9)); border-radius: 0; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); margin-bottom: 0px; position: relative; z-index: 5; padding: 10px 0; border-bottom: 1px solid rgba(0, 150, 255, 0.2);">
+        <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
+            <ul style="display: flex; justify-content: center; list-style: none; margin: 0; padding: 0;">
+                <li style="position: relative; margin: 0 8px;"><a href="../../index.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Koti</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../tyokalut.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Työkalut</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../arvostelut.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Arvostelut</a></li>
+                <li class="active" style="position: relative; margin: 0 8px;"><a href="../oppaat.html" style="display: block; padding: 12px 22px; color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; position: relative; background: linear-gradient(135deg, rgba(0, 100, 200, 0.95), rgba(0, 150, 255, 0.95)); border-radius: 30px; box-shadow: 0 5px 15px rgba(0, 150, 255, 0.4); letter-spacing: 0.3px; border: 1px solid rgba(0, 200, 255, 0.5);">Oppaat</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../blogi.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Blogi</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../ukk.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">UKK</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../yhteystiedot.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Ota Yhteyttä</a></li>
+        </ul>
+        </div>
+    </nav>
+    
+    <section style="padding-top: 50px; padding-bottom: 80px; background: linear-gradient(135deg, rgba(0, 15, 40, 0.9), rgba(0, 30, 80, 0.85)); position: relative;">
+        <!-- Tausta-animaatio -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; z-index: 0;">
+            <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 150, 255, 0.1) 0%, rgba(0, 100, 200, 0) 70%); top: -100px; right: 10%; animation: float 15s infinite ease-in-out;"></div>
+            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 200, 255, 0.1) 0%, rgba(0, 150, 200, 0) 70%); bottom: -50px; left: 15%; animation: float 12s infinite ease-in-out reverse;"></div>
+            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, rgba(100, 200, 255, 0.1) 0%, rgba(50, 150, 200, 0) 70%); top: 30%; right: 5%; animation: float 10s infinite ease-in-out 2s;"></div>
+    </div>
+    
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 40px; position: relative; z-index: 1;">
+                <h2 class="section-title">Tekoäly markkinoinnissa - Hyödyt ja käyttökohteet</h2>
+                <p style="font-size: 1.2rem; line-height: 1.5; max-width: 800px; margin: 1rem auto 0; color: #e0e0e0;">
+                    Tutustu kattavaan oppaaseen tekoälyn hyödyntämisestä markkinoinnissa. Oppaassa käsitellään tekoälyn tuomia mahdollisuuksia, käyttökohteita ja käytännön vinkkejä, joiden avulla voit tehostaa markkinointitoimenpiteitäsi ja saavuttaa parempia tuloksia.
+                </p>
+            </div>
+            
+            <div class="guide-container">
+                <!-- SISÄLTÖ ALKAA TÄSTÄ -->
+                
+                <!-- Ensimmäinen osio -->
+            <div class="guide-section">
+                    <h2>Mitä on tekoäly markkinoinnissa?</h2>
+                
+                <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/00a67e/FFFFFF/png?text=Tekoäly+markkinoinnissa" alt="Tekoäly markkinoinnissa - visualisointi" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoäly on mullistanut markkinoinnin tarjoamalla uusia työkaluja ja mahdollisuuksia</p>
+                </div>
+                
+                    <div class="guide-content">
+                        <p>
+                            Tekoäly on mullistanut markkinoinnin tarjoamalla uusia työkaluja ja mahdollisuuksia, joiden avulla markkinoinnin ala on ottanut isoja harppauksia eteenpäin viime vuosien aikana. Enää tekoälystä ei puhuta vain tulevaisuuden mahdollisuutena, vaan se on jo vakiintunut osaksi päivittäistä tekemistä markkinoinnin pelikentässä.
+                        </p>
+                        
+                        <p>
+                            Tekoälyn rooli markkinoinnissa on monipuolinen. Se toimii tehokkaana apurina mm. datan käsittelyssä ja analysoinnissa, sisältömarkkinoinnissa, hakukoneoptimoinnissa sekä mainonnassa. Tekoäly on ihmistä nopeampi käsittelemään asiakasdataa, ja se pystyy ennustamaan kuluttajien käyttäytymistä tulevaisuudessa esimerkiksi ostohistoriadataa analysoimalla.
+                        </p>
+                        
+                        <h3>Tekoälyn keskeiset hyödyt markkinoinnissa</h3>
+                        <ul>
+                            <li><strong>Tehokkuus:</strong> Tekoäly mahdollistaa prosessien automatisoinnin, mikä vähentää manuaalista työtä ja säästää aikaa.</li>
+                            <li><strong>Tarkkuus:</strong> Tekoäly analysoi dataa tarkasti ja johdonmukaisesti, mikä johtaa parempiin päätöksiin.</li>
+                            <li><strong>Personointi:</strong> Tekoäly mahdollistaa sisältöjen ja markkinointitoimenpiteiden räätälöinnin yksilöllisesti eri kohderyhmille.</li>
+                            <li><strong>Skaalautuvuus:</strong> Tekoäly pystyy käsittelemään suuria datamääriä ja palvelemaan laajaa asiakaskuntaa samanaikaisesti.</li>
+                            <li><strong>Kustannustehokkuus:</strong> Automatisointi ja tehokkaampi kohdentaminen johtavat parempaan ROI:hin (Return on Investment).</li>
+                </ul>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                <p>
+                                Tekoäly ei korvaa ihmisen luovuutta ja strategista ajattelua markkinoinnissa, vaan toimii tehokkaana työkaluna, joka vapauttaa aikaa rutiinitehtävistä strategiseen suunnitteluun ja luovaan työhön.
+                </p>
+                        </div>
+                    </div>
+            </div>
+            
+                <div class="section-divider"></div>
+                
+                <!-- Toinen osio -->
+            <div class="guide-section">
+                <h2>Tekoälyn käyttökohteet markkinoinnissa</h2>
+                
+                <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Tekoälyn käyttökohteet markkinoinnissa" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoälyä voidaan hyödyntää monipuolisesti eri markkinoinnin osa-alueilla</p>
+                </div>
+                
+                    <div class="guide-content">
+                        <p>
+                            Tekoälyä voidaan hyödyntää monipuolisesti eri markkinoinnin osa-alueilla. Seuraavaksi tarkastelemme keskeisimpiä käyttökohteita, joissa tekoäly on osoittautunut erityisen hyödylliseksi.
+                        </p>
+                        
+                        <h3>Datan analysointi ja asiakasymmärrys</h3>
+                        <p>
+                            Yksi tekoälyn merkittävimmistä vahvuuksista on sen kyky käsitellä ja analysoida valtavia tietomääriä nopeasti. Tekoälyn avulla yritykset voivat:
+                </p>
+                <ul>
+                            <li>Analysoida asiakkaiden käyttäytymistä ja tunnistaa käyttäytymismalleja</li>
+                            <li>Segmentoida asiakkaita tarkemmin heidän mieltymystensä ja käyttäytymisensä perusteella</li>
+                            <li>Tunnistaa markkinatrendejä ja ennustaa ostokäyttäytymisen kausittaisia vaihteluita</li>
+                            <li>Mitata markkinointitoimenpiteiden tehokkuutta ja ROI:ta tarkemmin</li>
+                </ul>
+                        
+                <p>
+                            Työkaluja kuten <a href="https://analytics.google.com/" target="_blank" rel="noopener">Google Analytics</a> ja <a href="https://www.hubspot.com/" target="_blank" rel="noopener">HubSpot</a> hyödyntävät tekoälyä datan analysointiin ja asiakasymmärryksen parantamiseen.
+                </p>
+                
+                        <h3>Sisältömarkkinointi ja sisällöntuotanto</h3>
+                <p>
+                            Tekoäly on erinomainen apuri sisältömarkkinoinnissa. Sitä voidaan hyödyntää:
+                </p>
+                <ul>
+                            <li>Sisältöjen ideointiin ja trendien tunnistamiseen</li>
+                            <li>Artikkeleiden, raporttien tai mainostekstien kirjoittamiseen</li>
+                            <li>Sosiaalisen median julkaisujen luomiseen</li>
+                            <li>Kuvien ja videoiden generointiin ja muokkaamiseen</li>
+                            <li>Yksilöllisten sisältöjen räätälöimiseen eri kohderyhmille</li>
+                </ul>
+                        
+                        <p>
+                            Suosittuja tekoälytyökaluja sisällöntuotantoon ovat mm. <a href="https://chat.openai.com/" target="_blank" rel="noopener">ChatGPT</a>, <a href="https://www.canva.com/" target="_blank" rel="noopener">Canva</a> (kuvien luomiseen) ja <a href="https://www.grammarly.com/" target="_blank" rel="noopener">Grammarly</a> (tekstin tarkistukseen).
+                        </p>
+                        
+                        <div class="guide-example">
+                            <h4>Esimerkki</h4>
+                            <p>
+                                Verkkokauppa käyttää tekoälyä analysoimaan asiakkaiden selaushistoriaa ja ostokäyttäytymistä. Tekoäly tunnistaa, että tietty asiakas on kiinnostunut ulkoiluvaatteista ja erityisesti retkeilytakeista. Tämän perusteella verkkokauppa lähettää asiakkaalle personoidun sähköpostin, jossa esitellään uusia retkeilytakkeja ja tarjotaan alennuskoodia. Personoitu markkinointi johtaa 35% korkeampaan konversioasteeseen verrattuna geneerisiin markkinointiviesteihin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- Kolmas osio -->
+                <div class="guide-section">
+                    <h2>Tekoäly hakukoneoptimoinnissa ja mainonnassa</h2>
+                    
+                    <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://images.unsplash.com/photo-1562577309-4932fdd64cd1?q=80&w=2070&auto=format&fit=crop" alt="Tekoäly hakukoneoptimoinnissa ja mainonnassa" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoäly tehostaa hakukoneoptimointia ja mainontaa merkittävästi</p>
+                    </div>
+                    
+                    <div class="guide-content">
+                        <h3>Tekoäly hakukoneoptimoinnissa (SEO)</h3>
+                        <p>
+                            Hakukoneoptimointi (SEO) on yksi tärkeimpiä digitaalisen markkinoinnin toimenpiteitä, jonka avulla pyritään parantamaan yritysten hakukonenäkyvyyttä sekä houkuttelemaan enemmän verkkosivuvierailijoita orgaanisesti. Tekoäly tukee hakukoneoptimointia monin tavoin:
+                        </p>
+                        
+                        <ul>
+                            <li><strong>Avainsana-analyysi:</strong> Tekoäly auttaa tunnistamaan relevantteja avainsanoja ja niiden hakuvolyymeja, kilpailua sekä trendejä.</li>
+                            <li><strong>Sisällön optimointi:</strong> Tekoäly voi analysoida, millainen sisältö menestyy hakukoneissa ja auttaa optimoimaan sisältöä hakukoneystävällisemmäksi.</li>
+                            <li><strong>Tekninen SEO:</strong> Tekoäly tunnistaa nopeasti puutteet verkkosivuston rakenteessa ja teknisissä ominaisuuksissa, jotka voivat heikentää sen sijoitusta hakutuloksissa.</li>
+                            <li><strong>Kilpailija-analyysi:</strong> Tekoäly voi analysoida kilpailijoiden strategioita ja auttaa tunnistamaan mahdollisuuksia erottua joukosta.</li>
+                </ul>
+                        
+                        <p>
+                            Suosittuja tekoälyä hyödyntäviä SEO-työkaluja ovat mm. <a href="https://www.semrush.com/" target="_blank" rel="noopener">Semrush</a>, <a href="https://ahrefs.com/" target="_blank" rel="noopener">Ahrefs</a> ja <a href="https://developers.google.com/speed/pagespeed/insights/" target="_blank" rel="noopener">PageSpeed Insights</a>.
+                        </p>
+                        
+                        <h3>Tekoäly mainonnassa</h3>
+                        <p>
+                            Tekoäly on mullistanut myös mainonnan maailman. Se auttaa mainostajia kohdentamaan mainoksia tarkemmin, optimoimaan budjetteja ja parantamaan mainonnan tuloksia:
+                        </p>
+                        
+                        <ul>
+                            <li><strong>Kohdentaminen:</strong> Tekoäly analysoi käyttäjien kiinnostuksen kohteita ja käyttäytymistä, mikä mahdollistaa mainosten tarkemman kohdentamisen oikeille yleisöille.</li>
+                            <li><strong>Budjetin optimointi:</strong> Tekoäly auttaa allokoimaan mainosbudjettia tehokkaammin eri kampanjoiden, alustojen ja kohderyhmien välillä.</li>
+                            <li><strong>A/B-testaus:</strong> Tekoäly voi automatisoida A/B-testauksen ja analysoida tuloksia nopeasti, mikä auttaa optimoimaan mainoksia jatkuvasti.</li>
+                            <li><strong>Reaaliaikainen optimointi:</strong> Tekoäly voi säätää mainoskampanjoita reaaliajassa perustuen suorituskykyyn ja käyttäjien reaktioihin.</li>
+                </ul>
+                        
+                        <p>
+                            Suosittuja tekoälyä hyödyntäviä mainosalustoja ovat mm. <a href="https://ads.google.com/" target="_blank" rel="noopener">Google Ads</a>, <a href="https://www.facebook.com/business/tools/ads-manager" target="_blank" rel="noopener">Meta Ads</a> (Facebook ja Instagram) ja <a href="https://business.linkedin.com/marketing-solutions/ads" target="_blank" rel="noopener">LinkedIn Ads</a>.
+                        </p>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Kun käytät tekoälyä hakukoneoptimoinnissa, muista että Google arvostaa laadukasta, käyttäjälähtöistä sisältöä. Tekoälyn tuottama sisältö kannattaa aina tarkistaa ja muokata vastaamaan brändisi ääntä ja tyyliä. Lisää myös omaa asiantuntemustasi ja näkemystäsi sisältöön, jotta se erottuu edukseen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- Neljäs osio -->
+                <div class="guide-section">
+                    <h2>Tekoäly asiakaspalvelussa ja chatbotit</h2>
+                    
+                    <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?q=80&w=2070&auto=format&fit=crop" alt="Tekoäly asiakaspalvelussa ja chatbotit" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoälypohjaiset chatbotit parantavat asiakaspalvelun tehokkuutta ja saatavuutta</p>
+                    </div>
+                    
+                    <div class="guide-content">
+                        <p>
+                            Tekoäly on mullistanut asiakaspalvelun tarjoamalla mahdollisuuden automatisoida rutiinitehtäviä ja tarjota ympärivuorokautista palvelua. Tekoälypohjaiset chatbotit ja virtuaaliassistentit ovat nykyään yleinen näky yritysten verkkosivuilla ja sovelluksissa.
+                        </p>
+                        
+                        <h3>Tekoälyn hyödyt asiakaspalvelussa</h3>
+                        <ul>
+                            <li><strong>24/7 saatavuus:</strong> Tekoälypohjaiset chatbotit voivat palvella asiakkaita ympäri vuorokauden, mikä parantaa asiakaskokemusta ja vähentää odotusaikoja.</li>
+                            <li><strong>Nopeat vastaukset:</strong> Tekoäly voi vastata yleisimpiin kysymyksiin välittömästi, mikä parantaa asiakastyytyväisyyttä.</li>
+                            <li><strong>Skaalautuvuus:</strong> Tekoäly voi käsitellä useita asiakaskyselyitä samanaikaisesti ilman lisäkustannuksia.</li>
+                            <li><strong>Johdonmukaisuus:</strong> Tekoäly tarjoaa johdonmukaisia vastauksia, mikä varmistaa yhtenäisen asiakaskokemuksen.</li>
+                            <li><strong>Resurssien optimointi:</strong> Automatisoimalla rutiinikyselyt, asiakaspalvelijat voivat keskittyä monimutkaisempiin ja arvoa tuottaviin tehtäviin.</li>
+                </ul>
+                        
+                        <h3>Chatbotit markkinoinnin työkaluna</h3>
+                        <p>
+                            Chatbotit eivät ole vain asiakaspalvelun työkalu, vaan niitä voidaan hyödyntää myös markkinoinnissa monin tavoin:
+                        </p>
+                        <ul>
+                            <li><strong>Liidien generointi:</strong> Chatbotit voivat kerätä potentiaalisten asiakkaiden yhteystietoja ja kvalifioida liidejä kysymällä relevantteja kysymyksiä.</li>
+                            <li><strong>Personoitu markkinointi:</strong> Chatbotit voivat tarjota personoituja tuotesuosituksia perustuen asiakkaan vastauksiin ja aiempaan käyttäytymiseen.</li>
+                            <li><strong>Kampanjoiden promootio:</strong> Chatbotit voivat tiedottaa asiakkaille uusista kampanjoista, tarjouksista ja tapahtumista.</li>
+                            <li><strong>Asiakaspalautteen kerääminen:</strong> Chatbotit voivat kerätä arvokasta palautetta tuotteista ja palveluista, mikä auttaa markkinoinnin kehittämisessä.</li>
+                        </ul>
+                        
+                        <div class="guide-example">
+                            <h4>Esimerkki</h4>
+                            <p>
+                                Verkkokauppa implementoi tekoälypohjaisen chatbotin verkkosivuilleen. Chatbot auttaa asiakkaita löytämään sopivia tuotteita kysymällä heidän tarpeistaan ja mieltymyksistään. Kun asiakas etsii uutta älypuhelinta, chatbot kysyy budjetista, halutuista ominaisuuksista ja käyttötarkoituksesta. Näiden tietojen perusteella chatbot suosittelee sopivia tuotteita ja tarjoaa alennuskoodin ostoksen tekemiseen. Tämä personoitu lähestymistapa johtaa 28% korkeampaan konversioasteeseen ja 15% suurempaan keskiostokseen.
+                </p>
+            </div>
+            
+                        <h3>Suosittuja chatbot-alustoja</h3>
+                        <p>
+                            Markkinoilla on useita tekoälypohjaisia chatbot-alustoja, jotka tarjoavat erilaisia ominaisuuksia ja integraatiomahdollisuuksia:
+                        </p>
+                        <ul>
+                            <li><a href="https://www.intercom.com/" target="_blank" rel="noopener">Intercom</a> - Monipuolinen asiakasviestintäalusta, joka tarjoaa tekoälypohjaisia chatbot-ominaisuuksia.</li>
+                            <li><a href="https://www.drift.com/" target="_blank" rel="noopener">Drift</a> - Keskittyy erityisesti B2B-markkinointiin ja myynnin tehostamiseen chatbottien avulla.</li>
+                            <li><a href="https://www.zendesk.com/" target="_blank" rel="noopener">Zendesk</a> - Tarjoaa tekoälypohjaisia asiakaspalveluratkaisuja, mukaan lukien chatbotit.</li>
+                            <li><a href="https://www.tidio.com/" target="_blank" rel="noopener">Tidio</a> - Helppokäyttöinen chatbot-alusta, joka sopii erityisesti pienille ja keskisuurille yrityksille.</li>
+                        </ul>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Vaikka tekoälychatbotit ovat tehokkaita, on tärkeää tarjota asiakkaille myös mahdollisuus keskustella oikean ihmisen kanssa tarvittaessa. Suunnittele chatbotisi niin, että se osaa tunnistaa, milloin kysymys on liian monimutkainen ja ohjata keskustelun asiakaspalvelijalle.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- Viides osio -->
+            <div class="guide-section">
+                    <h2>Tekoälyn käyttöönotto markkinoinnissa</h2>
+                
+                <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop" alt="Tekoälyn käyttöönotto markkinoinnissa" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoälyn käyttöönotto vaatii huolellista suunnittelua ja selkeitä tavoitteita</p>
+                </div>
+                
+                    <div class="guide-content">
+                        <p>
+                            Tekoälyn käyttöönotto markkinoinnissa vaatii huolellista suunnittelua ja selkeää strategiaa. Tässä osiossa käymme läpi vaiheittaisen lähestymistavan tekoälyn implementointiin markkinointitoimenpiteissä.
+                        </p>
+                        
+                        <h3>Vaihe 1: Määritä tavoitteet ja käyttökohteet</h3>
+                        <p>
+                            Ennen tekoälyn käyttöönottoa on tärkeää määrittää selkeät tavoitteet ja tunnistaa käyttökohteet, joissa tekoälystä on eniten hyötyä:
+                        </p>
+                        <ul>
+                            <li>Tunnista markkinoinnin pullonkaulat ja haasteet, joita tekoäly voisi ratkaista</li>
+                            <li>Määritä mitattavat tavoitteet, kuten konversioasteen parantaminen tai asiakashankinnan kustannusten alentaminen</li>
+                            <li>Priorisoi käyttökohteet, joissa tekoäly voi tuottaa nopeimmin arvoa</li>
+                            <li>Arvioi, mitkä markkinoinnin prosessit hyötyisivät eniten automatisoinnista</li>
+                </ul>
+                
+                        <h3>Vaihe 2: Arvioi data ja teknologiatarpeet</h3>
+                        <p>
+                            Tekoäly tarvitsee laadukasta dataa toimiakseen tehokkaasti. Arvioi datasi laatu ja teknologiatarpeesi:
+                        </p>
+                        <ul>
+                            <li>Kartoita olemassa olevat datalähteet ja niiden laatu</li>
+                            <li>Tunnista mahdolliset datapuutteet ja suunnittele, miten ne voidaan korjata</li>
+                            <li>Arvioi tarvittavat teknologiset ratkaisut ja integraatiot</li>
+                            <li>Varmista, että datankeruumenetelmät ovat GDPR-yhteensopivia ja noudattavat tietosuojasäännöksiä</li>
+                </ul>
+                
+                        <h3>Vaihe 3: Valitse sopivat työkalut ja kumppanit</h3>
+                        <p>
+                            Markkinoilla on lukuisia tekoälytyökaluja ja -alustoja. Valitse omiin tarpeisiisi sopivimmat:
+                        </p>
+                        <ul>
+                            <li>Vertaile eri tekoälytyökaluja ja -alustoja ominaisuuksien, hinnoittelun ja käyttäjäystävällisyyden perusteella</li>
+                            <li>Arvioi, tarvitsetko räätälöityjä ratkaisuja vai riittävätkö valmiit työkalut</li>
+                            <li>Harkitse yhteistyötä tekoälyyn erikoistuneiden kumppaneiden kanssa, jos sisäinen osaaminen on rajallista</li>
+                            <li>Varmista, että valitut työkalut integroituvat saumattomasti olemassa oleviin järjestelmiin</li>
+                </ul>
+                
+                        <h3>Vaihe 4: Toteuta pilottiprojekti</h3>
+                        <p>
+                            Aloita pienellä pilottiprojektilla ennen laajempaa käyttöönottoa:
+                        </p>
+                        <ul>
+                            <li>Valitse rajattu käyttökohde, jossa tekoälyn hyödyt voidaan selkeästi mitata</li>
+                            <li>Aseta selkeät KPI:t (Key Performance Indicators) pilottiprojektille</li>
+                            <li>Kerää palautetta käyttäjiltä ja asiakkailta</li>
+                            <li>Analysoi tulokset huolellisesti ja tee tarvittavat korjaukset</li>
+                </ul>
+                        
+                        <h3>Vaihe 5: Laajenna käyttöä ja optimoi jatkuvasti</h3>
+                        <p>
+                            Pilottiprojektin onnistumisen jälkeen laajenna tekoälyn käyttöä vaiheittain:
+                        </p>
+                        <ul>
+                            <li>Skaalaa onnistuneet ratkaisut laajempaan käyttöön</li>
+                            <li>Kouluta henkilöstöä tekoälytyökalujen tehokkaaseen käyttöön</li>
+                            <li>Seuraa tuloksia jatkuvasti ja optimoi tekoälyratkaisuja datan perusteella</li>
+                            <li>Pysy ajan tasalla uusista tekoälyinnovaatioista ja päivitä strategiaasi tarvittaessa</li>
+                        </ul>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Muista, että tekoäly on työkalu, ei ratkaisu itsessään. Parhaat tulokset saavutetaan, kun tekoäly täydentää ihmisten osaamista eikä korvaa sitä. Varmista, että markkinointitiimisi ymmärtää tekoälyn mahdollisuudet ja rajoitukset, ja että he osaavat hyödyntää sitä tehokkaasti omassa työssään.
+                            </p>
+                </div>
+                    </div>
+            </div>
+            
+                <div class="section-divider"></div>
+                
+                <!-- Kuudes osio -->
+            <div class="guide-section">
+                <h2>Esimerkkejä onnistuneista tekoälymarkkinoinnin kampanjoista</h2>
+                
+                <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=2074&auto=format&fit=crop" alt="Onnistuneet tekoälymarkkinoinnin kampanjat" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoäly on mahdollistanut innovatiivisia ja tuloksellisia markkinointikampanjoita</p>
+                </div>
+                
+                    <div class="guide-content">
+                        <p>
+                            Tekoälyn hyödyntäminen markkinoinnissa on tuottanut vaikuttavia tuloksia monille yrityksille. Tässä osiossa esittelemme muutamia esimerkkejä onnistuneista tekoälymarkkinoinnin kampanjoista, jotka voivat toimia inspiraationa omille markkinointitoimenpiteillesi.
+                        </p>
+                        
+                        <h3>Case 1: Verkkokaupan personointi tekoälyn avulla</h3>
+                        <p>
+                            Keskikokoinen verkkovaatekauppa implementoi tekoälypohjaisen personointijärjestelmän verkkosivuilleen. Järjestelmä analysoi asiakkaiden selaushistoriaa, ostokäyttäytymistä ja demografisia tietoja tarjotakseen personoituja tuotesuosituksia.
+                        </p>
+                        <p><strong>Haaste:</strong> Verkkokaupan konversioaste oli alhainen (2,1%) ja keskimääräinen ostoskori pieni (45€).</p>
+                        <p><strong>Tekoälyratkaisu:</strong> Tekoälypohjainen personointijärjestelmä, joka:
+                        </p>
+                        <ul>
+                            <li>Analysoi asiakkaiden selaushistoriaa ja ostokäyttäytymistä</li>
+                            <li>Tarjosi personoituja tuotesuosituksia etusivulla, tuotesivuilla ja ostoskorissa</li>
+                            <li>Lähetti personoituja sähköpostiviestejä perustuen asiakkaan mieltymyksiin</li>
+                            <li>Optimoi tuotteiden hinnoittelua ja tarjouksia eri asiakassegmenteille</li>
+                        </ul>
+                        <p><strong>Tulokset:</strong></p>
+                        <ul>
+                            <li>Konversioaste nousi 24% (2,1% → 2,6%)</li>
+                            <li>Keskimääräinen ostoskori kasvoi 35% (45€ → 61€)</li>
+                            <li>Asiakkaiden palaamisaste sivustolle kasvoi 18%</li>
+                            <li>ROI tekoälyinvestoinnille oli 320% ensimmäisen vuoden aikana</li>
+                        </ul>
+                        
+                        <h3>Case 2: Sisällöntuotannon tehostaminen tekoälyllä</h3>
+                        <p>
+                            B2B-ohjelmistoyritys otti käyttöön tekoälyavusteisen sisällöntuotannon tehostamaan markkinointiaan ja parantamaan hakukonenäkyvyyttään.
+                        </p>
+                        <p><strong>Haaste:</strong> Yritys tuotti vain 2-3 blogiartikkelia kuukaudessa rajallisten resurssien vuoksi, mikä rajoitti orgaanista näkyvyyttä ja liidien generointia.</p>
+                        <p><strong>Tekoälyratkaisu:</strong> Tekoälyavusteinen sisällöntuotantoprosessi, jossa:
+                    </p>
+                    <ul>
+                            <li>Tekoäly auttoi tunnistamaan relevantteja avainsanoja ja aiheita</li>
+                            <li>Tekoäly tuotti artikkeleiden rungot ja ensimmäiset luonnokset</li>
+                            <li>Sisältötiimi muokkasi ja viimeisteli tekoälyn tuottamat tekstit</li>
+                            <li>Tekoäly auttoi optimoimaan otsikoita, meta-kuvauksia ja sisällön rakennetta hakukoneita varten</li>
+                    </ul>
+                        <p><strong>Tulokset:</strong></p>
+                        <ul>
+                            <li>Sisällöntuotanto kasvoi 300% (3 → 12 artikkelia kuukaudessa)</li>
+                            <li>Orgaaninen liikenne kasvoi 150% kuuden kuukauden aikana</li>
+                            <li>Liidien määrä kasvoi 85%</li>
+                            <li>Sisällöntuotannon kustannukset per artikkeli laskivat 60%</li>
+                        </ul>
+                        
+                        <h3>Case 3: Hakusanamainonnan optimointi tekoälyllä</h3>
+                        <p>
+                            Matkailualan yritys hyödynsi tekoälyä Google Ads -kampanjoidensa optimointiin.
+                        </p>
+                        <p><strong>Haaste:</strong> Yrityksen hakusanamainonnan ROI oli heikko ja kampanjoiden hallinta vei paljon aikaa markkinointitiimiltä.</p>
+                        <p><strong>Tekoälyratkaisu:</strong> Tekoälypohjainen hakusanamainonnan optimointityökalu, joka:
+                        </p>
+                        <ul>
+                            <li>Analysoi avainsanojen suorituskykyä reaaliajassa</li>
+                            <li>Optimoi hintatarjouksia automaattisesti eri kellonaikoina ja viikonpäivinä</li>
+                            <li>Testasi erilaisia mainostekstejä ja tunnisti parhaiten toimivat versiot</li>
+                            <li>Kohdisti mainontaa tarkemmin potentiaalisille asiakkaille</li>
+                        </ul>
+                        <p><strong>Tulokset:</strong></p>
+                        <ul>
+                            <li>Hakusanamainonnan ROI kasvoi 120%</li>
+                            <li>Klikkausprosentti (CTR) parani 45%</li>
+                            <li>Konversioaste kasvoi 28%</li>
+                            <li>Markkinointitiimin ajankäyttö kampanjoiden hallintaan väheni 70%</li>
+                        </ul>
+                        
+                        <h3>Mitä voimme oppia näistä esimerkeistä?</h3>
+                        <p>
+                            Nämä esimerkit osoittavat, että tekoälyn hyödyntäminen markkinoinnissa voi tuottaa merkittäviä tuloksia. Onnistuneille tekoälymarkkinoinnin kampanjoille on yhteistä:
+                    </p>
+                    <ul>
+                            <li><strong>Selkeä ongelma tai tavoite:</strong> Tekoälyä käytettiin ratkaisemaan tietty haaste tai saavuttamaan selkeä tavoite.</li>
+                            <li><strong>Datan hyödyntäminen:</strong> Kampanjat perustuivat laadukkaaseen dataan ja sen tehokkaaseen analysointiin.</li>
+                            <li><strong>Ihmisen ja tekoälyn yhteistyö:</strong> Tekoäly toimi työkaluna, joka tehosti ihmisten työtä, ei korvannut sitä kokonaan.</li>
+                            <li><strong>Tulosten tarkka mittaaminen:</strong> Kampanjoiden tuloksia mitattiin tarkasti, mikä mahdollisti jatkuvan optimoinnin.</li>
+                            <li><strong>Integrointi laajempaan strategiaan:</strong> Tekoäly oli osa laajempaa markkinointistrategiaa, ei irrallinen kokeilu.</li>
+                    </ul>
+                </div>
+            </div>
+            
+                <div class="section-divider"></div>
+                
+                <!-- Seitsemäs osio -->
+            <div class="guide-section">
+                    <h2>Tekoälyn haasteet ja rajoitukset markkinoinnissa</h2>
+                
+                <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://images.unsplash.com/photo-1507146153580-69a1fe6d8aa1?q=80&w=2070&auto=format&fit=crop" alt="Tekoälyn haasteet ja rajoitukset markkinoinnissa" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoälyn käyttöön markkinoinnissa liittyy myös haasteita ja rajoituksia</p>
+                </div>
+                
+                    <div class="guide-content">
+                        <p>
+                            Vaikka tekoäly tarjoaa merkittäviä hyötyjä markkinoinnissa, on tärkeää tiedostaa myös siihen liittyvät haasteet ja rajoitukset. Tässä osiossa käsittelemme yleisimpiä haasteita, joita markkinoijat kohtaavat hyödyntäessään tekoälyä, sekä keinoja näiden haasteiden ratkaisemiseen.
+                        </p>
+                        
+                        <h3>Datan laatu ja määrä</h3>
+                        <p>
+                            Tekoäly tarvitsee laadukasta dataa toimiakseen tehokkaasti. Datan laatuun ja määrään liittyviä haasteita ovat:
+                </p>
+                <ul>
+                            <li><strong>Riittämätön data:</strong> Pienillä yrityksillä ei välttämättä ole riittävästi dataa tekoälyn tehokkaaseen hyödyntämiseen.</li>
+                            <li><strong>Datan laadun ongelmat:</strong> Epätarkka, vanhentunut tai puutteellinen data voi johtaa virheellisiin johtopäätöksiin ja huonoihin päätöksiin.</li>
+                            <li><strong>Datan siiloutuminen:</strong> Data voi olla hajallaan eri järjestelmissä, mikä vaikeuttaa kokonaiskuvan muodostamista.</li>
+                            <li><strong>Tietosuojahaasteet:</strong> GDPR ja muut tietosuojasäännökset asettavat rajoituksia datan keräämiselle ja käytölle.</li>
+                </ul>
+                        
+                        <h3>Teknologian monimutkaisuus ja integraatio</h3>
+                        <p>
+                            Tekoälyteknologioiden käyttöönotto ja integrointi olemassa oleviin järjestelmiin voi olla haastavaa:
+                        </p>
+                        <ul>
+                            <li><strong>Tekninen monimutkaisuus:</strong> Tekoälyteknologiat voivat olla monimutkaisia ja vaatia erityisosaamista.</li>
+                            <li><strong>Integraatiohaasteet:</strong> Tekoälytyökalujen integrointi olemassa oleviin markkinointijärjestelmiin voi olla vaikeaa.</li>
+                            <li><strong>Kustannukset:</strong> Kehittyneet tekoälyratkaisut voivat olla kalliita, erityisesti pienille yrityksille.</li>
+                            <li><strong>Osaamisen puute:</strong> Organisaatiolta voi puuttua tarvittava osaaminen tekoälyn tehokkaaseen hyödyntämiseen.</li>
+                        </ul>
+                        
+                        <h3>Luovuuden ja inhimillisen kosketuksen säilyttäminen</h3>
+                        <p>
+                            Tekoäly ei voi täysin korvata ihmisen luovuutta ja emotionaalista älykkyyttä markkinoinnissa:
+                        </p>
+                        <ul>
+                            <li><strong>Luovuuden rajoitukset:</strong> Tekoäly voi tuottaa sisältöä, mutta siltä puuttuu aito luovuus ja kyky ymmärtää kulttuurisia vivahteita.</li>
+                            <li><strong>Emotionaalisen älykkyyden puute:</strong> Tekoäly ei ymmärrä tunteita samalla tavalla kuin ihmiset, mikä voi johtaa geneeriseen markkinointiin.</li>
+                            <li><strong>Brändin äänen säilyttäminen:</strong> Tekoälyn tuottama sisältö voi tuntua persoonattomalta ja epäaidolta, jos sitä ei muokata vastaamaan brändin ääntä.</li>
+                            <li><strong>Kulttuurinen konteksti:</strong> Tekoäly ei välttämättä ymmärrä kulttuurisia eroja ja vivahteita, mikä voi johtaa epäsopivaan markkinointiin.</li>
+                        </ul>
+                        
+                        <h3>Eettiset kysymykset ja läpinäkyvyys</h3>
+                        <p>
+                            Tekoälyn käyttöön markkinoinnissa liittyy eettisiä kysymyksiä, jotka on otettava huomioon:
+                        </p>
+                        <ul>
+                            <li><strong>Läpinäkyvyys:</strong> Asiakkaiden tulisi tietää, milloin he ovat vuorovaikutuksessa tekoälyn kanssa.</li>
+                            <li><strong>Yksityisyys:</strong> Tekoälyn käyttämä data voi sisältää arkaluontoista tietoa, jonka käsittelyssä on noudatettava erityistä huolellisuutta.</li>
+                            <li><strong>Algoritmien puolueellisuus:</strong> Tekoälyalgoritmit voivat vahvistaa olemassa olevia ennakkoluuloja, jos niitä ei ole suunniteltu huolellisesti.</li>
+                            <li><strong>Vastuullisuus:</strong> Kuka on vastuussa, jos tekoäly tekee virheitä tai aiheuttaa vahinkoa?</li>
+                        </ul>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Tasapainota tekoälyn käyttöä ihmisen valvonnalla ja ohjauksella. Varmista, että markkinointitiimisi ymmärtää tekoälyn rajoitukset ja osaa käyttää sitä vastuullisesti. Investoi henkilöstön koulutukseen ja kehitä prosesseja, jotka yhdistävät tekoälyn tehokkuuden ja ihmisen luovuuden parhaat puolet.
+                            </p>
+                        </div>
+                    </div>
+            </div>
+            
+                <div class="section-divider"></div>
+                
+                <!-- Kahdeksas osio -->
+            <div class="guide-section">
+                    <h2>Tulevaisuuden trendit tekoälymarkkinoinnissa</h2>
+                
+                <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" alt="Tulevaisuuden trendit tekoälymarkkinoinnissa" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoäly kehittyy jatkuvasti ja avaa uusia mahdollisuuksia markkinoinnissa</p>
+                </div>
+                
+                    <div class="guide-content">
+                        <p>
+                            Tekoäly kehittyy nopeasti, ja sen vaikutus markkinointiin kasvaa entisestään tulevina vuosina. Tässä osiossa tarkastelemme keskeisiä trendejä ja kehityssuuntia, jotka muokkaavat tekoälymarkkinoinnin tulevaisuutta.
+                        </p>
+                        
+                        <h3>Generatiivinen tekoäly mullistaa sisällöntuotannon</h3>
+                        <p>
+                            Generatiivisen tekoälyn, kuten GPT-4:n ja DALL-E:n, kehitys on ottanut valtavia harppauksia viime vuosina. Tulevaisuudessa näemme yhä kehittyneempiä generatiivisia malleja:
+                </p>
+                <ul>
+                            <li><strong>Multimodaaliset mallit:</strong> Tekoäly pystyy tuottamaan ja ymmärtämään useita sisältömuotoja samanaikaisesti (teksti, kuva, ääni, video).</li>
+                            <li><strong>Räätälöidyt sisällöt:</strong> Tekoäly tuottaa entistä personoidumpaa sisältöä eri kohderyhmille ja yksilöille.</li>
+                            <li><strong>Reaaliaikainen sisällöntuotanto:</strong> Tekoäly luo sisältöä reaaliajassa vastaamaan ajankohtaisiin tapahtumiin ja trendeihin.</li>
+                            <li><strong>Brändiäänen säilyttäminen:</strong> Kehittyneemmät mallit oppivat paremmin yrityksen brändiäänen ja tyylin, tuottaen autenttisempaa sisältöä.</li>
+                </ul>
+                        
+                        <h3>Hyperpersonointi ja reaaliaikainen optimointi</h3>
+                        <p>
+                            Tekoäly vie personoinnin uudelle tasolle, mahdollistaen hyperpersonoinnin ja reaaliaikaisen optimoinnin:
+                        </p>
+                        <ul>
+                            <li><strong>Yksilöllinen asiakaskokemus:</strong> Tekoäly räätälöi koko asiakaskokemuksen yksilöllisesti, ei vain yksittäisiä viestejä.</li>
+                            <li><strong>Kontekstuaalinen personointi:</strong> Tekoäly huomioi asiakkaan sijainnin, laitteen, vuorokaudenajan ja muut kontekstuaaliset tekijät personoinnissa.</li>
+                            <li><strong>Ennakoiva personointi:</strong> Tekoäly ennustaa asiakkaan tarpeet ja mieltymykset ennen kuin asiakas itse ilmaisee niitä.</li>
+                            <li><strong>Reaaliaikainen optimointi:</strong> Markkinointikampanjat optimoituvat automaattisesti reaaliajassa perustuen suorituskykyyn ja asiakkaiden reaktioihin.</li>
+                        </ul>
+                        
+                        <h3>Tekoälyn ja ihmisen yhteistyön kehittyminen</h3>
+                        <p>
+                            Tulevaisuudessa tekoälyn ja ihmisen välinen työnjako markkinoinnissa kehittyy entisestään:
+                        </p>
+                        <ul>
+                            <li><strong>Augmentoitu markkinointi:</strong> Tekoäly toimii markkinoijan "supervoima", tehostaen luovuutta ja päätöksentekoa.</li>
+                            <li><strong>Uudet roolit:</strong> Syntyy uusia työtehtäviä, kuten tekoälystrategit, promptinsinöörit ja tekoälyetiikan asiantuntijat.</li>
+                            <li><strong>Tekoälyn demokratisoituminen:</strong> No-code ja low-code alustat mahdollistavat tekoälyn hyödyntämisen ilman syvällistä teknistä osaamista.</li>
+                            <li><strong>Ihmisen roolin muutos:</strong> Markkinoijat keskittyvät yhä enemmän strategiaan, luovuuteen ja eettisiin kysymyksiin, kun tekoäly hoitaa rutiinitehtävät.</li>
+                        </ul>
+                        
+                        <h3>Eettinen tekoäly ja yksityisyyden suoja</h3>
+                        <p>
+                            Eettisyys ja yksityisyyden suoja nousevat yhä tärkeämmiksi teemoiksi tekoälymarkkinoinnissa:
+                        </p>
+                        <ul>
+                            <li><strong>Läpinäkyvät algoritmit:</strong> Yritykset kehittävät läpinäkyvämpiä tekoälyjärjestelmiä, joiden toimintaa voidaan selittää ja ymmärtää.</li>
+                            <li><strong>Yksityisyyttä kunnioittava tekoäly:</strong> Kehitetään teknologioita, jotka mahdollistavat personoinnin ilman henkilökohtaisten tietojen laajaa keräämistä.</li>
+                            <li><strong>Eettinen tekoäly kilpailuetuna:</strong> Vastuullinen tekoälyn käyttö muodostuu merkittäväksi kilpailueduksi yrityksille.</li>
+                            <li><strong>Sääntelykehitys:</strong> Tekoälyä koskeva sääntely kehittyy, asettaen uusia vaatimuksia markkinoijille.</li>
+                        </ul>
+                        
+                        <div class="guide-example">
+                            <h4>Esimerkki</h4>
+                            <p>
+                                Vuoteen 2030 mennessä tekoäly on integroitunut lähes kaikkiin markkinoinnin osa-alueisiin. Markkinointitiimit koostuvat tekoälystrategeista, promptinsinööreistä, eettisistä asiantuntijoista ja luovista johtajista, jotka työskentelevät saumattomasti tekoälytyökalujen kanssa. Markkinointikampanjat suunnitellaan, toteutetaan ja optimoidaan reaaliajassa tekoälyn avulla, mutta ihmisen luovuus ja strateginen näkemys ohjaavat prosessia. Asiakkaat saavat täysin personoituja kokemuksia kaikissa kanavissa, mutta heillä on myös täysi kontrolli omien tietojensa käytöstä. Markkinoijien on hallittava sekä tekoälyteknologiat että perinteiset markkinointitaidot menestyäkseen tässä uudessa ympäristössä.
+                            </p>
+                        </div>
+                    </div>
+            </div>
+            
+                <div class="section-divider"></div>
+                
+                <!-- CTA-osio -->
+                <div class="guide-cta" style="background: linear-gradient(135deg, rgba(0, 100, 200, 0.6), rgba(0, 150, 255, 0.6)); padding: 2.5rem; border-radius: 16px; text-align: center; color: white; box-shadow: 0 10px 30px rgba(0, 100, 255, 0.3); border: 1px solid rgba(0, 200, 255, 0.2); position: relative; overflow: hidden; margin: 1rem 0 3rem;">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 1.2rem; color: white; text-shadow: 0 2px 8px rgba(0, 100, 255, 0.4);">Valmis hyödyntämään tekoälyä markkinoinnissasi?</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 2rem; color: #e0e0e0; text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); max-width: 800px; margin-left: auto; margin-right: auto;">Ota ensimmäinen askel kohti tehokkaampaa ja tuloksellisempaa markkinointia. Tekoälytyökalut ovat nyt kaikkien saatavilla - myös sinun yrityksesi.</p>
+                    <a href="/tyokalut/tekoaly-markkinoinnissa" class="btn" target="_blank" style="background: linear-gradient(135deg, #00a67e, #00c4a7); color: white; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.1); box-shadow: 0 8px 25px rgba(0, 166, 126, 0.3); border: none; border-radius: 50px; padding: 18px 40px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: inline-flex; align-items: center; justify-content: center; margin-top: 10px; transform: scale(1.05);">
+                    <span style="display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-robot" style="margin-right: 12px; font-size: 1.3em;"></i>
+                            Tutustu tekoälytyökaluihin
+                    </span>
+                </a>
+            </div>
+            
+                <!-- Lue lisää -osio -->
+            <div class="guide-section">
+                    <h2>Lue lisää aiheesta</h2>
+                    <div class="related-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px;">
+                        <!-- Kortti 1 -->
+                        <a href="../tyokalut.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
+                            <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">Tekoälytyökalut</h4>
+                            <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Tutustu erilaisiin tekoälytyökaluuihin, jotka voivat tehostaa työskentelyäsi.</p>
+                        </a>
+                        
+                        <!-- Kortti 2 -->
+                        <a href="../oppaat/aloittelijan-opas.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
+                            <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">Tekoälyn perusteet</h4>
+                            <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Opi tekoälyn perusteet ja ymmärrä, miten tekoälymallit toimivat.</p>
+                        </a>
+                        
+                        <!-- Kortti 3 -->
+                        <a href="../blogi.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
+                            <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">Blogi</h4>
+                            <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Lue blogistamme lisää tekoälystä ja sen käyttömahdollisuuksista.</p>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- SISÄLTÖ PÄÄTTYY TÄHÄN -->
+            </div>
+        </div>
+    </section>
+    
+    <section class="newsletter-section">
+        <!-- Tausta-animaatio -->
+        <div class="background-animation">
+            <div class="animation-bubble bubble-1"></div>
+            <div class="animation-bubble bubble-2"></div>
+        </div>
+        
+        <div class="container">
+            <h2 class="section-title">Tilaa uutiskirjeemme</h2>
+            <p>
+                Saat viikoittain tietoa uusista työkaluista, vinkeistä ja erikoistarjouksista suoraan sähköpostiisi.
+            </p>
+            <div class="newsletter-form">
+                <p class="newsletter-coming-soon">Uutiskirjeen tilaus tulossa pian!</p>
+                <!-- <input type="email" placeholder="Sähköpostiosoitteesi" required>
+                <button type="submit">Tilaa</button> -->
+            </div>
+        </div>
+        
+        <!-- Aaltoileva siirtymä -->
+        <div class="newsletter-wave">
+            <svg class="desktop-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,30 C250,60 350,10 720,30 C1080,50 1190,20 1440,40 L1440,100 L0,100 Z"></path>
+            </svg>
+            <svg class="mobile-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,70 C250,80 350,60 720,70 C1080,80 1190,60 1440,70 L1440,100 L0,100 Z"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <footer class="footer-section">
+        <!-- Tausta-animaatio -->
+        <div class="background-animation">
+            <div class="animation-bubble bubble-1"></div>
+            <div class="animation-bubble bubble-2"></div>
+        </div>
+        
+        <div class="container">
+            <p>
+                &copy; 2025 AI Patrik. Kaikki oikeudet pidätetään.
+            </p>
+            <p>
+                <a href="../tietoa-meista.html">Tietoa meistä</a> | 
+                <a href="../tietosuojakaytanto.html">Tietosuojakäytäntö</a> | 
+                <a href="../affiliate-ilmoitus.html">Affiliate-ilmoitus</a>
+            </p>
+            
+            <!-- Sosiaalisen median linkit footerissa -->
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/patrik-juuti-47777b354" target="_blank" title="LinkedIn" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.tiktok.com/@ai_patrik?_t=ZN-8uPcAu0qmEI&_r=1" target="_blank" title="TikTok" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/aipatrik?igsh=MW8xbGVwdnhoMmdj" target="_blank" title="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/152FjoPGba/" target="_blank" title="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://youtube.com/@aipatrik?si=1wh6UwMo9cIe5P-L" target="_blank" title="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://x.com/ai_patrik?t=tghvw8DbEglhrmC2-Xi5aw&s=09" target="_blank" title="X (Twitter)" class="twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/active-nav.js"></script>
+    <script src="../../js/cookie-consent-loader.js"></script>
+</body>
+</html> 

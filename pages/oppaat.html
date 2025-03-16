@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QDDPLJZ9P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9QDDPLJZ9P');
+    </script><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppaat - AI Patrik</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../images/favicon.svg" type="image/svg+xml">
+    
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/mobile-nav.css">
+    <link rel="stylesheet" href="../css/ai-character.css">
+    <link rel="stylesheet" href="../css/active-nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Yleiset tyylit */
+        :root {
+            --primary-color: #001f3f;
+            --secondary-color: #003366;
+            --accent-color: #00e6b8;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Sosiaalisen median painikkeet ja kielenvaihto */
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 0;
+            background: linear-gradient(90deg, rgba(0, 30, 60, 0.95), rgba(0, 60, 120, 0.9));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            padding-right: 20px;
+            max-width: 100%;
+            margin-right: 0;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-right: 20px;
+        }
+        
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 20px;
+            transition: all 0.3s ease;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            transform: scale(1.1);
+        }
+        
+        .social-icons a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-color);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: -1;
+            opacity: 0.8;
+            border-radius: 50%;
+        }
+        
+        .social-icons a:hover {
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-icons a:hover:before {
+            transform: translateY(0);
+        }
+        
+        .social-icons a.linkedin:hover:before {
+            background-color: #0077B5;
+        }
+        
+        .social-icons a.tiktok:hover:before {
+            background-color: #000000;
+        }
+        
+        .social-icons a.instagram:hover:before {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+        
+        .social-icons a.facebook:hover:before {
+            background-color: #1877F2;
+        }
+        
+        .social-icons a.youtube:hover:before {
+            background-color: #FF0000;
+        }
+        
+        .social-icons a.twitter:hover:before {
+            background-color: #1DA1F2;
+        }
+        
+        .language-selector {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .language-selector button {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .language-selector button:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .language-selector .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--dark-surface);
+            min-width: 120px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .language-selector:hover .dropdown-content {
+            display: block;
+            transform: translateY(0);
+        }
+        
+        .language-selector .dropdown-content a {
+            color: var(--text-light);
+            padding: 12px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        
+        .language-selector .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .language-selector .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--accent-color);
+            padding-left: 20px;
+        }
+        
+        /* Uudet hakukentän ja filtterien tyylit */
+        .guides-search-container {
+            margin: 2rem auto;
+            padding: 0;
+            max-width: 900px;
+            position: relative;
+            background: transparent;
+        }
+        
+        .search-box {
+            display: flex;
+            position: relative;
+            margin: 0 auto 1.5rem;
+            max-width: 900px;
+            width: 100%;
+            border-radius: 50px;
+            background: linear-gradient(145deg, rgba(30, 30, 40, 0.8), rgba(20, 20, 30, 0.8));
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2), 
+                        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+            padding: 5px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+        }
+        
+        .search-box:focus-within {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 
+                        0 0 0 3px rgba(0, 230, 184, 0.2), 
+                        inset 0 2px 4px rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            color: var(--text-light);
+            outline: none;
+            width: 100%;
+        }
+        
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .search-box input:focus::placeholder {
+            opacity: 0.7;
+            transform: translateX(5px);
+        }
+        
+        .search-box button {
+            background: linear-gradient(135deg, var(--accent-color), #0d6efd);
+            border: none;
+            color: white;
+            padding: 0;
+            width: 100px;
+            height: 50px;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-right: 5px;
+            gap: 8px;
+        }
+        
+        .search-box button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .search-box button:active {
+            transform: translateY(1px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 0 auto;
+            max-width: 900px;
+            padding: 20px;
+            background: rgba(30, 30, 40, 0.5);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .filter-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 230, 184, 0.05), rgba(13, 110, 253, 0.05));
+            border-radius: 15px;
+            z-index: -1;
+        }
+        
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            min-width: 200px;
+            flex: 1;
+            position: relative;
+        }
+        
+        .filter-group label {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--text-light);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .filter-group select {
+            background-color: rgba(40, 40, 50, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23ffffff' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: calc(100% - 15px) center;
+            background-size: 12px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .filter-group select:hover {
+            border-color: rgba(0, 230, 184, 0.3);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .filter-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(0, 230, 184, 0.2);
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            margin-left: 5px;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: help;
+        }
+        
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 250px;
+            background-color: var(--dark-surface);
+            color: var(--text-light);
+            text-align: center;
+            border-radius: 8px;
+            padding: 10px;
+            position: absolute;
+            z-index: 10;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 13px;
+            line-height: 1.5;
+            pointer-events: none;
+        }
+        
+        .tooltip .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--dark-surface) transparent transparent transparent;
+        }
+        
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(-50%) translateY(-5px);
+        }
+        
+        /* Mobiiliresponsiivisuus */
+        @media (max-width: 768px) {
+            .filter-container {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px;
+            }
+            
+            .filter-group {
+                width: 100%;
+                min-width: unset;
+            }
+            
+            .search-box {
+                border-radius: 25px;
+            }
+            
+            .search-box input {
+                padding: 12px 15px;
+                font-size: 15px;
+            }
+            
+            .search-box button {
+                width: 100px;
+                height: 45px;
+            }
+            
+            .card .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            /* Responsive title styles */
+            .logo-link h1 {
+                font-size: 2.5rem !important;
+                letter-spacing: 2px !important;
+                padding: 0 10px !important;
+            }
+            
+            .logo-link p {
+                font-size: 0.9rem !important;
+            }
+            
+            /* Hampurilaisvalikon hover-efekti */
+            .mobile-nav-toggle:hover {
+                background: rgba(0, 40, 80, 0.8) !important;
+                transform: translateY(-2px) !important;
+                box-shadow: 0 4px 15px rgba(0, 150, 255, 0.3) !important;
+            }
+            
+            .mobile-nav-toggle:hover .hamburger span {
+                width: 90% !important;
+            }
+            
+            .mobile-nav-toggle:hover .hamburger span:nth-child(1) {
+                transform: translateY(-1px) !important;
+            }
+            
+            .mobile-nav-toggle:hover .hamburger span:nth-child(3) {
+                transform: translateY(1px) !important;
+            }
+            
+            /* Piilota otsikko kun valikko on auki */
+            body.nav-open .logo-link {
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+            
+            /* Piilota top bar painikkeet kun valikko on auki */
+            body.nav-open .top-bar {
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+            
+            /* Parannukset hampurilaisvalikon sisällä oleviin painikkeisiin */
+            nav ul li {
+                margin: 10px 0 !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            nav ul li a {
+                background: linear-gradient(135deg, rgba(0, 40, 80, 0.9), rgba(0, 60, 120, 0.9)) !important;
+                border: 1px solid rgba(0, 150, 255, 0.2) !important;
+                border-radius: 10px !important;
+                padding: 15px 25px !important;
+                font-weight: 500 !important;
+                letter-spacing: 0.5px !important;
+                text-transform: uppercase !important;
+                font-size: 1.1rem !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            nav ul li a:hover {
+                background: linear-gradient(135deg, rgba(0, 60, 120, 0.95), rgba(0, 100, 180, 0.95)) !important;
+                transform: translateY(-3px) !important;
+                box-shadow: 0 8px 20px rgba(0, 100, 255, 0.3) !important;
+                color: white !important;
+                border-color: rgba(0, 200, 255, 0.4) !important;
+            }
+            
+            nav ul li.active a {
+                background: linear-gradient(135deg, rgba(0, 100, 200, 0.95), rgba(0, 150, 255, 0.95)) !important;
+                color: white !important;
+                font-weight: 600 !important;
+                box-shadow: 0 5px 15px rgba(0, 150, 255, 0.4) !important;
+                border-color: rgba(0, 200, 255, 0.5) !important;
+            }
+            
+            /* Sulkemispainikkeen tyylit */
+            .nav-close-btn {
+                background: rgba(0, 40, 80, 0.9) !important;
+                border: 2px solid rgba(0, 150, 255, 0.3) !important;
+                color: white !important;
+                box-shadow: 0 4px 15px rgba(0, 100, 255, 0.3) !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            .nav-close-btn:hover {
+                background: rgba(0, 60, 120, 0.95) !important;
+                transform: scale(1.1) !important;
+                box-shadow: 0 6px 20px rgba(0, 150, 255, 0.4) !important;
+            }
+            
+            .nav-close-btn i {
+                text-shadow: 0 0 10px rgba(0, 200, 255, 0.5) !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .search-box {
+                margin-bottom: 1rem;
+            }
+            
+            .search-box input {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            
+            .search-box button {
+                width: 100px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .filter-group label {
+                font-size: 13px;
+            }
+            
+            .filter-group select {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
+            
+            .card .btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .logo-link h1 {
+                font-size: 2rem !important;
+                letter-spacing: 1px !important;
+                padding: 0 5px !important;
+            }
+            
+            .logo-link p {
+                font-size: 0.8rem !important;
+            }
+        }
+        
+        /* Grid-asettelu */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .card.service-card {
+            background: linear-gradient(135deg, rgba(0, 30, 60, 0.7), rgba(0, 60, 120, 0.7));
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(0, 150, 255, 0.1) inset;
+            border: 1px solid rgba(0, 150, 255, 0.3);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .card.service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 25px rgba(0, 150, 255, 0.15) inset;
+            border-color: rgba(0, 180, 255, 0.4);
+        }
+        
+        .card.service-card h3 {
+            font-size: 1.6rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 8px rgba(0, 100, 255, 0.5);
+            letter-spacing: 0.5px;
+            position: relative;
+        }
+        
+        .card.service-card p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 20px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+            flex-grow: 1;
+        }
+        
+        .card.service-card .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--accent-color), #0066cc);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(0, 100, 255, 0.4);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            font-size: 1rem;
+            align-self: flex-start;
+        }
+        
+        .card.service-card .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 100, 255, 0.5);
+        }
+        
+        .card.service-card .guide-tags {
+            margin-bottom: 15px;
+        }
+        
+        /* Responsiiviset tyylit */
+        @media (max-width: 992px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .card.service-card {
+                padding: 20px;
+            }
+            
+            .card.service-card h3 {
+                font-size: 1.4rem;
+            }
+            
+            .card.service-card p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Opaskorttien tagit */
+        .guide-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        
+        .guide-tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 5px 10px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 500;
+            color: white;
+        }
+        
+        .guide-tag.category {
+            background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+        }
+        
+        .guide-tag.level {
+            background: linear-gradient(135deg, #f2994a, #f2c94c);
+            color: #333;
+        }
+        
+        .guide-tag.level i {
+            color: #fff;
+            margin-right: 2px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        .guide-tag.updated {
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+        }
+        
+        .card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            min-height: 350px; /* Varmistetaan kortin minimikorkeus */
+            height: 100%; /* Kortti täyttää koko tilan */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card h3 {
+            font-size: 1.25rem; /* Pienempi otsikon fonttikoko */
+            line-height: 1.4; /* Parempi riviväli otsikolle */
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            font-weight: 600;
+            min-height: 2.8em; /* Varmistetaan tila 2-riviselle otsikolle */
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Rajoitetaan otsikko 2 riviin */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .card h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
+            margin-top: 10px;
+            transition: width 0.3s ease;
+        }
+        
+        .card:hover h3::after {
+            width: 80px;
+        }
+        
+        .card p {
+            font-size: 0.95rem; /* Pienempi leipätekstin fonttikoko */
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+            flex-grow: 1; /* Teksti täyttää tilan */
+            display: -webkit-box;
+            -webkit-line-clamp: 4; /* Rajoitetaan kuvaus 4 riviin */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Paranneltu Lue opas -painike */
+        .card .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-color), #0d6efd);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-align: center;
+            margin-top: auto; /* Painike aina kortin alaosassa */
+            width: 100%;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .card .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0d6efd, var(--accent-color));
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+        
+        .card .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card .btn:hover:before {
+            opacity: 1;
+        }
+        
+        .card .btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Ei hakutuloksia -kortin tyylit */
+        .no-results {
+            background: linear-gradient(135deg, rgba(0, 30, 60, 0.7), rgba(0, 60, 120, 0.7));
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(0, 150, 255, 0.1) inset;
+            border: 1px solid rgba(0, 150, 255, 0.3);
+            margin: 30px auto;
+            max-width: 600px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+            line-height: 1.6;
+            display: none;
+        }
+        
+        .no-results h3 {
+            font-size: 1.8rem;
+            color: white;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 8px rgba(0, 100, 255, 0.5);
+            letter-spacing: 0.5px;
+        }
+        
+        .no-results p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .no-results button {
+            margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--accent-color), #0066cc);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(0, 100, 255, 0.4);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: block;
+            width: fit-content;
+            min-width: 150px;
+        }
+        
+        .no-results button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0, 100, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sosiaalisen median painikkeet ja kielenvaihto -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/company/ai-patrik/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.tiktok.com/@ai.patrik" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/ai.patrik/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/aipatrik" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.youtube.com/channel/UCn6H3JoOIj_8h6CscQz5T7w" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                <a href="https://twitter.com/ai_patrik" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="language-selector">
+                <button class="lang-btn"><i class="fas fa-globe"></i> FI</button>
+                <div class="dropdown-content">
+                    <a href="#" class="active">Suomi</a>
+                    <a href="#" class="disabled">English (tulossa pian)</a>
+                    <a href="#" class="disabled">Svenska (tulossa pian)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container" style="display: flex; justify-content: center; align-items: center; padding: 20px 0; position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; width: 100%;">
+            <a href="../index.html" class="logo-link" style="display: block; text-decoration: none; position: relative; z-index: 100; text-align: center; padding: 0 40px;">
+                <h1 style="margin: 0 auto; font-size: 3rem; background: linear-gradient(135deg, var(--accent-color), #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 10px rgba(0, 200, 255, 0.3); white-space: nowrap; letter-spacing: 3px; display: inline-block; padding: 0 15px;">AI PATRIK</h1>
+                <p style="margin: 8px 0 0 0; font-size: 1.1rem; color: var(--text-light); opacity: 0.9; text-align: center;">Tekoälyn työkalut ja opastus</p>
+            </a>
+            <div style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);"> <!-- Oikea puoli mobiilivalikkoa varten -->
+                <button class="mobile-nav-toggle" style="background: rgba(0, 30, 60, 0.6); border: 1px solid rgba(0, 200, 255, 0.3); border-radius: 8px; cursor: pointer; padding: 12px; z-index: 100; box-shadow: 0 2px 10px rgba(0, 100, 255, 0.2); transition: all 0.3s ease;">
+                    <div class="hamburger" style="position: relative; width: 26px; height: 20px;">
+                        <span style="position: absolute; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-color), #0099ff); border-radius: 3px; top: 0; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px rgba(0, 200, 255, 0.5);"></span>
+                        <span style="position: absolute; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-color), #0099ff); border-radius: 3px; top: 8px; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px rgba(0, 200, 255, 0.5);"></span>
+                        <span style="position: absolute; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-color), #0099ff); border-radius: 3px; top: 16px; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px rgba(0, 200, 255, 0.5);"></span>
+                </div>
+            </button>
+            </div>
+        </div>
+    </header>
+    
+    <nav style="background: linear-gradient(90deg, rgba(0, 30, 60, 0.95), rgba(0, 60, 120, 0.9)); border-radius: 0; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); margin-bottom: 0px; position: relative; z-index: 5; padding: 10px 0; border-bottom: 1px solid rgba(0, 150, 255, 0.2);">
+        <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
+            <ul style="display: flex; justify-content: center; list-style: none; margin: 0; padding: 0;">
+                <li style="position: relative; margin: 0 8px;"><a href="../index.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Koti</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="tyokalut.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Työkalut</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="arvostelut.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Arvostelut</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="oppaat.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Oppaat</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="blogi.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Blogi</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="ukk.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">UKK</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="yhteystiedot.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Ota Yhteyttä</a></li>
+        </ul>
+        </div>
+    </nav>
+    
+    <section id="oppaat" style="padding-top: 50px; padding-bottom: 80px; background: linear-gradient(135deg, rgba(0, 15, 40, 0.9), rgba(0, 30, 80, 0.85)); position: relative;">
+        <!-- Tausta-animaatio -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; z-index: 0;">
+            <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 150, 255, 0.1) 0%, rgba(0, 100, 200, 0) 70%); top: -100px; right: 10%; animation: float 15s infinite ease-in-out;"></div>
+            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 200, 255, 0.1) 0%, rgba(0, 150, 200, 0) 70%); bottom: -50px; left: 15%; animation: float 12s infinite ease-in-out reverse;"></div>
+            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, rgba(100, 200, 255, 0.1) 0%, rgba(50, 150, 200, 0) 70%); top: 30%; right: 5%; animation: float 10s infinite ease-in-out 2s;"></div>
+        </div>
+        
+        <div class="container">
+            <h2 class="section-title">Kaikki oppaat</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; font-size: 1.1rem; line-height: 1.6; color: rgba(255, 255, 255, 0.95); text-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);">
+                Selaa kaikkia oppaita ja löydä juuri sinun tarpeisiisi sopivat ohjeet.
+            </p>
+            
+            <div class="guides-search-container">
+                <div class="search-box">
+                    <input type="text" id="guide-search" placeholder="Etsi oppaita...">
+                    <button id="search-button"><i class="fas fa-search"></i> Hae</button>
+                </div>
+                
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <label><i class="fas fa-tags" style="color: var(--accent-color);"></i> Kategoria:</label>
+                        <select id="category-filter">
+                            <option value="all">Kaikki kategoriat</option>
+                            <option value="perusteet">Perusteet</option>
+                            <option value="keskustelurobotit">Keskustelurobotit</option>
+                            <option value="kuvanluonti">Kuvanluonti</option>
+                            <option value="videogenerointi">Videogenerointi</option>
+                            <option value="aani">Ääni ja puhe</option>
+                            <option value="tuottavuus">Tuottavuus</option>
+                            <option value="liiketoiminta">Liiketoiminta</option>
+                            <option value="etiikka">Etiikka ja vastuullisuus</option>
+                            <option value="tietoturva">Tietoturva</option>
+                            <option value="yleiset">Yleiset AI-mallit</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label><i class="fas fa-layer-group" style="color: var(--accent-color);"></i> Taso:</label>
+                        <select id="level-filter">
+                            <option value="all">Kaikki tasot</option>
+                            <option value="aloittelija">Aloittelija</option>
+                            <option value="keskitaso">Keskitaso</option>
+                            <option value="edistynyt">Edistynyt</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label><i class="fas fa-calendar-alt" style="color: var(--accent-color);"></i> Päivitetty:</label>
+                        <select id="updated-filter">
+                            <option value="all">Kaikki</option>
+                            <option value="2025-03">Maaliskuu 2025</option>
+                            <option value="2025-02">Helmikuu 2025</option>
+                            <option value="2025-01">Tammikuu 2025</option>
+                            <option value="2024-12">Joulukuu 2024</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid">
+                <div class="card service-card" data-category="perusteet" data-level="aloittelija" data-updated="2025-03">
+                    <h3>Aloittelijan opas tekoälyyn</h3>
+                    <p>
+                        Kaikki mitä sinun tarvitsee tietää tekoälystä aloittaessasi. Peruskäsitteet, terminologia ja vinkit.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Perusteet</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i> Aloittelija
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 15.3.2025</span>
+                    </div>
+                    <a href="oppaat/aloittelijan-opas.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="liiketoiminta" data-level="keskitaso" data-updated="2025-03">
+                    <h3>Kuinka valita oikea AI-työkalu liiketoimintaasi</h3>
+                    <p>
+                        Vaiheittainen opas sopivan tekoälytyökalun valintaan yrityksesi tarpeisiin.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Liiketoiminta</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i> Keskitaso
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 10.3.2025</span>
+                    </div>
+                    <a href="oppaat/ai-tyokalun-valinta.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="liiketoiminta" data-level="keskitaso" data-updated="2025-03">
+                    <h3>Tekoälyn käyttö markkinoinnissa</h3>
+                    <p>
+                        Opas tekoälyn hyödyntämiseen markkinoinnissa: sisällöntuotanto, kohdentaminen, analytiikka ja automaatio.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Liiketoiminta</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i> Keskitaso
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 5.3.2025</span>
+                    </div>
+                    <a href="oppaat/tekoaly-markkinoinnissa.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="etiikka" data-level="keskitaso" data-updated="2025-02">
+                    <h3>Tekoälyn etiikka ja vastuullinen käyttö</h3>
+                    <p>
+                        Mitä sinun tulisi tietää tekoälyn eettisistä kysymyksistä ja miten käyttää tekoälyä vastuullisesti.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Etiikka ja vastuullisuus</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i> Keskitaso
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 25.2.2025</span>
+                    </div>
+                    <a href="oppaat/tekoalyn-etiikka.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="kuvanluonti" data-level="keskitaso" data-updated="2025-02">
+                    <h3>AI-kuvageneraattorit: Täydellinen opas</h3>
+                    <p>
+                        Kattava opas AI-kuvageneraattoreiden käyttöön: parhaat työkalut, vinkit ja tekniikat.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Kuvanluonti</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i> Keskitaso
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 20.2.2025</span>
+                    </div>
+                    <a href="oppaat/ai-kuvageneraattorit.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="tietoturva" data-level="edistynyt" data-updated="2025-02">
+                    <h3>Tekoäly ja tietoturva</h3>
+                    <p>
+                        Miten varmistaa tietoturva käytettäessä tekoälytyökaluja ja miten suojata yritystäsi tekoälyuhilta.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Tietoturva</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> Edistynyt
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 15.2.2025</span>
+                    </div>
+                    <a href="oppaat/tekoaly-tietoturva.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="keskustelurobotit" data-level="keskitaso" data-updated="2025-01">
+                    <h3>ChatGPT: Täydellinen käyttöopas</h3>
+                    <p>
+                        Kattava opas ChatGPT:n tehokkaaseen käyttöön: vinkit, parhaat käytännöt ja edistyneet tekniikat.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Keskustelurobotit</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i> Keskitaso
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 25.1.2025</span>
+                    </div>
+                    <a href="oppaat/chatgpt-opas.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="kuvanluonti" data-level="keskitaso" data-updated="2025-01">
+                    <h3>DALL-E: Opas AI-kuvageneraattoriin</h3>
+                    <p>
+                        Miten käyttää DALL-E:tä tehokkaasti kuvien luomiseen ja muokkaamiseen tekoälyn avulla.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Kuvanluonti</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i> Keskitaso
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 20.1.2025</span>
+                    </div>
+                    <a href="oppaat/dalle-opas.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="kuvanluonti" data-level="edistynyt" data-updated="2025-01">
+                    <h3>Midjourney: Edistynyt opas</h3>
+                    <p>
+                        Syvällinen opas Midjourneyn käyttöön: edistyneet promptit, parametrit ja tekniikat ammattimaisten kuvien luomiseen.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Kuvanluonti</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> Edistynyt
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 15.1.2025</span>
+                    </div>
+                    <a href="oppaat/midjourney-opas.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="videogenerointi" data-level="edistynyt" data-updated="2025-01">
+                    <h3>Runway: AI-videogeneroinnin opas</h3>
+                    <p>
+                        Kattava opas Runway-työkalun käyttöön videoiden luomisessa ja muokkaamisessa tekoälyn avulla.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Videogenerointi</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> Edistynyt
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 10.1.2025</span>
+                    </div>
+                    <a href="oppaat/runway-opas.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="aani" data-level="keskitaso" data-updated="2025-01">
+                    <h3>ElevenLabs: Opas AI-äänisynteesiin</h3>
+                    <p>
+                        Miten käyttää ElevenLabsia luonnollisen kuuloisen puheen luomiseen ja äänikirjojen, podcastien ja videoiden tuottamiseen.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Ääni ja puhe</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i> Keskitaso
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 5.1.2025</span>
+                    </div>
+                    <a href="oppaat/elevenlabs-opas.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="tuottavuus" data-level="keskitaso" data-updated="2024-12">
+                    <h3>Fireflies AI: Opas kokousten transkriptioon</h3>
+                    <p>
+                        Miten käyttää Fireflies AI:ta kokousten tallentamiseen, transkribointiin ja analysointiin tehokkaammin.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Tuottavuus</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i> Keskitaso
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 20.12.2024</span>
+                    </div>
+                    <a href="oppaat/fireflies-opas.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="tuottavuus" data-level="keskitaso" data-updated="2024-12">
+                    <h3>Perplexity AI: Opas tehokkaaseen tiedonhakuun</h3>
+                    <p>
+                        Miten käyttää Perplexity AI:ta tiedonhakuun, tutkimukseen ja vastausten löytämiseen tekoälyn avulla.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Tuottavuus</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i> Keskitaso
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 15.12.2024</span>
+                    </div>
+                    <a href="oppaat/perplexity-opas.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="yleiset" data-level="edistynyt" data-updated="2024-12">
+                    <h3>DeepSeek AI: Opas kiinalaiseen tekoälymalliin</h3>
+                    <p>
+                        Kattava opas DeepSeek AI:n käyttöön ja sen tarjoamiin mahdollisuuksiin eri käyttötarkoituksissa.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Yleiset AI-mallit</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> Edistynyt
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 10.12.2024</span>
+                    </div>
+                    <a href="oppaat/deepseek-opas.html" class="btn">Lue opas</a>
+                </div>
+                
+                <div class="card service-card" data-category="tuottavuus" data-level="aloittelija" data-updated="2024-12">
+                    <h3>Tome AI: Opas esitysten luomiseen</h3>
+                    <p>
+                        Opi luomaan vaikuttavia esityksiä ja tarinoita Tome AI -työkalun avulla.
+                    </p>
+                    <div class="guide-tags">
+                        <span class="guide-tag category">Tuottavuus</span>
+                        <span class="guide-tag level">
+                            <i class="fas fa-star"></i> Aloittelija
+                        </span>
+                        <span class="guide-tag updated">Päivitetty 10.12.2024</span>
+                    </div>
+                    <a href="oppaat/tome-opas.html" class="btn">Lue opas</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Aaltoileva siirtymä -->
+        <div class="services-wave">
+            <svg class="desktop-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,30 C250,60 350,10 720,30 C1080,50 1190,20 1440,40 L1440,100 L0,100 Z"></path>
+            </svg>
+            <svg class="mobile-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,70 C250,80 350,60 720,70 C1080,80 1190,60 1440,70 L1440,100 L0,100 Z"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <section class="newsletter-section">
+        <!-- Tausta-animaatio -->
+        <div class="background-animation">
+            <div class="animation-bubble bubble-1"></div>
+            <div class="animation-bubble bubble-2"></div>
+        </div>
+        
+        <div class="container">
+            <h2 class="section-title">Tilaa uutiskirjeemme</h2>
+            <p>
+                Saat viikoittain tietoa uusista työkaluista, vinkeistä ja erikoistarjouksista suoraan sähköpostiisi.
+            </p>
+            <div class="newsletter-form">
+                <p class="newsletter-coming-soon">Uutiskirjeen tilaus tulossa pian!</p>
+                <!-- <input type="email" placeholder="Sähköpostiosoitteesi" required>
+                <button type="submit">Tilaa</button> -->
+            </div>
+        </div>
+        
+        <!-- Aaltoileva siirtymä -->
+        <div class="newsletter-wave">
+            <svg class="desktop-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,30 C250,60 350,10 720,30 C1080,50 1190,20 1440,40 L1440,100 L0,100 Z"></path>
+            </svg>
+            <svg class="mobile-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,70 C250,80 350,60 720,70 C1080,80 1190,60 1440,70 L1440,100 L0,100 Z"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <footer class="footer-section">
+        <!-- Tausta-animaatio -->
+        <div class="background-animation">
+            <div class="animation-bubble bubble-1"></div>
+            <div class="animation-bubble bubble-2"></div>
+        </div>
+        
+        <div class="container">
+            <p>
+                &copy; 2025 AI Patrik. Kaikki oikeudet pidätetään.
+            </p>
+            <p>
+                <a href="tietoa-meista.html">Tietoa meistä</a> | 
+                <a href="tietosuojakaytanto.html">Tietosuojakäytäntö</a> | 
+                <a href="affiliate-ilmoitus.html">Affiliate-ilmoitus</a>
+            </p>
+            
+            <!-- Sosiaalisen median linkit footerissa -->
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/patrik-juuti-47777b354" target="_blank" title="LinkedIn" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.tiktok.com/@ai_patrik?_t=ZN-8uPcAu0qmEI&_r=1" target="_blank" title="TikTok" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/aipatrik?igsh=MW8xbGVwdnhoMmdj" target="_blank" title="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/152FjoPGba/" target="_blank" title="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://youtube.com/@aipatrik?si=1wh6UwMo9cIe5P-L" target="_blank" title="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://x.com/ai_patrik?t=tghvw8DbEglhrmC2-Xi5aw&s=09" target="_blank" title="X (Twitter)" class="twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/active-nav.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hakutoiminnallisuus
+            const searchInput = document.getElementById('guide-search');
+            const searchButton = document.getElementById('search-button');
+            const categoryFilter = document.getElementById('category-filter');
+            const levelFilter = document.getElementById('level-filter');
+            const updatedFilter = document.getElementById('updated-filter');
+            const guideCards = document.querySelectorAll('.grid .card');
+            const grid = document.querySelector('.grid');
+            
+            // Lisää service-card-luokka kaikille korteille
+                guideCards.forEach(card => {
+                if (!card.classList.contains('service-card')) {
+                    card.classList.add('service-card');
+                }
+            });
+            
+            function filterGuides() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const categoryValue = categoryFilter.value;
+                const levelValue = levelFilter.value;
+                const updatedValue = updatedFilter.value;
+                
+                let visibleCount = 0;
+                
+                guideCards.forEach(card => {
+                    const title = card.querySelector('h3').textContent.toLowerCase();
+                    const description = card.querySelector('p').textContent.toLowerCase();
+                    const category = card.getAttribute('data-category');
+                    const level = card.getAttribute('data-level');
+                    const updated = card.getAttribute('data-updated');
+                    
+                    const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
+                    const matchesCategory = categoryValue === 'all' || category === categoryValue;
+                    const matchesLevel = levelValue === 'all' || level === levelValue;
+                    const matchesUpdated = updatedValue === 'all' || updated === updatedValue;
+                    
+                    if (matchesSearch && matchesCategory && matchesLevel && matchesUpdated) {
+                        card.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Tarkista onko hakutuloksia
+                const noResultsElement = document.querySelector('.no-results');
+                
+                    if (visibleCount === 0) {
+                    if (!noResultsElement) {
+                        const noResults = document.createElement('div');
+                        noResults.className = 'no-results';
+                        noResults.style.display = 'block'; // Varmistetaan, että kortti näkyy heti
+                        noResults.innerHTML = `
+                            <h3>Ei hakutuloksia</h3>
+                            <p>Hakuehdoillasi ei löytynyt oppaita. Kokeile muuttaa hakuehtoja.</p>
+                            <button id="clear-search">Tyhjennä haku</button>
+                        `;
+                        grid.appendChild(noResults);
+
+                        // Lisätään tapahtumankäsittelijä tyhjennä haku -painikkeelle
+                        document.getElementById('clear-search').addEventListener('click', clearSearch);
+                    } else {
+                        // Varmistetaan, että olemassa oleva kortti näkyy
+                        noResultsElement.style.display = 'block';
+                    }
+                } else if (noResultsElement) {
+                    // Piilotetaan "Ei hakutuloksia" -kortti, jos hakutuloksia löytyy
+                    noResultsElement.style.display = 'none';
+                }
+            }
+            
+            function clearSearch() {
+                searchInput.value = '';
+                categoryFilter.value = 'all';
+                levelFilter.value = 'all';
+                updatedFilter.value = 'all';
+                filterGuides();
+            }
+            
+            searchButton.addEventListener('click', filterGuides);
+            searchInput.addEventListener('input', function(event) {
+                filterGuides(); // Suoritetaan haku joka näppäinpainalluksella
+            });
+            
+            categoryFilter.addEventListener('change', filterGuides);
+            levelFilter.addEventListener('change', filterGuides);
+            updatedFilter.addEventListener('change', filterGuides);
+        });
+    </script>
+    
+    <script src="../js/cookie-consent-loader.js"></script>
+</body>
+</html> 

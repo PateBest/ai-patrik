@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9QDDPLJZ9P"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9QDDPLJZ9P');
+    </script><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekoäly-sanakirja: Kattava opas tekoälyn termeihin ja käsitteisiin - AI Patrik</title>
+    <meta name="description" content="Kattava tekoäly-sanakirja, joka selittää yleisimmät tekoälyyn liittyvät termit ja käsitteet selkeästi. Opas auttaa ymmärtämään tekoälyn perusteet ja erikoissanaston.">
+    <!-- Favicon -->
+    <link rel="icon" href="../../images/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/mobile-nav.css">
+    <link rel="stylesheet" href="../../css/ai-character.css">
+    <link rel="stylesheet" href="../../css/active-nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Sosiaalisen median painikkeet ja kielenvaihto */
+        .top-bar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px 0;
+            background: linear-gradient(90deg, rgba(0, 30, 60, 0.95), rgba(0, 60, 120, 0.9));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            padding-right: 20px;
+            max-width: 100%;
+            margin-right: 0;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-right: 20px;
+        }
+        
+        .social-icons a {
+            color: var(--text-light);
+            font-size: 20px;
+            transition: all 0.3s ease;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            transform: scale(1.1);
+            text-decoration: none; /* Lisätty: poistaa alleviivauksen */
+            border-bottom: none; /* Lisätty: poistaa mahdollisen alareunan viivan */
+        }
+        
+        .social-icons a i {
+            position: relative; /* Lisätty: varmistaa että ikoni on oikeassa paikassa */
+            z-index: 2; /* Lisätty: varmistaa että ikoni on hover-efektin päällä */
+        }
+        
+        .social-icons a:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-color);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: -1;
+            opacity: 0.8;
+            border-radius: 50%;
+        }
+        
+        .social-icons a:hover {
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-icons a:hover:before {
+            transform: translateY(0);
+        }
+        
+        .social-icons a.linkedin:hover:before {
+            background-color: #0077B5;
+        }
+        
+        .social-icons a.tiktok:hover:before {
+            background-color: #000000;
+        }
+        
+        .social-icons a.instagram:hover:before {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+        
+        .social-icons a.facebook:hover:before {
+            background-color: #1877F2;
+        }
+        
+        .social-icons a.youtube:hover:before {
+            background-color: #FF0000;
+        }
+        
+        .social-icons a.twitter:hover:before {
+            background-color: #1DA1F2;
+        }
+        
+        .language-selector {
+            position: relative;
+            margin-left: 15px;
+        }
+        
+        .language-selector button {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .language-selector button:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .language-selector .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: var(--dark-surface);
+            min-width: 120px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            overflow: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .language-selector:hover .dropdown-content {
+            display: block;
+            transform: translateY(0);
+        }
+        
+        .language-selector .dropdown-content a {
+            color: var(--text-light);
+            padding: 12px 15px;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+        
+        .language-selector .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+        
+        .language-selector .dropdown-content a:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--accent-color);
+            padding-left: 20px;
+        }
+        
+        /* Responsive styles for "Lue lisää" cards */
+        .related-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .related-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Responsive title styles */
+        @media (max-width: 768px) {
+            .logo-link h1 {
+                font-size: 2.5rem !important;
+                letter-spacing: 2px !important;
+                padding: 0 10px !important;
+            }
+            
+            .logo-link p {
+                font-size: 0.9rem !important;
+            }
+            
+            /* Hampurilaisvalikon hover-efekti */
+            .mobile-nav-toggle:hover {
+                background: rgba(0, 40, 80, 0.8) !important;
+                transform: translateY(-2px) !important;
+                box-shadow: 0 4px 15px rgba(0, 150, 255, 0.3) !important;
+            }
+            
+            .mobile-nav-toggle:hover .hamburger span {
+                width: 90% !important;
+            }
+            
+            .mobile-nav-toggle:hover .hamburger span:nth-child(1) {
+                transform: translateY(-1px) !important;
+            }
+            
+            .mobile-nav-toggle:hover .hamburger span:nth-child(3) {
+                transform: translateY(1px) !important;
+            }
+            
+            /* Piilota otsikko kun valikko on auki */
+            body.nav-open .logo-link {
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+            
+            /* Piilota top bar painikkeet kun valikko on auki */
+            body.nav-open .top-bar {
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+            
+            /* Parannukset hampurilaisvalikon sisällä oleviin painikkeisiin */
+            nav ul li {
+                margin: 10px 0 !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            nav ul li a {
+                background: linear-gradient(135deg, rgba(0, 40, 80, 0.9), rgba(0, 60, 120, 0.9)) !important;
+                border: 1px solid rgba(0, 150, 255, 0.2) !important;
+                border-radius: 10px !important;
+                padding: 15px 25px !important;
+                font-weight: 500 !important;
+                letter-spacing: 0.5px !important;
+                text-transform: uppercase !important;
+                font-size: 1.1rem !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            nav ul li a:hover {
+                background: linear-gradient(135deg, rgba(0, 60, 120, 0.95), rgba(0, 100, 180, 0.95)) !important;
+                transform: translateY(-3px) !important;
+                box-shadow: 0 8px 20px rgba(0, 100, 255, 0.3) !important;
+                color: white !important;
+                border-color: rgba(0, 200, 255, 0.4) !important;
+            }
+            
+            nav ul li.active a {
+                background: linear-gradient(135deg, rgba(0, 100, 200, 0.95), rgba(0, 150, 255, 0.95)) !important;
+                color: white !important;
+                font-weight: 600 !important;
+                box-shadow: 0 5px 15px rgba(0, 150, 255, 0.4) !important;
+                border-color: rgba(0, 200, 255, 0.5) !important;
+            }
+            
+            /* Sulkemispainikkeen tyylit */
+            .nav-close-btn {
+                background: rgba(0, 40, 80, 0.9) !important;
+                border: 2px solid rgba(0, 150, 255, 0.3) !important;
+                color: white !important;
+                box-shadow: 0 4px 15px rgba(0, 100, 255, 0.3) !important;
+                transition: all 0.3s ease !important;
+            }
+            
+            .nav-close-btn:hover {
+                background: rgba(0, 60, 120, 0.95) !important;
+                transform: scale(1.1) !important;
+                box-shadow: 0 6px 20px rgba(0, 150, 255, 0.4) !important;
+            }
+            
+            .nav-close-btn i {
+                text-shadow: 0 0 10px rgba(0, 200, 255, 0.5) !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-link h1 {
+                font-size: 2rem !important;
+                letter-spacing: 1px !important;
+                padding: 0 5px !important;
+            }
+            
+            .logo-link p {
+                font-size: 0.8rem !important;
+            }
+        }
+        
+        /* Mobiiliresponsiivisuus top barille */
+        @media (max-width: 576px) {
+            .top-bar .social-icons {
+                gap: 10px;
+                margin-right: 15px;
+            }
+            
+            .top-bar .social-icons a {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .top-bar .social-icons {
+                gap: 8px;
+                margin-right: 10px;
+            }
+            
+            .top-bar .social-icons a {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+            
+            .top-bar .language-selector button {
+                padding: 5px 10px;
+                font-size: 13px;
+            }
+        }
+        
+        /* Opaskorttien tyylit */
+        .guide-section {
+            background: linear-gradient(135deg, rgba(0, 40, 80, 0.7), rgba(0, 60, 120, 0.7));
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            opacity: 0.8;
+        }
+        
+        .guide-section h2, .guide-section h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 100, 255, 0.4);
+        }
+        
+        .guide-section h4 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);
+        }
+        
+        .guide-section p, .guide-section ul, .guide-section li, .guide-section dl, .guide-section dt, .guide-section dd {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .guide-section img {
+            width: 100%;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+        
+        .guide-section img:hover {
+            transform: scale(1.02);
+        }
+        
+        .guide-cta {
+            background: linear-gradient(135deg, rgba(0, 100, 200, 0.8), rgba(0, 150, 255, 0.8));
+            padding: 2.5rem;
+            border-radius: 16px;
+            margin-top: 3rem;
+            text-align: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 100, 255, 0.4);
+            border: 1px solid rgba(0, 200, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ffffff, var(--accent-color));
+            opacity: 0.8;
+        }
+        
+        .guide-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .guide-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .guide-cta .btn, .btn {
+            background: linear-gradient(135deg, #ffffff, #f0f0f0);
+            color: var(--primary-color);
+            border: none;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-cta .btn:hover, .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .guide-section {
+                padding: 2rem;
+            }
+            
+            .related-cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Parannukset linkkien erottuvuuteen */
+        .guide-section a {
+            color: #4db8ff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 8px rgba(0, 150, 255, 0.5);
+            border-bottom: 1px dotted rgba(77, 184, 255, 0.5);
+            padding-bottom: 2px;
+        }
+        
+        .guide-section a:hover {
+            color: #80ccff;
+            border-bottom: 1px solid rgba(128, 204, 255, 0.8);
+            text-shadow: 0 0 12px rgba(0, 150, 255, 0.8);
+        }
+        
+        /* Guide content elementtien yhtenäistäminen */
+        .guide-content {
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: rgba(0, 30, 60, 0.4);
+            border-radius: 12px;
+            border: 1px solid rgba(0, 150, 255, 0.15);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .guide-steps, .guide-tips, .guide-example {
+            margin-bottom: 1.5rem;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: linear-gradient(135deg, var(--accent-color), #0d6efd);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0, 100, 255, 0.3);
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        /* Tekstin visuaalinen parantaminen */
+        .guide-section p, .guide-section ul, .guide-section li {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #e6e6e6;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.2px;
+        }
+        
+        .guide-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 100, 255, 0.5);
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+        
+        .guide-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            border-radius: 3px;
+            box-shadow: 0 2px 6px rgba(0, 100, 255, 0.3);
+        }
+        
+        .guide-section h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1.2rem;
+            color: white;
+            text-shadow: 0 2px 8px rgba(0, 100, 255, 0.4);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        
+        .guide-section h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-color), rgba(13, 110, 253, 0.5));
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(0, 100, 255, 0.2);
+        }
+        
+        .guide-section h4 {
+            font-size: 1.4rem;
+            margin: 1.5rem 0 1rem;
+            color: white;
+            text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);
+        }
+        
+        /* Esimerkkien ja vinkkien tyylit */
+        .guide-example, .guide-tips {
+            background: rgba(0, 40, 80, 0.4);
+            border-left: 4px solid var(--accent-color);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .guide-example h4, .guide-tips h4 {
+            margin-top: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .guide-tips {
+            border-left-color: #28a745;
+        }
+        
+        .guide-tips h4 {
+            color: #28a745;
+        }
+        
+        @media (max-width: 768px) {
+            .guide-section {
+                padding: 2rem 1.5rem;
+            }
+            
+            .guide-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .guide-section h3 {
+                font-size: 1.5rem;
+            }
+            
+            .step {
+                flex-direction: column;
+            }
+            
+            .step-number {
+                margin-bottom: 10px;
+            }
+        }
+        
+        /* Yhtenäinen opas-osio */
+        .guide-container {
+            background: linear-gradient(135deg, rgba(0, 40, 80, 0.7), rgba(0, 60, 120, 0.7));
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 150, 255, 0.2);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            opacity: 0.8;
+        }
+        
+        .guide-section {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            margin-bottom: 3.5rem;
+            position: relative;
+            overflow: visible;
+        }
+        
+        .guide-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .guide-section::before {
+            display: none;
+        }
+        
+        .guide-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 100, 255, 0.5);
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 12px;
+            display: inline-block;
+        }
+        
+        .guide-section h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-color), #0d6efd);
+            border-radius: 3px;
+            box-shadow: 0 2px 6px rgba(0, 100, 255, 0.3);
+        }
+        
+        /* Osioiden välinen jakaja */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, rgba(0, 150, 255, 0.05), rgba(0, 150, 255, 0.2), rgba(0, 150, 255, 0.05));
+            margin: 2rem 0 3.5rem;
+            position: relative;
+        }
+        
+        .section-divider::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 150, 255, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .guide-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .guide-section {
+                margin-bottom: 2.5rem;
+            }
+            
+            .section-divider {
+                margin: 1.5rem 0 2.5rem;
+            }
+        }
+        
+        /* CTA-painikkeen hover-efekti */
+        .guide-cta .btn {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .guide-cta .btn:hover {
+            transform: translateY(-5px) scale(1.08);
+            box-shadow: 0 15px 30px rgba(0, 166, 126, 0.4);
+            background: linear-gradient(135deg, #00c4a7, #00e0c2);
+        }
+        
+        .guide-cta .btn:active {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 166, 126, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Sosiaalisen median painikkeet ja kielenvaihto -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/patrik-juuti-47777b354" target="_blank" title="LinkedIn" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.tiktok.com/@ai_patrik?_t=ZN-8uPcAu0qmEI&_r=1" target="_blank" title="TikTok" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/aipatrik?igsh=MW8xbGVwdnhoMmdj" target="_blank" title="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/152FjoPGba/" target="_blank" title="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://youtube.com/@aipatrik?si=1wh6UwMo9cIe5P-L" target="_blank" title="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://x.com/ai_patrik?t=tghvw8DbEglhrmC2-Xi5aw&s=09" target="_blank" title="X (Twitter)" class="twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <div class="language-selector">
+                <button class="lang-btn"><i class="fas fa-globe"></i> FI</button>
+                <div class="dropdown-content">
+                    <a href="#" class="active">Suomi</a>
+                    <a href="#" class="disabled">English (tulossa pian)</a>
+                    <a href="#" class="disabled">Svenska (tulossa pian)</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container" style="display: flex; justify-content: center; align-items: center; padding: 20px 0; position: relative; z-index: 10; max-width: 1200px; margin: 0 auto; width: 100%;">
+            <a href="../../index.html" class="logo-link" style="display: block; text-decoration: none; position: relative; z-index: 100; text-align: center; padding: 0 40px;">
+                <h1 style="margin: 0 auto; font-size: 3rem; background: linear-gradient(135deg, var(--accent-color), #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 2px 10px rgba(0, 200, 255, 0.3); white-space: nowrap; letter-spacing: 3px; display: inline-block; padding: 0 15px;">AI PATRIK</h1>
+                <p style="margin: 8px 0 0 0; font-size: 1.1rem; color: var(--text-light); opacity: 0.9; text-align: center;">Tekoälyn työkalut ja opastus</p>
+            </a>
+            <div style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);"> <!-- Oikea puoli mobiilivalikkoa varten -->
+                <button class="mobile-nav-toggle" style="background: rgba(0, 30, 60, 0.6); border: 1px solid rgba(0, 200, 255, 0.3); border-radius: 8px; cursor: pointer; padding: 12px; z-index: 100; box-shadow: 0 2px 10px rgba(0, 100, 255, 0.2); transition: all 0.3s ease;">
+                    <div class="hamburger" style="position: relative; width: 26px; height: 20px;">
+                        <span style="position: absolute; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-color), #0099ff); border-radius: 3px; top: 0; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px rgba(0, 200, 255, 0.5);"></span>
+                        <span style="position: absolute; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-color), #0099ff); border-radius: 3px; top: 8px; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px rgba(0, 200, 255, 0.5);"></span>
+                        <span style="position: absolute; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-color), #0099ff); border-radius: 3px; top: 16px; left: 0; transition: all 0.3s ease; box-shadow: 0 0 5px rgba(0, 200, 255, 0.5);"></span>
+                </div>
+            </button>
+            </div>
+        </div>
+    </header>
+    
+    <nav style="background: linear-gradient(90deg, rgba(0, 30, 60, 0.95), rgba(0, 60, 120, 0.9)); border-radius: 0; box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2); margin-bottom: 0px; position: relative; z-index: 5; padding: 10px 0; border-bottom: 1px solid rgba(0, 150, 255, 0.2);">
+        <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
+            <ul style="display: flex; justify-content: center; list-style: none; margin: 0; padding: 0;">
+                <li style="position: relative; margin: 0 8px;"><a href="../../index.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Koti</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../tyokalut.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Työkalut</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../arvostelut.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Arvostelut</a></li>
+                <li class="active" style="position: relative; margin: 0 8px;"><a href="../oppaat.html" style="display: block; padding: 12px 22px; color: white; text-decoration: none; font-weight: 600; transition: all 0.3s ease; position: relative; background: linear-gradient(135deg, rgba(0, 100, 200, 0.95), rgba(0, 150, 255, 0.95)); border-radius: 30px; box-shadow: 0 5px 15px rgba(0, 150, 255, 0.4); letter-spacing: 0.3px; border: 1px solid rgba(0, 200, 255, 0.5);">Oppaat</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../blogi.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Blogi</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../ukk.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">UKK</a></li>
+                <li style="position: relative; margin: 0 8px;"><a href="../yhteystiedot.html" style="display: block; padding: 12px 22px; color: var(--text-light); text-decoration: none; font-weight: 500; transition: all 0.3s ease; position: relative; background: rgba(255, 255, 255, 0.08); border-radius: 30px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); letter-spacing: 0.3px;" onmouseover="this.style.background='linear-gradient(135deg, rgba(0, 100, 200, 0.4), rgba(0, 70, 150, 0.4))'; this.style.color='white'; this.style.boxShadow='0 4px 12px rgba(0, 100, 200, 0.3)';" onmouseout="this.style.background='rgba(255, 255, 255, 0.08)'; this.style.color='var(--text-light)'; this.style.boxShadow='0 2px 6px rgba(0, 0, 0, 0.15)';">Ota Yhteyttä</a></li>
+        </ul>
+        </div>
+    </nav>
+    
+    <section style="padding-top: 50px; padding-bottom: 80px; background: linear-gradient(135deg, rgba(0, 15, 40, 0.9), rgba(0, 30, 80, 0.85)); position: relative;">
+        <!-- Tausta-animaatio -->
+        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow: hidden; z-index: 0;">
+            <div style="position: absolute; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 150, 255, 0.1) 0%, rgba(0, 100, 200, 0) 70%); top: -100px; right: 10%; animation: float 15s infinite ease-in-out;"></div>
+            <div style="position: absolute; width: 200px; height: 200px; border-radius: 50%; background: radial-gradient(circle, rgba(0, 200, 255, 0.1) 0%, rgba(0, 150, 200, 0) 70%); bottom: -50px; left: 15%; animation: float 12s infinite ease-in-out reverse;"></div>
+            <div style="position: absolute; width: 150px; height: 150px; border-radius: 50%; background: radial-gradient(circle, rgba(100, 200, 255, 0.1) 0%, rgba(50, 150, 200, 0) 70%); top: 30%; right: 5%; animation: float 10s infinite ease-in-out 2s;"></div>
+        </div>
+        
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 40px; position: relative; z-index: 1;">
+                <h2 class="section-title">Tekoäly-sanakirja: Kattava opas tekoälyn termeihin ja käsitteisiin</h2>
+                <p style="font-size: 1.2rem; line-height: 1.5; max-width: 800px; margin: 1rem auto 0; color: #e0e0e0;">
+                    Selkeä ja kattava opas tekoälyn keskeisiin termeihin ja käsitteisiin. Tämä sanakirja auttaa sinua ymmärtämään tekoälyyn liittyvää sanastoa ja pysymään ajan tasalla nopeasti kehittyvällä alalla.
+                </p>
+            </div>
+            
+            <div class="guide-container">
+                <!-- SISÄLTÖ ALKAA TÄSTÄ -->
+                
+                <!-- Esimerkki sisältöosio - kopioi tämä rakenne jokaiselle osiolle -->
+                <div class="guide-section">
+                    <h2>Johdanto tekoälyn sanastoon</h2>
+                    
+                    <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/00a67e/FFFFFF/png?text=Tekoäly-sanakirja" alt="Tekoäly-sanakirja" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoälyn termien ymmärtäminen on avain alan kehityksen seuraamiseen</p>
+                    </div>
+                    
+                    <div class="guide-content">
+                        <p>
+                            Tervetuloa tekoäly-sanakirjaan! Tekoäly kehittyy vauhdilla, ja uusia termejä ilmestyy jatkuvasti. Tämän oppaan tarkoituksena on auttaa sinua ymmärtämään tekoälyyn liittyvää sanastoa selkeästi ja kattavasti, olipa kyseessä sitten peruskäsitteet tai edistyneemmät termit.
+                        </p>
+                        
+                        <p>
+                            Tässä tekoäly-sanakirjassa käsitellään seuraavia aiheita:
+                        </p>
+                        
+                        <ul>
+                            <li>Tekoälyn peruskäsitteet ja määritelmät (toinen osio)</li>
+                            <li>Koneoppimisen ja syväoppimisen termistö (kolmas osio)</li>
+                            <li>Tekoälyn sovellukset ja käyttökohteet (neljäs osio)</li>
+                            <li>Tekoälyteknologioiden vertailu (viides osio)</li>
+                            <li>Tekoälyn etiikka ja tulevaisuuden näkymät (kuudes osio)</li>
+                        </ul>
+                        
+                        <p>
+                            Tämä sanakirja sopii kaikille tekoälystä kiinnostuneille – olitpa sitten vasta-alkaja, joka haluaa ymmärtää perusasiat, tai ammattilainen, joka haluaa päivittää tietojaan uusimmista käsitteistä. Voit lukea osiot järjestyksessä tai siirtyä suoraan sinua kiinnostavaan kohtaan.
+                        </p>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Tekoälyn termistö kehittyy jatkuvasti. Pyrimme päivittämään tätä sanakirjaa säännöllisesti, mutta kannattaa myös seurata alan uutisia ja julkaisuja pysyäksesi ajan tasalla uusimmista käsitteistä ja trendeistä.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- Toinen osio -->
+                <div class="guide-section">
+                    <h2>Tekoälyn peruskäsitteet ja määritelmät</h2>
+                    
+                    <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/00a67e/FFFFFF/png?text=Tekoälyn+peruskäsitteet" alt="Tekoälyn peruskäsitteet" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoälyn peruskäsitteiden ymmärtäminen on välttämätöntä alan kokonaisuuden hahmottamiseksi</p>
+                    </div>
+                    
+                    <div class="guide-content">
+                        <p>
+                            Tässä osiossa käsittelemme tekoälyn keskeisimmät peruskäsitteet ja määritelmät. Nämä termit muodostavat perustan, jonka avulla voit ymmärtää monimutkaisempiakin tekoälyyn liittyviä konsepteja.
+                        </p>
+                        
+                        <h3>Tekoäly (AI, Artificial Intelligence)</h3>
+                        <p>
+                            Tekoäly on tietojenkäsittelytieteen osa-alue, joka pyrkii luomaan älykkäitä koneita, jotka voivat suorittaa tehtäviä, jotka tyypillisesti vaativat ihmisen älykkyyttä. Näitä tehtäviä ovat mm. visuaalinen havainnointi, puheentunnistus, päätöksenteko ja kielten kääntäminen. Tekoäly voidaan jakaa heikkoon tekoälyyn (kapean alan osaaminen) ja vahvaan tekoälyyn (yleinen älykkyys).
+                        </p>
+                        
+                        <h3>Heikko tekoäly (Narrow AI)</h3>
+                        <p>
+                            Heikko tekoäly on suunniteltu ja koulutettu suorittamaan tiettyä tehtävää. Nykyiset tekoälyratkaisut ovat kaikki heikkoja tekoälyjä. Esimerkiksi shakkia pelaava tekoäly, kasvojentunnistusjärjestelmät ja virtuaaliavustajat kuten Siri tai Alexa ovat heikkoja tekoälyjä.
+                        </p>
+                        
+                        <h3>Vahva tekoäly (Strong AI / AGI)</h3>
+                        <p>
+                            Vahva tekoäly, jota kutsutaan myös yleiseksi tekoälyksi (AGI, Artificial General Intelligence), viittaa tekoälyyn, joka kykenee ymmärtämään, oppimaan ja soveltamaan tietoa eri aloilla ihmisen tavoin. Tällaista tekoälyä ei ole vielä kehitetty, mutta se on monien tutkijoiden tavoitteena.
+                        </p>
+                        
+                        <h3>Koneoppiminen (Machine Learning)</h3>
+                        <p>
+                            Koneoppiminen on tekoälyn osa-alue, jossa järjestelmät oppivat datasta ilman, että niitä on erikseen ohjelmoitu jokaista tehtävää varten. Koneoppimisalgoritmit parantavat suorituskykyään sitä mukaa kun ne altistuvat uudelle datalle.
+                        </p>
+                        
+                        <h3>Algoritmi</h3>
+                        <p>
+                            Algoritmi on joukko sääntöjä tai ohjeita, joita tekoäly noudattaa ratkaistessaan ongelmia tai tehdessään päätöksiä. Algoritmit ovat tekoälyn "aivot", jotka määrittävät, miten se käsittelee tietoa ja reagoi eri tilanteisiin.
+                        </p>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Tekoälyn peruskäsitteiden ymmärtäminen auttaa sinua seuraamaan alan kehitystä ja keskusteluja. Vaikka termistö voi aluksi tuntua monimutkaiselta, näiden peruskäsitteiden hallinta antaa sinulle hyvän pohjan syventyä aiheeseen tarkemmin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- Kolmas osio -->
+                <div class="guide-section">
+                    <h2>Koneoppimisen ja syväoppimisen termistö</h2>
+                    
+                    <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/00a67e/FFFFFF/png?text=Koneoppiminen+ja+syväoppiminen" alt="Koneoppiminen ja syväoppiminen" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Koneoppiminen ja syväoppiminen ovat tekoälyn keskeisimpiä teknologioita</p>
+                    </div>
+                    
+                    <div class="guide-content">
+                        <p>
+                            Koneoppiminen ja syväoppiminen ovat tekoälyn tärkeimpiä osa-alueita, jotka mahdollistavat järjestelmien oppimisen ja kehittymisen. Tässä osiossa käymme läpi näihin liittyvät keskeiset termit ja käsitteet.
+                        </p>
+                        
+                        <h3>Neuroverkko (Neural Network)</h3>
+                        <p>
+                            Neuroverkot ovat koneoppimisen malleja, jotka on suunniteltu jäljittelemään ihmisaivojen toimintaa. Ne koostuvat toisiinsa kytketyistä "neuroneista", jotka käsittelevät ja välittävät tietoa. Neuroverkot ovat erityisen tehokkaita tunnistamaan monimutkaisia kuvioita suurista tietomääristä.
+                        </p>
+                        
+                        <h3>Syväoppiminen (Deep Learning)</h3>
+                        <p>
+                            Syväoppiminen on koneoppimisen osa-alue, joka käyttää monikerroksisia neuroverkkoja (syviä neuroverkkoja) oppimiseen. Syväoppiminen on mahdollistanut merkittäviä läpimurtoja esimerkiksi kuvantunnistuksessa, luonnollisen kielen käsittelyssä ja pelien pelaamisessa.
+                        </p>
+                        
+                        <h3>Syvä neuroverkko (Deep Neural Network, DNN)</h3>
+                        <p>
+                            Syvät neuroverkot ovat neuroverkkoja, joissa on useita piilotettuja kerroksia neuronien välillä. Nämä monimutkaiset verkot kykenevät oppimaan erittäin monimutkaisia malleja ja ovat syväoppimisen perusta.
+                        </p>
+                        
+                        <h3>Ohjattu oppiminen (Supervised Learning)</h3>
+                        <p>
+                            Ohjattu oppiminen on koneoppimisen menetelmä, jossa algoritmia koulutetaan merkityllä datalla. Algoritmi oppii tekemään ennusteita tai luokitteluja uudelle datalle aiempien esimerkkien perusteella. Esimerkiksi sähköpostin roskapostisuodatin on ohjatun oppimisen sovellus.
+                        </p>
+                        
+                        <h3>Ohjaamaton oppiminen (Unsupervised Learning)</h3>
+                        <p>
+                            Ohjaamattomassa oppimisessa algoritmia koulutetaan datalla, jota ei ole merkitty tai luokiteltu. Algoritmin tehtävänä on löytää datasta rakenteita tai kuvioita ilman ennalta määritettyjä vastauksia. Klusterointi ja dimensioiden vähentäminen ovat yleisiä ohjaamattoman oppimisen tekniikoita.
+                        </p>
+                        
+                        <h3>Vahvistusoppiminen (Reinforcement Learning)</h3>
+                        <p>
+                            Vahvistusoppimisessa algoritmi oppii kokeilemalla ja saamalla palautetta toiminnastaan. Algoritmi saa palkintoja tai rangaistuksia tekemistään toimista, ja se pyrkii maksimoimaan saamansa palkinnot. Tätä menetelmää käytetään esimerkiksi robotiikassa ja pelien pelaamisessa.
+                        </p>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Koneoppimisen ja syväoppimisen termit voivat tuntua teknisiltä, mutta niiden perusperiaatteet ovat yksinkertaisia: järjestelmät oppivat datasta ja parantavat suorituskykyään kokemuksen myötä. Näiden käsitteiden ymmärtäminen auttaa hahmottamaan, miten modernit tekoälysovellukset toimivat.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- Neljäs osio -->
+                <div class="guide-section">
+                    <h2>Tekoälyn sovellukset ja käyttökohteet</h2>
+                    
+                    <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/00a67e/FFFFFF/png?text=Tekoälyn+sovellukset" alt="Tekoälyn sovellukset" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoälyä hyödynnetään nykyään lukuisilla eri aloilla</p>
+                    </div>
+                    
+                    <div class="guide-content">
+                        <p>
+                            Tekoäly on mullistanut lukuisia aloja, ja sen sovelluksia löytyy lähes kaikkialta. Tässä osiossa käymme läpi tekoälyn tärkeimpiä sovelluksia ja käyttökohteita sekä niihin liittyviä keskeisiä termejä.
+                        </p>
+                        
+                        <h3>Luonnollisen kielen käsittely (Natural Language Processing, NLP)</h3>
+                        <p>
+                            Luonnollisen kielen käsittely on tekoälyn osa-alue, joka keskittyy koneiden ja ihmisten väliseen kommunikaatioon luonnollisella kielellä. NLP-teknologioita käytetään mm. kääntäjissä, chatboteissa, tekstianalytiikassa ja puheentunnistuksessa.
+                        </p>
+                        
+                        <h3>Generatiivinen tekoäly (Generative AI)</h3>
+                        <p>
+                            Generatiivinen tekoäly viittaa tekoälyjärjestelmiin, jotka kykenevät luomaan uutta sisältöä, kuten tekstiä, kuvia, musiikkia tai videota. Tunnettuja esimerkkejä ovat ChatGPT (teksti), DALL-E (kuvat) ja Midjourney (kuvat). Generatiivinen tekoäly on noussut valtavirtaan viime vuosina ja mullistanut luovan työn prosesseja.
+                        </p>
+                        
+                        <h3>Konenäkö (Computer Vision)</h3>
+                        <p>
+                            Konenäkö on tekoälyn ala, joka keskittyy opettamaan koneille kykyä "nähdä" ja tulkita visuaalista informaatiota. Konenäköä hyödynnetään mm. kasvojentunnistuksessa, lääketieteellisessä kuvantamisessa, autonomisissa ajoneuvoissa ja laadunvalvonnassa.
+                        </p>
+                        
+                        <h3>Suosittelujärjestelmät (Recommendation Systems)</h3>
+                        <p>
+                            Suosittelujärjestelmät ovat tekoälysovelluksia, jotka analysoivat käyttäjien mieltymyksiä ja käyttäytymistä tarjotakseen personoituja suosituksia. Näitä järjestelmiä käytetään laajasti verkkokaupassa, suoratoistopalveluissa ja sosiaalisessa mediassa.
+                        </p>
+                        
+                        <h3>Robotiikka ja automaatio</h3>
+                        <p>
+                            Tekoälyä hyödynnetään robotiikassa ja automaatiossa mahdollistamaan koneiden itsenäinen toiminta ja päätöksenteko. Sovelluksia löytyy teollisuudesta, logistiikasta, terveydenhuollosta ja kotitalouksista. Esimerkkejä ovat teollisuusrobotit, autonomiset ajoneuvot ja palvelurobotit.
+                        </p>
+                        
+                        <h3>Tekoäly terveydenhuollossa</h3>
+                        <p>
+                            Terveydenhuollossa tekoälyä käytetään mm. sairauksien diagnosoinnissa, lääkekehityksessä, potilastietojen analysoinnissa ja hoitosuunnitelmien laatimisessa. Tekoäly voi tunnistaa kuvioita ja poikkeavuuksia, joita ihmissilmä ei välttämättä havaitse, mikä mahdollistaa tarkemman ja nopeamman diagnostiikan.
+                        </p>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Tekoälyn sovellukset kehittyvät jatkuvasti, ja uusia käyttökohteita syntyy koko ajan. Seuraamalla alan uutisia ja julkaisuja pysyt ajan tasalla uusimmista innovaatioista ja trendeistä. Monet tekoälysovellukset ovat myös saatavilla kuluttajille, joten voit kokeilla niitä itse ja saada käytännön kokemusta niiden toiminnasta.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- Viides osio -->
+                <div class="guide-section">
+                    <h2>Tekoälyteknologioiden vertailu</h2>
+                    
+                    <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/00a67e/FFFFFF/png?text=Tekoälyteknologioiden+vertailu" alt="Tekoälyteknologioiden vertailu" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Eri tekoälyteknologioilla on omat vahvuutensa ja käyttökohteensa</p>
+                    </div>
+                    
+                    <div class="guide-content">
+                        <p>
+                            Tekoälyteknologioita on monenlaisia, ja niillä kaikilla on omat vahvuutensa ja heikkoutensa. Tässä osiossa vertailemme yleisimpiä tekoälyteknologioita ja niiden soveltuvuutta eri käyttötarkoituksiin.
+                        </p>
+                        
+                        <h3>Suuret kielimallit vs. perinteiset NLP-menetelmät</h3>
+                        <p>
+                            Suuret kielimallit (LLM, Large Language Models) kuten GPT, BERT ja LLaMA ovat mullistaneet luonnollisen kielen käsittelyn. Verrattuna perinteisiin NLP-menetelmiin, suuret kielimallit:
+                        </p>
+                        <ul>
+                            <li><strong>Ymmärtävät kontekstia paremmin</strong>: LLM:t pystyvät ymmärtämään pitkiä tekstejä ja niiden kontekstia</li>
+                            <li><strong>Ovat monikäyttöisempiä</strong>: Samaa mallia voidaan käyttää moniin eri tehtäviin kuten tekstin tuottamiseen, kääntämiseen ja kysymyksiin vastaamiseen</li>
+                            <li><strong>Vaativat enemmän laskentaresursseja</strong>: LLM:t ovat huomattavasti raskaampia kuin perinteiset menetelmät</li>
+                            <li><strong>Voivat tuottaa hallusinaatioita</strong>: LLM:t saattavat tuottaa virheellistä tietoa itsevarmasti esitettynä</li>
+                        </ul>
+                        
+                        <h3>Syväoppiminen vs. perinteinen koneoppiminen</h3>
+                        <p>
+                            Syväoppiminen ja perinteinen koneoppiminen eroavat toisistaan monin tavoin:
+                        </p>
+                        <ul>
+                            <li><strong>Syväoppiminen</strong>: Käyttää neuroverkkoja, oppii automaattisesti piirteitä datasta, vaatii paljon dataa ja laskentaresursseja, soveltuu hyvin monimutkaisiin tehtäviin kuten kuvantunnistukseen</li>
+                            <li><strong>Perinteinen koneoppiminen</strong>: Käyttää algoritmeja kuten päätöspuut ja tukivektorikoneet, vaatii manuaalista piirteiden valintaa, toimii pienemmillä datamäärillä, on helpommin tulkittavissa</li>
+                        </ul>
+                        
+                        <h3>Eri tekoälyalustojen vertailu</h3>
+                        <p>
+                            Markkinoilla on useita tekoälyalustoja, joilla on omat vahvuutensa:
+                        </p>
+                        <ul>
+                            <li><strong>OpenAI (ChatGPT, DALL-E)</strong>: Erinomainen tekstin ja kuvien tuottamisessa, helppokäyttöinen API, mutta suljettu lähdekoodi ja maksullinen</li>
+                            <li><strong>Google AI (Gemini, Bard)</strong>: Vahva integraatio Googlen palveluihin, hyvä hakutoiminnallisuus, mutta rajoitettu saatavuus</li>
+                            <li><strong>Avoimen lähdekoodin mallit (LLaMA, Mistral)</strong>: Ilmaisia, muokattavia ja paikallisesti ajettavia, mutta vaativat teknistä osaamista ja laskentaresursseja</li>
+                            <li><strong>Microsoft Azure AI</strong>: Laaja valikoima yritystason palveluita, hyvä skaalautuvuus, mutta voi olla monimutkainen ja kallis</li>
+                        </ul>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Tekoälyteknologian valinnassa kannattaa huomioida käyttötarkoitus, saatavilla olevat resurssit, tietoturva- ja yksityisyysvaatimukset sekä tarvittava tarkkuus. Usein paras ratkaisu on yhdistelmä eri teknologioita, jotka täydentävät toisiaan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- Kuudes osio -->
+                <div class="guide-section">
+                    <h2>Tekoälyn etiikka ja tulevaisuuden näkymät</h2>
+                    
+                    <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/00a67e/FFFFFF/png?text=Tekoälyn+etiikka+ja+tulevaisuus" alt="Tekoälyn etiikka ja tulevaisuus" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoälyn kehitys herättää tärkeitä eettisiä kysymyksiä ja avaa uusia mahdollisuuksia</p>
+                    </div>
+                    
+                    <div class="guide-content">
+                        <p>
+                            Tekoälyn nopea kehitys tuo mukanaan sekä valtavia mahdollisuuksia että merkittäviä eettisiä haasteita. Tässä osiossa käsittelemme tekoälyyn liittyviä eettisiä kysymyksiä ja tulevaisuuden näkymiä sekä niihin liittyviä keskeisiä termejä.
+                        </p>
+                        
+                        <h3>Tekoälyn etiikka</h3>
+                        <p>
+                            Tekoälyn etiikka käsittelee moraalisia kysymyksiä, jotka liittyvät tekoälyn kehittämiseen, käyttöönottoon ja käyttöön. Keskeisiä eettisiä periaatteita ovat:
+                        </p>
+                        <ul>
+                            <li><strong>Läpinäkyvyys ja selitettävyys</strong>: Tekoälyjärjestelmien toiminnan tulisi olla ymmärrettävää ja selitettävissä</li>
+                            <li><strong>Oikeudenmukaisuus ja syrjimättömyys</strong>: Tekoälyn ei tulisi vahvistaa olemassa olevia ennakkoluuloja tai syrjiä tiettyjä ryhmiä</li>
+                            <li><strong>Yksityisyys ja tietosuoja</strong>: Tekoälyjärjestelmien tulisi kunnioittaa yksilöiden yksityisyyttä ja suojata henkilötietoja</li>
+                            <li><strong>Vastuullisuus</strong>: Tekoälyn kehittäjien ja käyttäjien tulisi kantaa vastuu järjestelmien toiminnasta</li>
+                            <li><strong>Ihmiskeskeisyys</strong>: Tekoälyn tulisi palvella ihmiskuntaa ja kunnioittaa ihmisarvoa</li>
+                        </ul>
+                        
+                        <h3>Tekoälyn sääntelyyn liittyvät termit</h3>
+                        <p>
+                            Tekoälyn sääntelyyn liittyy useita tärkeitä käsitteitä:
+                        </p>
+                        <ul>
+                            <li><strong>EU:n tekoälyasetus (AI Act)</strong>: Euroopan unionin sääntelykehys tekoälylle, joka luokittelee tekoälyjärjestelmät riskitasojen mukaan</li>
+                            <li><strong>Riskiperusteinen lähestymistapa</strong>: Sääntelymalli, jossa vaatimukset riippuvat tekoälyjärjestelmän riskitasosta</li>
+                            <li><strong>Korkean riskin tekoälyjärjestelmät</strong>: Järjestelmät, joilla on merkittävä vaikutus ihmisten terveyteen, turvallisuuteen tai perusoikeuksiin</li>
+                            <li><strong>Tekoälyn vaikutustenarviointi</strong>: Prosessi, jossa arvioidaan tekoälyjärjestelmän mahdollisia vaikutuksia eri sidosryhmiin</li>
+                        </ul>
+                        
+                        <h3>Tekoälyn tulevaisuuden näkymät</h3>
+                        <p>
+                            Tekoälyn tulevaisuuteen liittyy useita keskeisiä käsitteitä ja trendejä:
+                        </p>
+                        <ul>
+                            <li><strong>Yleinen tekoäly (AGI)</strong>: Tekoäly, joka kykenee suorittamaan mitä tahansa älyllistä tehtävää ihmisen tavoin</li>
+                            <li><strong>Teknologinen singulariteetti</strong>: Hypoteettinen piste, jossa tekoäly ylittää ihmisen älykkyyden ja alkaa kehittää itseään kiihtyvällä vauhdilla</li>
+                            <li><strong>Multimodaaliset mallit</strong>: Tekoälymallit, jotka kykenevät käsittelemään ja tuottamaan useita eri datamuotoja (teksti, kuva, ääni, video)</li>
+                            <li><strong>Reunalaskenta (Edge AI)</strong>: Tekoälyn suorittaminen paikallisesti laitteissa ilman pilviyhteyttä, mikä parantaa yksityisyyttä ja vähentää viivettä</li>
+                            <li><strong>Neuro-symbolinen tekoäly</strong>: Lähestymistapa, joka yhdistää koneoppimisen ja symbolisen päättelyn vahvuudet</li>
+                        </ul>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Tekoälyn eettisten kysymysten ja tulevaisuuden trendien seuraaminen on tärkeää kaikille tekoälyn parissa työskenteleville. Vastuullinen tekoälyn kehittäminen ja käyttö edellyttävät jatkuvaa keskustelua ja yhteistyötä eri sidosryhmien välillä. Pysy ajan tasalla lukemalla alan julkaisuja ja osallistumalla keskusteluihin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- Seitsemäs osio -->
+                <div class="guide-section">
+                    <h2>Usein kysytyt kysymykset tekoälystä</h2>
+                    
+                    <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/00a67e/FFFFFF/png?text=Tekoälyn+UKK" alt="Tekoälyn UKK" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Vastauksia yleisimpiin tekoälyä koskeviin kysymyksiin</p>
+                    </div>
+                    
+                    <div class="guide-content">
+                        <p>
+                            Tässä osiossa vastaamme yleisimpiin tekoälyyn liittyviin kysymyksiin. Nämä kysymykset ja vastaukset auttavat sinua ymmärtämään tekoälyn perusteita ja selventävät yleisiä väärinkäsityksiä.
+                        </p>
+                        
+                        <h3>Mitä eroa on tekoälyllä ja koneoppimisella?</h3>
+                        <p>
+                            Tekoäly on laajempi käsite, joka viittaa koneiden kykyyn suorittaa tehtäviä, jotka tyypillisesti vaativat ihmisen älykkyyttä. Koneoppiminen on tekoälyn osa-alue, jossa järjestelmät oppivat datasta ilman, että niitä on erikseen ohjelmoitu jokaista tehtävää varten. Kaikki koneoppiminen on tekoälyä, mutta kaikki tekoäly ei ole koneoppimista.
+                        </p>
+                        
+                        <h3>Voiko tekoäly tulla tietoiseksi?</h3>
+                        <p>
+                            Nykyiset tekoälyjärjestelmät eivät ole tietoisia. Ne ovat työkaluja, jotka suorittavat tehtäviä, joihin ne on ohjelmoitu tai koulutettu. Tietoisuus on monimutkainen filosofinen käsite, eikä ole selvää, voiko kone koskaan saavuttaa todellista tietoisuutta. Tämä on aktiivisen tutkimuksen ja filosofisen keskustelun aihe.
+                        </p>
+                        
+                        <h3>Tuleeko tekoäly korvaamaan ihmistyöntekijät?</h3>
+                        <p>
+                            Tekoäly tulee todennäköisesti muuttamaan monia työtehtäviä ja ammatteja, mutta se myös luo uusia työpaikkoja ja mahdollisuuksia. Historia on osoittanut, että teknologinen kehitys yleensä muuttaa työn luonnetta enemmän kuin vähentää sen kokonaismäärää. Tekoäly todennäköisesti automatisoi rutiinitehtäviä, mutta ihmisten luovuus, empatia ja kriittinen ajattelu pysyvät arvokkaina taitoina.
+                        </p>
+                        
+                        <h3>Miten tekoäly eroaa robotiikasta?</h3>
+                        <p>
+                            Tekoäly viittaa ohjelmistoihin, jotka kykenevät oppimaan ja tekemään päätöksiä, kun taas robotiikka keskittyy fyysisten laitteiden suunnitteluun ja rakentamiseen. Robotit voivat käyttää tekoälyä toimintansa ohjaamiseen, mutta kaikki robotit eivät käytä tekoälyä, ja tekoälyä voidaan käyttää ilman robotteja (esim. virtuaaliavustajat, suosittelujärjestelmät).
+                        </p>
+                        
+                        <h3>Mitä tarkoittaa, kun tekoäly "hallusinoi"?</h3>
+                        <p>
+                            Tekoälyn "hallusinaatio" viittaa tilanteeseen, jossa tekoälyjärjestelmä, erityisesti kielimalli, tuottaa virheellistä tai keksittyä tietoa, joka vaikuttaa uskottavalta mutta ei perustu todellisuuteen. Tämä johtuu siitä, että mallit on koulutettu ennustamaan todennäköisiä sanaketjuja, ei välttämättä totuudenmukaista tietoa. Hallusinaatiot ovat yksi suurimmista haasteista nykyisissä kielimalleissa.
+                        </p>
+                        
+                        <h3>Miten voin alkaa oppia tekoälystä?</h3>
+                        <p>
+                            Tekoälyn oppiminen voi alkaa monella tavalla:
+                        </p>
+                        <ul>
+                            <li>Verkossa on saatavilla ilmaisia kursseja, kuten Elements of AI, Coursera ja edX</li>
+                            <li>Kokeile itse tekoälytyökaluja, kuten ChatGPT, DALL-E tai Midjourney</li>
+                            <li>Lue alan kirjallisuutta ja seuraa tekoälyyn liittyviä uutisia ja blogeja</li>
+                            <li>Jos olet kiinnostunut teknisemmästä puolesta, opettele ohjelmointia (Python on hyvä aloituskieli tekoälylle)</li>
+                            <li>Osallistu tekoälyyn liittyviin tapahtumiin ja webinaareihin</li>
+                        </ul>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Tekoäly on laaja ja nopeasti kehittyvä ala, joten on tärkeää pysyä ajan tasalla uusimmista trendeistä ja kehityksestä. Älä pelkää kokeilla erilaisia tekoälytyökaluja ja -sovelluksia – käytännön kokemus on usein paras tapa oppia.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- Kahdeksas osio - Yhteenveto -->
+                <div class="guide-section">
+                    <h2>Yhteenveto: Tekoälyn termistön hallinta</h2>
+                    
+                    <div class="image-container" style="text-align: center; margin: 30px 0;">
+                        <img src="https://placehold.co/800x400/00a67e/FFFFFF/png?text=Tekoälyn+termistön+hallinta" alt="Tekoälyn termistön hallinta" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <p class="caption" style="margin-top: 10px; font-style: italic; color: #888;">Tekoälyn termistön hallinta auttaa navigoimaan nopeasti kehittyvällä alalla</p>
+                    </div>
+                    
+                    <div class="guide-content">
+                        <p>
+                            Tekoälyn sanasto ja termistö kehittyvät jatkuvasti teknologian edistyessä. Tässä tekoäly-sanakirjassa olemme käyneet läpi keskeisimmät tekoälyyn liittyvät käsitteet ja termit, jotka auttavat sinua ymmärtämään tätä nopeasti kehittyvää alaa.
+                        </p>
+                        
+                        <h3>Keskeiset huomiot</h3>
+                        <ul>
+                            <li><strong>Tekoälyn peruskäsitteet</strong>: Tekoäly, koneoppiminen, heikko ja vahva tekoäly sekä algoritmit muodostavat perustan tekoälyn ymmärtämiselle</li>
+                            <li><strong>Koneoppimisen ja syväoppimisen termistö</strong>: Neuroverkot, syväoppiminen, ohjattu ja ohjaamaton oppiminen sekä vahvistusoppiminen ovat keskeisiä käsitteitä tekoälyn toiminnan ymmärtämisessä</li>
+                            <li><strong>Tekoälyn sovellukset</strong>: Luonnollisen kielen käsittely, generatiivinen tekoäly, konenäkö ja muut sovellukset ovat mullistaneet lukuisia aloja</li>
+                            <li><strong>Tekoälyteknologioiden vertailu</strong>: Eri tekoälyteknologioilla on omat vahvuutensa ja heikkoutensa, ja niiden valinta riippuu käyttötarkoituksesta</li>
+                            <li><strong>Tekoälyn etiikka ja tulevaisuus</strong>: Tekoälyn kehitys herättää tärkeitä eettisiä kysymyksiä ja avaa uusia mahdollisuuksia, joiden ymmärtäminen on keskeistä</li>
+                        </ul>
+                        
+                        <p>
+                            Tekoälyn termistön hallinta on tärkeää, sillä se auttaa sinua:
+                        </p>
+                        <ul>
+                            <li>Ymmärtämään tekoälyyn liittyviä uutisia ja keskusteluja</li>
+                            <li>Kommunikoimaan selkeästi tekoälyyn liittyvistä aiheista</li>
+                            <li>Tekemään tietoon perustuvia päätöksiä tekoälyteknologioiden käytöstä</li>
+                            <li>Seuraamaan alan kehitystä ja trendejä</li>
+                            <li>Oppimaan uusia tekoälyyn liittyviä taitoja ja konsepteja</li>
+                        </ul>
+                        
+                        <p>
+                            Tekoäly kehittyy jatkuvasti, joten on tärkeää pysyä ajan tasalla uusista termeistä ja käsitteistä. Suosittelemme seuraamaan alan julkaisuja, osallistumaan tekoälyyn liittyviin tapahtumiin ja kokeilemaan itse erilaisia tekoälytyökaluja ja -sovelluksia.
+                        </p>
+                        
+                        <div class="guide-tips">
+                            <h4>Vinkki</h4>
+                            <p>
+                                Tekoälyn termistön oppiminen on jatkuva prosessi. Älä huolestu, jos et heti ymmärrä kaikkia käsitteitä – palaa tähän sanakirjaan aina tarvittaessa ja laajenna ymmärrystäsi vähitellen. Tärkeintä on uteliaisuus ja halu oppia uutta.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- CTA-osio -->
+                <div class="guide-cta" style="background: linear-gradient(135deg, rgba(0, 100, 200, 0.6), rgba(0, 150, 255, 0.6)); padding: 2.5rem; border-radius: 16px; text-align: center; color: white; box-shadow: 0 10px 30px rgba(0, 100, 255, 0.3); border: 1px solid rgba(0, 200, 255, 0.2); position: relative; overflow: hidden; margin: 1rem 0 3rem;">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 1.2rem; color: white; text-shadow: 0 2px 8px rgba(0, 100, 255, 0.4);">Opi hyödyntämään tekoälyä tehokkaasti</h3>
+                    <p style="font-size: 1.3rem; margin-bottom: 2rem; color: #e0e0e0; text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2); max-width: 800px; margin-left: auto; margin-right: auto;">Haluatko oppia käyttämään tekoälyä käytännössä? Tutustu tekoälytyökaluihin ja niiden käyttömahdollisuuksiin.</p>
+                    <a href="../tyokalut.html" class="btn" target="_blank" style="background: linear-gradient(135deg, #00a67e, #00c4a7); color: white; font-weight: 700; font-size: 1.3rem; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.1); box-shadow: 0 8px 25px rgba(0, 166, 126, 0.3); border: none; border-radius: 50px; padding: 18px 40px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: inline-flex; align-items: center; justify-content: center; margin-top: 10px; transform: scale(1.05);">
+                        <span style="display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-robot" style="margin-right: 12px; font-size: 1.3em;"></i>
+                            Tutustu tekoälytyökaluihin
+                        </span>
+                    </a>
+                    <div style="margin-top: 15px; font-size: 0.9rem; color: rgba(255, 255, 255, 0.8);">Kattava valikoima työkaluja eri käyttötarkoituksiin</div>
+                </div>
+                
+                <div class="section-divider"></div>
+                
+                <!-- Lue lisää -osio -->
+                <div class="guide-section">
+                    <h2>Lue lisää aiheesta</h2>
+                    <p>
+                        Haluatko syventää tietämystäsi tekoälystä? Tutustu näihin aiheeseen liittyviin sisältöihin, jotka auttavat sinua ymmärtämään tekoälyä paremmin.
+                    </p>
+                    <div class="related-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 25px;">
+                        <!-- Kortti 1 -->
+                        <a href="../tyokalut.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
+                            <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">Tekoälytyökalut</h4>
+                            <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Tutustu erilaisiin tekoälytyökaluihin ja niiden käyttömahdollisuuksiin</p>
+                        </a>
+                        
+                        <!-- Kortti 2 -->
+                        <a href="../oppaat/aloittelijan-opas.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
+                            <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">Aloittelijan opas tekoälyyn</h4>
+                            <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Kattava opas tekoälyn perusteisiin ja käyttöönottoon</p>
+                        </a>
+                        
+                        <!-- Kortti 3 -->
+                        <a href="../blogi.html" class="related-card" style="display: block; background: linear-gradient(135deg, rgba(0, 50, 100, 0.5), rgba(0, 70, 140, 0.5)); padding: 1.5rem; border-radius: 12px; text-decoration: none; color: inherit; transition: all 0.3s ease; border: 1px solid rgba(0, 150, 255, 0.15); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); height: 100%; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 8px 25px rgba(0, 0, 0, 0.3)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 5px 15px rgba(0, 0, 0, 0.2)';">
+                            <div style="font-size: 2.2rem; margin-bottom: 15px; color: var(--accent-color); text-align: center;">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <h4 style="margin-top: 0; margin-bottom: 10px; color: white; font-size: 1.2rem; text-align: center; text-shadow: 0 1px 5px rgba(0, 100, 255, 0.3);">Tekoälyblogi</h4>
+                            <p style="margin-bottom: 0; font-size: 0.95rem; text-align: center; color: #e0e0e0; text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);">Ajankohtaisia artikkeleita ja uutisia tekoälyn maailmasta</p>
+                        </a>
+                    </div>
+                </div>
+                <!-- SISÄLTÖ PÄÄTTYY TÄHÄN -->
+            </div>
+        </div>
+    </section>
+    
+    <section class="newsletter-section">
+        <!-- Tausta-animaatio -->
+        <div class="background-animation">
+            <div class="animation-bubble bubble-1"></div>
+            <div class="animation-bubble bubble-2"></div>
+        </div>
+        
+        <div class="container">
+            <h2 class="section-title">Tilaa uutiskirjeemme</h2>
+            <p>
+                Saat viikoittain tietoa uusista työkaluista, vinkeistä ja erikoistarjouksista suoraan sähköpostiisi.
+            </p>
+            <div class="newsletter-form">
+                <p class="newsletter-coming-soon">Uutiskirjeen tilaus tulossa pian!</p>
+                <!-- <input type="email" placeholder="Sähköpostiosoitteesi" required>
+                <button type="submit">Tilaa</button> -->
+            </div>
+        </div>
+        
+        <!-- Aaltoileva siirtymä -->
+        <div class="newsletter-wave">
+            <svg class="desktop-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,30 C250,60 350,10 720,30 C1080,50 1190,20 1440,40 L1440,100 L0,100 Z"></path>
+            </svg>
+            <svg class="mobile-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <path d="M0,70 C250,80 350,60 720,70 C1080,80 1190,60 1440,70 L1440,100 L0,100 Z"></path>
+            </svg>
+        </div>
+    </section>
+    
+    <footer class="footer-section">
+        <!-- Tausta-animaatio -->
+        <div class="background-animation">
+            <div class="animation-bubble bubble-1"></div>
+            <div class="animation-bubble bubble-2"></div>
+        </div>
+        
+        <div class="container">
+            <p>
+                &copy; 2025 AI Patrik. Kaikki oikeudet pidätetään.
+            </p>
+            <p>
+                <a href="../tietoa-meista.html">Tietoa meistä</a> | 
+                <a href="../tietosuojakaytanto.html">Tietosuojakäytäntö</a> | 
+                <a href="../affiliate-ilmoitus.html">Affiliate-ilmoitus</a>
+            </p>
+            
+            <!-- Sosiaalisen median linkit footerissa -->
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/patrik-juuti-47777b354" target="_blank" title="LinkedIn" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.tiktok.com/@ai_patrik?_t=ZN-8uPcAu0qmEI&_r=1" target="_blank" title="TikTok" class="tiktok"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/aipatrik?igsh=MW8xbGVwdnhoMmdj" target="_blank" title="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/152FjoPGba/" target="_blank" title="Facebook" class="facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://youtube.com/@aipatrik?si=1wh6UwMo9cIe5P-L" target="_blank" title="YouTube" class="youtube"><i class="fab fa-youtube"></i></a>
+                <a href="https://x.com/ai_patrik?t=tghvw8DbEglhrmC2-Xi5aw&s=09" target="_blank" title="X (Twitter)" class="twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/active-nav.js"></script>
+    <script src="../../js/cookie-consent-loader.js"></script>
+</body>
+</html> 
