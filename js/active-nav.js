@@ -11,7 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('nav ul li a');
     
     // Tarkista onko nykyinen sivu etusivu (joko / tai /index.html)
-    const isHomePage = currentPath === '/' || currentPath === '/index.html' || currentPage === '' || currentPage === 'index.html';
+    const isHomePage = currentPath === '/' || 
+                        currentPath === '/index.html' || 
+                        currentPage === '' || 
+                        currentPage === 'index.html';
+    
+    console.log('Debug - Is home page:', isHomePage);
     
     // Käy läpi kaikki linkit
     navLinks.forEach(link => {
@@ -24,15 +29,21 @@ document.addEventListener('DOMContentLoaded', function() {
         let isActive = false;
         
         // Etusivu - tarkistetaan onko tämä kotisivu-linkki JA ollaanko kotisivulla
-        if (isHomePage && (linkPage === 'index.html' || linkHref === '../index.html' || linkHref === 'index.html' || linkHref === './')) {
-            // Tarkistetaan lisäksi onko tämä navigaation Koti-linkki
-            if (link.textContent.trim() === 'Koti') {
+        if (isHomePage) {
+            if (linkPage === 'index.html' || 
+                linkHref === 'index.html' || 
+                linkHref === './' || 
+                linkHref === '/' || 
+                linkHref === '../index.html' ||
+                link.textContent.trim().toLowerCase() === 'koti') {
                 isActive = true;
+                console.log('Debug - Activating home link:', linkHref);
             }
         }
         // Muut sivut - verrataan tarkasti nykyistä sivua linkin kohteeseen
         else if (currentPage !== '' && currentPage === linkPage) {
             isActive = true;
+            console.log('Debug - Activating page link:', currentPage, linkPage);
         }
         
         // Jos linkki on aktiivinen
@@ -47,6 +58,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Lisää parent li-elementille active-luokka
             link.parentElement.classList.add('active');
+            
+            // Muuta linkin tyylejä manuaalisesti vastaamaan aktiivista tilaa
+            link.style.background = 'linear-gradient(135deg, rgba(0, 120, 215, 0.8), rgba(0, 80, 170, 0.8))';
+            link.style.color = 'white';
+            link.style.fontWeight = '600';
+            link.style.boxShadow = '0 3px 10px rgba(0, 100, 200, 0.3)';
             
             console.log('Aktiivinen sivu: ' + currentPage + ', Aktiivinen linkki: ' + linkHref);
         } else {
